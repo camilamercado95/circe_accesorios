@@ -33,9 +33,13 @@ body{
     color: #341E23;
 }
 
-h1{
+.h1, .h1-circe{
     font-family: "brittany signature";
     color: #EA869A;
+}
+
+.h1-none{
+    display: none;
 }
 
 .material-icons-round{
@@ -128,6 +132,7 @@ h1{
     position: absolute;
     background-color:rgb(255, 203, 215, .95);
     padding: 3em 5em 5em 2em;
+    z-index: 10;
 }
 
 .nav__ul-li-submenu a{
@@ -162,6 +167,7 @@ h1{
     top: 6.2rem;
     border: 0;
     border-bottom:#F8EBEC solid .2rem;
+    z-index: 20;
 }
 
 /* 
@@ -239,12 +245,9 @@ h1{
 
 /*-----------   HOME   ------------*/
 
-.h1-circe{
-    display: none;
-}
-
 .slider-container{
     width: 100%;
+    position: relative;
 }
 
 .slider-container img{
@@ -252,7 +255,8 @@ h1{
 }
 
 .slider-02,
-.slider-03{
+.slider-03,
+.slider-01{
     display: none;
 }
 
@@ -772,7 +776,16 @@ footer{
 
     /*-----------   GENERALES   ------------*/ 
 
-    h1{
+    .h1-circe{
+        position: absolute;
+        left: 12%;
+        top: 35%;
+        margin: 0;
+        font-size: 50px;
+    }
+
+
+    .h1{
         font-size: 46px;
         margin: 1.5rem;
     }
@@ -798,6 +811,14 @@ footer{
         padding: 0px 5px;
         background: linear-gradient(0deg, #EA869A 40%, transparent 40%);
     } 
+
+    .slider-vacio-desktop{
+        display: none;
+    }
+
+    .slider-vacio-mobile{
+        display: block;
+    }
 
     /*-----------   HEADER   ------------*/
  
@@ -1232,7 +1253,16 @@ footer{
     
     /*-----------   GENERALES   ------------*/ 
 
-    h1{
+    .h1-circe{
+        position: absolute;
+        left: 30%;
+        top: 25%;
+        margin: 0;
+        font-size: 110px;
+        
+    }
+
+    .h1{
         font-size: 4em;
         margin: 2rem 2rem 2rem 10rem;
     }
@@ -1258,6 +1288,14 @@ footer{
         padding: 0px 5px;
         background: linear-gradient(0deg, #EA869A 40%, transparent 40%);
     } 
+
+    .slider-vacio-desktop{
+        display: block;
+    }
+
+    .slider-vacio-mobile{
+        display: none;
+    }
 
     /*-----------   HEADER   ------------*/ 
 
@@ -1493,7 +1531,7 @@ footer{
 
     .blog-grid{
         display: grid;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 75% 25%;
         grid-template-rows: auto auto;
         grid-template-areas:
         "posts entradas"
@@ -1593,7 +1631,7 @@ footer{
     }
 
     .blog-productosRecomendados__article{
-        width: 18rem;
+        width: 90%;
     }
 
     .blog-productosRecomendados__article-figure-img{
@@ -1626,6 +1664,11 @@ footer{
         box-shadow: .1rem .1rem 1rem .1rem #c27b8983;
         justify-content: center;
         border-radius: 3rem;
+        transition: 1s;
+    }
+
+    .contact-form:hover{
+        width: 95%;
     }
 
     .contact-form-div{

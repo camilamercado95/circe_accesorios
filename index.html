@@ -11,15 +11,16 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <script src="animate-wow/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
     </head>
     
     <!-- 
         
         PREGUNTAS: 
-       
-        Submenu: 
-        -  Solucioné lo del sumenu con flex que se estaban pisando las lineas del CSS, ahora sí se ven los UL del submenu uno al lado del otro. 
-        El problema era tambien el position del li "shop" y lo cambie a absolut, pero ahora cuando me posisciono sobre él, al salir del flujo del DOM, el resto de los li, se mueven a la izquierda. ¿Como se soluciona?
 
         - En el index, en la version mobile, en la parte de "tips" y tambien en el blog en la version desktop, las imagenes de las entradas que tienen dos renglones de texto, se me achican en lo ancho y no quedan redondas, ¿como lo soluciono?
 
@@ -103,12 +104,14 @@
         </header>
 
         <main>
-            <h1 class="h1-circe">Circe Accesorios</h1>
             <p class="home-barra">  &#128293; 15% off con transferencia &#x26A1; 3, 6 y 12 cuotas sin interés &#128293;</p>
             <div class="slider-container">
-                <img class="slider-01" src="assets/img/index/slider_01.jpg" alt="">
+                <h1 class="h1-circe animate__animated animate__fadeInDown">Circe Accesorios</h1>
+                <img class="slider-vacio-desktop" src="assets/img/index/slider_vacio_desktop.jpg" alt="Imagen de fondo">
+                <img class="slider-vacio-mobile" src="assets/img/index/slider_vacio_mobile.jpg" alt="Imagen de fondo">
+                <!-- <img class="slider-01" src="assets/img/index/slider_01.jpg" alt="">
                 <img class="slider-02" src="assets/img/index/slider_02.jpg" alt="">
-                <img class="slider-03" src="assets/img/index/slider_03.jpg" alt="">
+                <img class="slider-03" src="assets/img/index/slider_03.jpg" alt=""> -->
             </div>
         </main>
 
@@ -144,7 +147,7 @@
             
             <div class="home-blog__div">
                 
-                <article class="home-blog__article">
+                <article class="home-blog__article wow animate__animated animate__fadeInRightBig">
                     <a class="home-blog__article-a" href="pages/blog.html#cuidarJoyas">
                         <figure class="home-blog__article-a-figure">
                             <img class="home-blog__article-a-figure-img" src="assets/img/blog/cuidar_joyas.jpg" alt="Cómo cuidar tus joyas">
@@ -153,7 +156,7 @@
                     </a>
                 </article>
                 
-                <article class="home-blog__article">
+                <article class="home-blog__article wow animate__animated animate__fadeInRightBig">
                     <a class="home-blog__article-a" href="pages/blog.html#averiguaTalle">
                         <figure class="home-blog__article-a-figure">
                             <img class="home-blog__article-a-figure-img" src="assets/img/blog/talles.jpg" alt="Tabla de talles">
@@ -162,7 +165,7 @@
                     </a> 
                 </article>
                 
-                <article class="home-blog__article">
+                <article class="home-blog__article wow animate__animated animate__fadeInRightBig">
                     <a class="home-blog__article-a" href="pages/blog.html#tendencias">
                         <figure class="home-blog__article-a-figure">
                             <img class="home-blog__article-a-figure-img" src="assets/img/blog/tendencias.JPG" alt="Aros de plata 925">
@@ -171,7 +174,7 @@
                     </a>
                 </article>
                 
-                <article class="home-blog__article">
+                <article class="home-blog__article wow animate__animated animate__fadeInRightBig">
                     <a class="home-blog__article-a" href="pages/blog.html#usarDosCollares">
                         <figure class="home-blog__article-a-figure">
                             <img class="home-blog__article-a-figure-img" src="assets/img/blog/collares.jpg" alt="Collares de plata 925">
@@ -180,7 +183,7 @@
                     </a>
                 </article>
 
-                <article class="home-blog__article">
+                <article class="home-blog__article wow animate__animated animate__fadeInRightBig">
                     <a class="home-blog__article-a" href="pages/blog.html#sobreNosotras">
                         <figure class="home-blog__article-a-figure">
                             <img class="home-blog__article-a-figure-img" src="assets/img/logo_circe.png" alt="Logo de Circe accesorios">
@@ -189,7 +192,7 @@
                     </a>
                 </article>
 
-                <a class="home-blog__a blog-flecha-derecha" href="pages/blog.html">
+                <a class="home-blog__a blog-flecha-derecha wow animate__animated animate__fadeInRightBig" href="pages/blog.html">
                     <span class="material-icons-round">navigate_next</span>
                 </a>
                 
