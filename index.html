@@ -29,97 +29,215 @@
         
         PREGUNTAS: 
 
-        - Como arreglar el submenu
-
         - En el index, en la version mobile, en la parte de "tips" y tambien en el blog en la version desktop, las imagenes de las entradas que tienen dos renglones de texto, se me achican en lo ancho y no quedan redondas, ¿como lo soluciono?
 
         - En el index, en la version mobile, en "productos destacados", me gustaria que este cada articulo uno al lado del otro y que con el dedo se vayan corriendo las imagenes, ¿Como se hace?
         Lo mismo para la info que esta debajo de "Paga como quieras", etc.
 
-        - ¿Se puede hacer que, al tocar "Seguir leyendo", se expanda mas taxto? O eso es con js ya?
-
-        - Abri el sitio en otra compu que no tiene la fuente y no la reconoce. ¿Una vez que se suba al servidor se deberia ver?
+        - En mobile, el nav me tapa la barra de "15% off" y
+        
+        -En mobile, el nav (en todas las paginas menos el index) cuando hago scroll para abajo, como que se corta el nav y se ve por la mitad.
 
     -->
 
 
 <body>
     <header id="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 col-md-9 col-xl-9">
-                    <div class="header-left">
-                        <nav class="nav">
-                            <span id="menuBurger" class="material-icons-round">menu</span>
+        <div class="nav-desktop">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-9 col-xl-9">
+                        <div class="header-left">
+                            <nav class="nav">
+                                <a class="logo-index" href="index.html">
+                                    <img src="assets/img/logo_circe.png">
+                                </a>
 
-                            <a class="logo-index" href="index.html">
-                                <img src="assets/img/logo_circe.png">
-                            </a>
+                                <ul class="nav__ul">
 
-                            <ul class="nav__ul">
+                                    <li class="nav__ul-li nav__ul-li-shop">
+                                        <a class="nav__ul-li-a" href="pages/shop.html">Shop</a>
+                                        <div class="nav__ul-li-container-submenu">
+                                            <hr class="linea-submenu">
+                                            <ul class="nav__ul-li-submenu submenu-aros">
+                                                <li><a href="pages/shop.html#aros">Aros</a></li>
+                                                <li><a href="pages/shop.html#aros">Argollas</a></li>
+                                                <li><a href="pages/shop.html#aros">Pasantes</a></li>
+                                                <li><a href="pages/shop.html#aros">Bidu</a></li>
+                                            </ul>
+                                            <ul class="nav__ul-li-submenu submenu-anillos">
+                                                <li><a href="pages/shop.html#anillos">Anillos</a></li>
+                                                <li><a href="pages/shop.html#anillos">Falange</a></li>
+                                                <li><a href="pages/shop.html#anillos">Común</a></li>
+                                            </ul>
+                                            <ul class="nav__ul-li-submenu submenu-pulseras">
+                                                <li><a href="pages/shop.html#pulseras">Pulseras</a></li>
+                                                <li><a href="pages/shop.html#pulseras">Elastizadas</a></li>
+                                            </ul>
+                                            <ul class="nav__ul-li-submenu submenu-collares">
+                                                <li><a href="pages/shop.html#collares">Collares</a></li>
+                                                <li><a href="pages/shop.html#collares">Choker</a></li>
+                                                <li><a href="pages/shop.html#collares">Cadenas</a></li>
+                                                <li><a href="pages/shop.html#collares">Conjuntos</a></li>
+                                            </ul>
+                                            <ul class="nav__ul-li-submenu submenu-dijes">
+                                                <li><a href="pages/shop.html#dijes">Dijes</a></li>
+                                            </ul>
+                                            <ul class="nav__ul-li-submenu submenu-alhajeros">
+                                                <li><a href="pages/shop.html#alhajeros">Alhajeros</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
 
-                                <li class="nav__ul-li nav__ul-li-shop">
-                                    <a class="nav__ul-li-a" href="pages/shop.html">Shop</a>
-                                    <div class="nav__ul-li-container-submenu">
-                                        <hr class="linea-submenu">
-                                        <ul class="nav__ul-li-submenu submenu-aros">
-                                            <li><a href="pages/shop.html#aros">Aros</a></li>
-                                            <li><a href="pages/shop.html#aros">Argollas</a></li>
-                                            <li><a href="pages/shop.html#aros">Pasantes</a></li>
-                                            <li><a href="pages/shop.html#aros">Bidu</a></li>
-                                        </ul>
-                                        <ul class="nav__ul-li-submenu submenu-anillos">
-                                            <li><a href="pages/shop.html#anillos">Anillos</a></li>
-                                            <li><a href="pages/shop.html#anillos">Falange</a></li>
-                                            <li><a href="pages/shop.html#anillos">Común</a></li>
-                                        </ul>
-                                        <ul class="nav__ul-li-submenu submenu-pulseras">
-                                            <li><a href="pages/shop.html#pulseras">Pulseras</a></li>
-                                            <li><a href="pages/shop.html#pulseras">Elastizadas</a></li>
-                                        </ul>
-                                        <ul class="nav__ul-li-submenu submenu-collares">
-                                            <li><a href="pages/shop.html#collares">Collares</a></li>
-                                            <li><a href="pages/shop.html#collares">Choker</a></li>
-                                            <li><a href="pages/shop.html#collares">Cadenas</a></li>
-                                            <li><a href="pages/shop.html#collares">Conjuntos</a></li>
-                                        </ul>
-                                        <ul class="nav__ul-li-submenu submenu-dijes">
-                                            <li><a href="pages/shop.html#dijes">Dijes</a></li>
-                                        </ul>
-                                        <ul class="nav__ul-li-submenu submenu-alhajeros">
-                                            <li><a href="pages/shop.html#alhajeros">Alhajeros</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/blog.html">Blog</a></li>
 
-                                <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/blog.html">Blog</a></li>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/preguntas.html">Preguntas
+                                            frecuentes</a></li>
 
-                                <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/preguntas.html">Preguntas
-                                        frecuentes</a></li>
-
-                                <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/contacto.html">Contacto</a>
-                                </li>
-                            </ul>
-                        </nav>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a"
+                                            href="pages/contacto.html">Contacto</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-xl-3">
-                    <div class="header-right">
-                        <nav class="nav">
-                            <ul class="nav__ul">
-                                <li class="nav__ul-li">
-                                    <input type="search" name="busqueda" id="" placeholder="Buscar producto...">
-                                    <a class="nav__ul-li-a" href=""><span class="material-icons-round">search</span></a>
-                                </li>
-                                <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/carrito.html"><span class="material-icons-round">shopping_cart</span></a></li>
-                                <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/usuario.html"><span class="material-icons-round">account_circle</span></a></li>
-                            </ul>
-                        </nav>
+                    <div class="col-sm-12 col-md-3 col-xl-3">
+                        <div class="header-right">
+                            <nav class="nav">
+                                <ul class="nav__ul">
+                                    <li class="nav__ul-li">
+                                        <input type="search" name="busqueda" id="" placeholder="Buscar producto...">
+                                        <a class="nav__ul-li-a" href=""><span
+                                                class="material-icons-round">search</span></a>
+                                    </li>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/carrito.html"><span
+                                                class="material-icons-round">shopping_cart</span></a></li>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="pages/usuario.html"><span
+                                                class="material-icons-round">account_circle</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="nav-mobile">
+            <nav class="navbar bg-light fixed-top">
+                <div class="container-fluid">
+                    <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
+                    <a class="logo-index navbar-brand" href="index.html">
+                        <img src="assets/img/logo_circe.png">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+
+                        <div class="offcanvas-header">
+                            <div class="iconos-menu-burger">
+                                <a class="nav__ul-li-a" href="pages/usuario.html"><span
+                                        class="material-icons-round">account_circle</span></a>
+                                <a class="nav__ul-li-a" href="pages/carrito.html"><span
+                                        class="material-icons-round">shopping_cart</span></a>
+                            </div>
+                            <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+
+                        <div class="offcanvas-body">
+                            <form class="d-flex" role="search">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <span class="material-icons-round">search</span> Busca un producto...
+                                </button>
+                                <!-- <input class="form-control me-2" type="search" placeholder="Busca un producto..." aria-label="Search" > -->
+                            </form>
+
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link active dropdown-toggle" href="pages/shop.html#aros"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Aros
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item" href="pages/shop.html#aros">Argollas</a></li>
+                                        <!-- <li><hr class="dropdown-divider"></li> -->
+                                        <li><a class="dropdown-item" href="pages/shop.html#aros">Pasantes</a></li>
+                                        <!-- <li><hr class="dropdown-divider"></li> -->
+                                        <li><a class="dropdown-item" href="pages/shop.html#aros">Bidu</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link active dropdown-toggle" href="pages/shop.html#anillos"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Anillos
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item" href="pages/shop.html#anillos">Midis</a></li>
+                                        <li><a class="dropdown-item" href="pages/shop.html#anillos">Común</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link active dropdown-toggle" href="pages/shop.html#pulseras"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Pulseras
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item" href="pages/shop.html#pulseras">Elastizadas</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link active dropdown-toggle" href="pages/shop.html#collares"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Collares
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item" href="pages/shop.html#collares">Choker</a></li>
+                                        <li><a class="dropdown-item" href="pages/shop.html#collares">Cadenas</a></li>
+                                        <li><a class="dropdown-item" href="pages/shop.html#collares">Conjuntos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="pages/shop.html#dijes">Dijes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="pages/shop.html#alhajeros">Alhajeros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="pages/blog.html">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="pages/preguntas.html">Preguntas
+                                        frecuentes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="pages/contacto.html">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
     </header>
+
 
     <main>
         <div class="container-fluid">
@@ -128,13 +246,62 @@
                     &#128293;</p>
             </div>
             <div class="row">
-                <div class="slider-container">
+
+                <div id="carouselExampleControls" class="carousel slide carrusel-mobile" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/img/index/carrusel-bienv-mobile.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/index/carrusel-cuotas-mobile.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/index/carrusel-transf-mobile.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <div id="carouselExampleControls" class="carousel slide carrusel-desktop" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/img/index/carrusel-bienv-desktop.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/index/carrusel-cuotas-desktop.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/index/carrusel-transf-desktop.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!-- <div class="slider-container">
                     <h1 class="h1-circe animate__animated animate__fadeInDown">Circe Accesorios</h1>
                     <img class="slider-vacio-desktop" src="assets/img/index/slider_vacio_desktop.jpg"
                         alt="Imagen de fondo">
                     <img class="slider-vacio-mobile" src="assets/img/index/slider_vacio_mobile.jpg"
                         alt="Imagen de fondo">
-                </div>
+                </div> -->
             </div>
     </main>
 
