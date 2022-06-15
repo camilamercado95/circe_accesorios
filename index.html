@@ -28,16 +28,17 @@
 <!-- 
         
         PREGUNTAS: 
+        - En la version mobile, en el menu hamburguesa, cuando toco en "aros", "anillos", etc, los que tienen un submenu, no se dirige al shop, tengo que tocar en algun li de esa lista para que me diriga a la pagina "shop". No se que tengo mal.
 
-        - En el index, en la version mobile, en la parte de "tips" y tambien en el blog en la version desktop, las imagenes de las entradas que tienen dos renglones de texto, se me achican en lo ancho y no quedan redondas, ¿como lo soluciono?
+        - Y despues, si estoy en la pagina "shop" y desde el menu hamburguesa quiero ir a otra categoria de productos, por ejemplo "dijes", se dirije a dijes pero el menu no se cierra.
 
-        - En el index, en la version mobile, en "productos destacados", me gustaria que este cada articulo uno al lado del otro y que con el dedo se vayan corriendo las imagenes, ¿Como se hace?
-        Lo mismo para la info que esta debajo de "Paga como quieras", etc.
-
-        - En mobile, el nav me tapa la barra de "15% off" y
+        - En la pagina "blog", tengo dudas, porque mi idea era que "entradas" y "productos recomendados" aparezcan a la derecha en la version desktop. Y si lo pongo asi, a la derecha, en la version mobile, van a aparecer abajo de todo, por eso ahora lo cambie a la izquierda, para que quede arriba.
         
-        -En mobile, el nav (en todas las paginas menos el index) cuando hago scroll para abajo, como que se corta el nav y se ve por la mitad.
+        - Y aparte, "productos recomendados" , en mobile, queria que este abajo de todo, pero ahora queda abajo de "entradas" por las columnas de bootstrap. ¿Como se puede solucionar? Sino vuelvo a grid xD
 
+        - En el blog, le agregue los "seguir leyendo" con bootstrap, pero cuando hago clic, como que se agrandan los margenes creo, no se bien, pero como que cambia mucho la caja del posteo y no logro descifrar que es.
+
+        - Los botones de "subir" en cada pagina me quedan distinto, segun el tamaño de la pantalla, las lineas tapan la palabra "subir" y no se bien como solucionarlo.
     -->
 
 
@@ -128,11 +129,11 @@
                     <a class="logo-index navbar-brand" href="index.html">
                         <img src="assets/img/logo_circe.png">
                     </a>
-
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
 
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
@@ -455,7 +456,7 @@
             </div>
             <div class="row">
                 <section class="home-productosDestacados__section">
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#aros">
                                 <figure class="home-productosDestacados__article-figure">
@@ -468,8 +469,8 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- </div>
+                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#anillos">
                                 <figure class="home-productosDestacados__article-figure">
@@ -482,8 +483,8 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- </div>
+                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#pulseras">
                                 <figure class="home-productosDestacados__article-figure">
@@ -497,8 +498,8 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- </div>
+                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#collares">
                                 <figure class="home-productosDestacados__article-figure">
@@ -511,8 +512,8 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- </div>
+                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#dijes">
                                 <figure class="home-productosDestacados__article-figure">
@@ -525,8 +526,8 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2">
+                    <!-- </div>
+                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                         <article class="home-productosDestacados__article">
                             <a href="pages/shop.html#alhajeros">
                                 <figure class="home-productosDestacados__article-figure">
@@ -539,13 +540,13 @@
                                 </figure>
                             </a>
                         </article>
-                    </div>
+                    <!-- </div> -->
                 </section>
             </div>
         </div>
     </section>
 
-    <section class="home-info">
+    <section class="home-info home-info-desktop">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-xl-4">
@@ -571,7 +572,41 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
+
+    <div id="carouselExampleControls" class="carousel slide home-info home-info-mobile" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <article class="home-info__article">
+                <span class="material-icons-round">credit_card</span>
+                <h3 class="home-info__article-h3">Pagá como quieras</h3>
+                <p>Crédito, débito, efectivo o transferencia</p>
+            </article>
+          </div>
+          <div class="carousel-item">
+            <article class="home-info__article">
+                <span class="material-icons-round">local_shipping</span>
+                <h3 class="home-info__article-h3">Envío rápido a todo el país</h3>
+                <p>Entrega en el día para CABA y GBA</p>
+            </article>
+          </div>
+          <div class="carousel-item">
+            <article class="home-info__article">
+                <span class="material-icons-round">autorenew</span>
+                <h3 class="home-info__article-h3">Devoluciones</h3>
+                <p>Si no estas conforme, te devolvemos el dinero</p>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
     <footer>
         <div class="container-fluid">

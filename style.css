@@ -517,6 +517,7 @@ footer{
 
 .blog-posts__article-a:hover{
     text-decoration: underline;
+    color: #341E23;
 }
 
 /* .blog-grid{
@@ -553,6 +554,7 @@ footer{
 
 .blog-entradas__article-a:hover{
     text-decoration: underline;
+    color: #341E23;
 }
 
 .blog-entradas__article-a-figcaption{
@@ -593,6 +595,23 @@ footer{
     text-align: center;
 }
 
+.accordion{
+    --bs-accordion-border-color:none;
+    --bs-accordion-btn-padding-x:none;
+    --bs-accordion-active-color:none;
+    --bs-accordion-active-bg: none;
+}
+
+.accordion-item{
+    background-color: transparent;
+    color: #341E23;
+}
+
+.accordion-button{
+    width: 20%;
+    margin: 1.5rem;
+    background-color: transparent;
+}
 
 
 
@@ -815,6 +834,7 @@ footer{
 
     .offcanvas{
         background-color: #FFCBD7;
+        --bs-offcanvas-width: 350px;
     }
 
     .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
@@ -981,7 +1001,13 @@ footer{
     }
 
     .home-productosDestacados__section{
-        justify-content: left;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: scroll;
+    }
+
+    .home-productosDestacados__article-figure{
+        width: 10rem;
     }
 
 
@@ -1018,6 +1044,14 @@ footer{
 
     .home-info__article p{
         font-size: 12px;
+    }
+
+    .home-info-desktop{
+        display: none;
+    }
+
+    .home-info-mobile{
+        display: block;
     }
 
 
@@ -1219,7 +1253,10 @@ footer{
         width: 70%;
     }
 
-
+    .accordion-button{
+        width: 50%;
+        background-color: transparent;
+    }    
 
      /*-----------  PREGUNTAS FRECUENTES   ------------*/
 
@@ -1500,12 +1537,17 @@ footer{
 
     .home-productosDestacados__section{
         justify-content: center;
+        flex-wrap: wrap;
+        overflow: none;
     }
 
     .home-productosDestacados__article{
         width: 14rem;
     }
 
+    .home-productosDestacados__article-figure{
+        width: auto;
+    }
 
     /*-----------  HOME - INFO   ------------*/
 
@@ -1541,6 +1583,14 @@ footer{
 
     .home-info__article p{
         font-size: 14px;
+    }
+
+    .home-info-desktop{
+        display: block;
+    }
+
+    .home-info-mobile{
+        display: none;
     }
     
 
