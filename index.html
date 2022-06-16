@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round">
@@ -39,6 +39,8 @@
         - En el blog, le agregue los "seguir leyendo" con bootstrap, pero cuando hago clic, como que se agrandan los margenes creo, no se bien, pero como que cambia mucho la caja del posteo y no logro descifrar que es.
 
         - Los botones de "subir" en cada pagina me quedan distinto, segun el tamaño de la pantalla, las lineas tapan la palabra "subir" y no se bien como solucionarlo.
+
+        - En la version mobile, en el index, cuando llego a la parte de blog, como que se traba y no me deja seguir bajando, me lleva al final de categorias. Tengo que bajar mucho para que siga bajando. ¿Sera lo de wow? 
     -->
 
 
@@ -239,7 +241,6 @@
 
     </header>
 
-
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -295,14 +296,6 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
-                <!-- <div class="slider-container">
-                    <h1 class="h1-circe animate__animated animate__fadeInDown">Circe Accesorios</h1>
-                    <img class="slider-vacio-desktop" src="assets/img/index/slider_vacio_desktop.jpg"
-                        alt="Imagen de fondo">
-                    <img class="slider-vacio-mobile" src="assets/img/index/slider_vacio_mobile.jpg"
-                        alt="Imagen de fondo">
-                </div> -->
             </div>
     </main>
 
@@ -457,89 +450,88 @@
             <div class="row">
                 <section class="home-productosDestacados__section">
                     <!-- <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#aros">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/aros_corona.jpg" alt="Aros corona de plata 925">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Aros corona</p>
-                                        <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#aros">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/aros_corona.jpg" alt="Aros corona de plata 925">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Aros corona</p>
+                                    <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div>
                     <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#anillos">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/anillos_cruzado.jpg" alt="Anillo cruzado de plata 925">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Anillo cruzado <p>
-                                                <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#anillos">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/anillos_cruzado.jpg" alt="Anillo cruzado de plata 925">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Anillo cruzado <p>
+                                            <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div>
                     <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#pulseras">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/pulsera_corazones.jpg"
-                                        alt="pulsera corazones de plata 925">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Pulsera corazones</p>
-                                        <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#pulseras">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/pulsera_corazones.jpg" alt="pulsera corazones de plata 925">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Pulsera corazones</p>
+                                    <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div>
                     <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#collares">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/collar_lunas.jpg" alt="collar lunas de plata 925">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Collar lunas</p>
-                                        <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#collares">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/collar_lunas.jpg" alt="collar lunas de plata 925">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Collar lunas</p>
+                                    <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div>
                     <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#dijes">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/dije-rayo.jpg" alt="dije rayo de plata 925">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Dije rayo</p>
-                                        <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#dijes">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/dije-rayo.jpg" alt="dije rayo de plata 925">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Dije rayo</p>
+                                    <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div>
                     <div class="col-sm-12 col-md-4 col-xl-2"> -->
-                        <article class="home-productosDestacados__article">
-                            <a href="pages/shop.html#alhajeros">
-                                <figure class="home-productosDestacados__article-figure">
-                                    <img class="home-productosDestacados__article-figure-img"
-                                        src="assets/img/shop/alhajero.jpg" alt="alhajero rosa">
-                                    <figcaption class="home-productosDestacados__article-figure-figcaption">
-                                        <p>Alhajero rosa</p>
-                                        <p>$1.000</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
+                    <article class="home-productosDestacados__article">
+                        <a href="pages/shop.html#alhajeros">
+                            <figure class="home-productosDestacados__article-figure">
+                                <img class="home-productosDestacados__article-figure-img"
+                                    src="assets/img/shop/alhajero.jpg" alt="alhajero rosa">
+                                <figcaption class="home-productosDestacados__article-figure-figcaption">
+                                    <p>Alhajero rosa</p>
+                                    <p>$1.000</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
                     <!-- </div> -->
                 </section>
             </div>
@@ -572,41 +564,43 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
     <div id="carouselExampleControls" class="carousel slide home-info home-info-mobile" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <article class="home-info__article">
-                <span class="material-icons-round">credit_card</span>
-                <h3 class="home-info__article-h3">Pagá como quieras</h3>
-                <p>Crédito, débito, efectivo o transferencia</p>
-            </article>
-          </div>
-          <div class="carousel-item">
-            <article class="home-info__article">
-                <span class="material-icons-round">local_shipping</span>
-                <h3 class="home-info__article-h3">Envío rápido a todo el país</h3>
-                <p>Entrega en el día para CABA y GBA</p>
-            </article>
-          </div>
-          <div class="carousel-item">
-            <article class="home-info__article">
-                <span class="material-icons-round">autorenew</span>
-                <h3 class="home-info__article-h3">Devoluciones</h3>
-                <p>Si no estas conforme, te devolvemos el dinero</p>
-            </article>
-          </div>
+            <div class="carousel-item active">
+                <article class="home-info__article">
+                    <span class="material-icons-round">credit_card</span>
+                    <h3 class="home-info__article-h3">Pagá como quieras</h3>
+                    <p>Crédito, débito, efectivo o transferencia</p>
+                </article>
+            </div>
+            <div class="carousel-item">
+                <article class="home-info__article">
+                    <span class="material-icons-round">local_shipping</span>
+                    <h3 class="home-info__article-h3">Envío rápido a todo el país</h3>
+                    <p>Entrega en el día para CABA y GBA</p>
+                </article>
+            </div>
+            <div class="carousel-item">
+                <article class="home-info__article">
+                    <span class="material-icons-round">autorenew</span>
+                    <h3 class="home-info__article-h3">Devoluciones</h3>
+                    <p>Si no estas conforme, te devolvemos el dinero</p>
+                </article>
+            </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
-      </div>
+    </div>
 
     <footer>
         <div class="container-fluid">

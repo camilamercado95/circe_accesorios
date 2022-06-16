@@ -1,0 +1,412 @@
+/*-----------   HOME - CATEGORIAS   ------------*/
+
+.home-categorias{
+    article{
+        position: relative;
+        img{
+            width: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+        a{
+            color: $colorRosaClaro;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: $colorLogo;
+            padding: .8em 2em;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: .1em .1em .1em $colorMarron;
+            &:hover{
+                background-color:$colorRosaIntermedio;
+                color:$colorMarron;
+            }
+        }
+    }
+}
+
+/*-----------  HOME - BLOG   ------------*/
+
+.home-blog{
+    background-color:$colorRosaIntermedio;
+    padding: 1em;
+    h2{
+        font-family: "brittany signature";
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        background-color: $colorRosaIntermedio;
+        letter-spacing: .1em;
+        word-spacing: .5em;
+        margin: 2rem 0;
+    }
+    .home-blog__div{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    span:hover{
+        transform: scale(1.05);
+    }
+}
+.home-blog__article{
+    margin: 1rem;
+    padding: 1rem;
+    border: $colorFondoRosa solid 0.3rem;
+    background-color: $colorFondoRosa;
+    .home-blog__article-a{
+        color: $colorMarron;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+            color: $colorMarron;
+        }
+    }
+}
+
+
+/*-----------  HOME - PRODUCTOS DESTACADOS   ------------*/
+
+.home-productosDestacados{
+    width: 100%;
+    h2{
+        font-family: "brittany signature";
+        font-size: 40px;
+        text-align: center;
+        margin-top: 5rem;
+        letter-spacing: .1em;
+        word-spacing: .5em;
+        font-weight: bold;
+    }
+    section{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .home-productosDestacados__article{
+            height: auto;
+            margin: 1rem;
+            text-align: center;
+            background-color: $colorFondoRosa;
+            box-shadow: .1rem .1rem .2rem silver;
+            &:hover{
+                box-shadow: .1rem .1rem 1rem silver;
+            }
+            a{
+                color: $colorMarron;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            img{
+                width: 100%;
+            }
+            figcaption{
+                margin: 0.3em;
+                line-height: 2em;
+            }
+        }
+    }   
+}
+
+
+/*-----------  HOME - INFO   ------------*/
+
+.home-info{
+    background-color: #ffeff3;
+}
+
+
+
+
+
+/*-----------   MOBILE   ------------*/
+
+@media screen and (min-width: 320px) {
+
+
+    .slider-vacio-desktop{
+        display: none;
+    }
+
+    .slider-vacio-mobile{
+        display: block;
+    }
+
+    .carousel{
+        padding: 0%;
+    }
+
+    .carrusel-mobile{
+        display: block;
+    }
+
+    .carrusel-desktop{
+        display: none;
+    }
+
+    /*-----------   HOME - CATEGORIAS   ------------*/
+
+    .home-categorias{
+        margin: 1em 0;
+        margin-top: .5em;
+        article{
+            margin: .5em 0;
+            padding: 1em;
+            width: 100%;
+        }
+    }    
+
+    /*-----------   HOME - BLOG   ------------*/
+
+    .home-blog__h2{
+        font-size: 18px;
+    }
+
+    .home-blog__article{
+        margin: .4rem;
+        height: 5.5rem;
+    }
+
+    .home-blog__article-a-figure{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        height: 3rem;
+        width: 19rem;
+        img{
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border:$colorRosaIntermedio solid .2rem ;
+        }
+        figcaption{
+            padding-left: 2em;
+            font-size: 14px;
+            width: auto;
+            text-align: start;
+        }
+    }
+
+    .home-blog span{
+        margin-top: .4rem;
+        width: 10em;
+        padding: .5em;
+        font-size: 2em;
+        background: linear-gradient($colorFondoRosa, $colorRosaIntermedio);
+        text-align: center;
+    }
+
+    .blog-flecha-derecha{
+        display: none;
+    }
+
+    .blog-flecha-abajo{
+        display: inline-block;
+    }
+
+    /*-----------  HOME - PRODUCTOS DESTACADOS   ------------*/
+
+    .home-productosDestacados{
+        h2{
+            font-size: 20px;
+        }
+        .home-productosDestacados__section{
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow: scroll;
+            article{
+                width: 10rem;
+                figure{
+                    width: 10rem;
+                }
+            }
+        }
+    }
+    
+    /*-----------  HOME - INFO   ------------*/
+    .home-info-desktop{
+        display: none;
+    }
+
+    .home-info-mobile{
+        display: block;
+    }
+
+    .home-info{
+        /*display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;*/
+        text-align: center;
+        margin: 1rem 0;
+        padding: 0 1rem;
+    }
+
+    .home-info__article{
+        margin: 0;
+        padding: 1rem;
+        .material-icons-round{
+            font-size: 26px;
+        }
+        h3{
+            margin: .5rem;
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+
+}
+
+
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+
+    .slider-vacio-desktop{
+        display: block;
+    }
+
+    .slider-vacio-mobile{
+        display: none;
+    }
+
+    .carrusel-desktop{
+        display: block;
+    }
+
+    .carrusel-mobile{
+        display: none;
+    }
+
+    /*-----------   HOME - CATEGORIAS   ------------*/
+
+    .home-categorias{
+        article{
+            padding: 0;
+            overflow: hidden;
+        }
+    }
+
+    /*-----------   HOME - BLOG   ------------*/
+
+    .home-blog__div{
+        padding: 0;
+        margin: 0;
+    }
+
+    .home-blog__h2{
+        font-size: 40px;
+    }
+
+    .home-blog__article{
+        margin: .2rem;
+        padding: .5rem;
+        height: 21.5em;
+        width: 14rem;
+        justify-content: center;
+        a{
+           justify-content: center;
+            figure{
+            display: block;
+            width: 100%;
+            height: 16em;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0%;
+                border: none;
+            }
+            figcaption{
+                margin-top: .5em;
+                padding-left: 0;
+                font-size: 16px;
+                text-align: center;
+                width: 100%;
+            }
+            }
+        }
+    }
+    
+    .home-blog span{
+        height: 100%;
+        width: 2em;
+        padding: 8rem .5rem;
+        font-size: 2em;
+        background: linear-gradient(to right,  $colorFondoRosa, $colorRosaIntermedio);
+        transition: 1s;
+    }
+
+    .blog-flecha-derecha{
+        display: block;
+    }
+
+    .blog-flecha-abajo{
+        display: none;
+    }
+
+    /*-----------  HOME - PRODUCTOS DESTACADOS   ------------*/
+
+    .home-productosDestacados{
+        h2{
+            font-size: 40px;
+        }
+        section{
+            justify-content: center;
+            flex-wrap: wrap;
+            overflow:inherit;
+            article{
+                width: 14rem;
+                figure{
+                    width: auto;
+                }
+            }
+        }
+    }
+  
+
+    /*-----------  HOME - INFO   ------------*/
+
+    .home-info-desktop{
+        display: block;
+    }
+
+    .home-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: 5rem;
+        article{
+            margin: 1em;
+            /*border-left: solid $colorMarron 0.1rem;
+            border-top: none;*/
+            .material-icons-round{
+                font-size: 30px;
+            }
+            h3{
+                margin: 1em;
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+    }
+
+    .home-info-mobile{
+        display: none;
+    }
+}
