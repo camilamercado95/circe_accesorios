@@ -1,3 +1,20 @@
+@mixin flex ($flex, $direction, $wrap, $justify){
+    display: $flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+}
+
+.slider-vacio{
+    position: relative;
+}
+.h1-circe{
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 30%;
+}
+
 /*-----------   HOME - CATEGORIAS   ------------*/
 
 .home-categorias{
@@ -12,19 +29,19 @@
             }
         }
         a{
-            color: $colorRosaClaro;
+            color: map-get($map: $colores, $key: "rosaClaro");   
             text-decoration: none;
             text-transform: uppercase;
-            background-color: $colorLogo;
+            background-color: map-get($map: $colores, $key: "logo");
             padding: .8em 2em;
             position: absolute;
             top: 90%;
             left: 50%;
             transform: translate(-50%, -50%);
-            box-shadow: .1em .1em .1em $colorMarron;
+            box-shadow: .1em .1em .1em map-get($map: $colores, $key: "texto");
             &:hover{
-                background-color:$colorRosaIntermedio;
-                color:$colorMarron;
+                background-color:map-get($map: $colores, $key: "rosaIntermedio");
+                color:map-get($map: $colores, $key: "texto");
             }
         }
     }
@@ -33,23 +50,20 @@
 /*-----------  HOME - BLOG   ------------*/
 
 .home-blog{
-    background-color:$colorRosaIntermedio;
+    background-color:map-get($map: $colores, $key: "rosaIntermedio");
     padding: 1em;
     h2{
         font-family: "brittany signature";
         font-weight: bold;
         text-align: center;
         display: block;
-        background-color: $colorRosaIntermedio;
+        background-color: map-get($map: $colores, $key: "rosaIntermedio");
         letter-spacing: .1em;
         word-spacing: .5em;
         margin: 2rem 0;
     }
     .home-blog__div{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
+        @include flex (flex, row, wrap, space-evenly);
     }
     span:hover{
         transform: scale(1.05);
@@ -58,14 +72,14 @@
 .home-blog__article{
     margin: 1rem;
     padding: 1rem;
-    border: $colorFondoRosa solid 0.3rem;
-    background-color: $colorFondoRosa;
+    border: map-get($map: $colores, $key: "fondoRosa") solid 0.3rem;
+    background-color: map-get($map: $colores, $key: "fondoRosa");
     .home-blog__article-a{
-        color: $colorMarron;
+        color: map-get($map: $colores, $key: "texto");
         text-decoration: none;
         &:hover{
             text-decoration: underline;
-            color: $colorMarron;
+            color: map-get($map: $colores, $key: "texto");
         }
     }
 }
@@ -77,7 +91,6 @@
     width: 100%;
     h2{
         font-family: "brittany signature";
-        font-size: 40px;
         text-align: center;
         margin-top: 5rem;
         letter-spacing: .1em;
@@ -85,20 +98,17 @@
         font-weight: bold;
     }
     section{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         .home-productosDestacados__article{
             height: auto;
             margin: 1rem;
             text-align: center;
-            background-color: $colorFondoRosa;
+            background-color: map-get($map: $colores, $key: "fondoRosa");
             box-shadow: .1rem .1rem .2rem silver;
             &:hover{
                 box-shadow: .1rem .1rem 1rem silver;
             }
             a{
-                color: $colorMarron;
+                color: map-get($map: $colores, $key: "texto");
                 text-decoration: none;
                 &:hover{
                     text-decoration: underline;
@@ -131,12 +141,9 @@
 @media screen and (min-width: 320px) {
 
 
-    .slider-vacio-desktop{
-        display: none;
-    }
-
-    .slider-vacio-mobile{
-        display: block;
+      .h1-circe{
+        top: 40%;
+        left: 15%;
     }
 
     .carousel{
@@ -175,9 +182,8 @@
     }
 
     .home-blog__article-a-figure{
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
+        @include flex(flex, row, nowrap, start);
+        
         align-items: center;
         height: 3rem;
         width: 19rem;
@@ -186,7 +192,7 @@
             width: 4rem;
             border-radius: 50%;
             object-fit: cover;
-            border:$colorRosaIntermedio solid .2rem ;
+            border:map-get($map: $colores, $key: "rosaIntermedio") solid .2rem ;
         }
         figcaption{
             padding-left: 2em;
@@ -201,7 +207,7 @@
         width: 10em;
         padding: .5em;
         font-size: 2em;
-        background: linear-gradient($colorFondoRosa, $colorRosaIntermedio);
+        background: linear-gradient(map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
         text-align: center;
     }
 
@@ -220,8 +226,7 @@
             font-size: 20px;
         }
         .home-productosDestacados__section{
-            flex-direction: row;
-            flex-wrap: nowrap;
+            @include flex(flex, row, nowrap, start);
             overflow: scroll;
             article{
                 width: 10rem;
@@ -242,9 +247,6 @@
     }
 
     .home-info{
-        /*display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;*/
         text-align: center;
         margin: 1rem 0;
         padding: 0 1rem;
@@ -344,7 +346,7 @@
         width: 2em;
         padding: 8rem .5rem;
         font-size: 2em;
-        background: linear-gradient(to right,  $colorFondoRosa, $colorRosaIntermedio);
+        background: linear-gradient(to right,  map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
         transition: 1s;
     }
 
@@ -363,9 +365,8 @@
             font-size: 40px;
         }
         section{
-            justify-content: center;
-            flex-wrap: wrap;
-            overflow:inherit;
+            @include flex(flex, row, wrap, center);
+            overflow:none;
             article{
                 width: 14rem;
                 figure{
@@ -383,16 +384,11 @@
     }
 
     .home-info{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
         text-align: center;
         margin-bottom: 3rem;
         margin-top: 5rem;
         article{
             margin: 1em;
-            /*border-left: solid $colorMarron 0.1rem;
-            border-top: none;*/
             .material-icons-round{
                 font-size: 30px;
             }

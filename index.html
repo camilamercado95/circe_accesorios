@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Joyas, Joyas de Plata 925, Accesorios, Accesorios de plata 925, Venta de joyas, Blog de accesorios">
+    <meta name="description" content="En Circe nos dedicamos a la venta de accesorios de plata 925. Además de los accesorios que son tendencia, en este sitio vas a poder encontrar nuestro blog, donde te brindamos consejos sobre cómo usarlos y cuidarlos.">
     <title>Circe Accesorios</title>
 
     <link rel="shortcut icon" href="assets/img/logo_circe.png">
@@ -26,22 +28,13 @@
 </head>
 
 <!-- 
-        
         PREGUNTAS: 
-        - En la version mobile, en el menu hamburguesa, cuando toco en "aros", "anillos", etc, los que tienen un submenu, no se dirige al shop, tengo que tocar en algun li de esa lista para que me diriga a la pagina "shop". No se que tengo mal.
 
-        - Y despues, si estoy en la pagina "shop" y desde el menu hamburguesa quiero ir a otra categoria de productos, por ejemplo "dijes", se dirije a dijes pero el menu no se cierra.
+        Jean: -"A estas alturas debemos dejar de utilizar etiquetas <br>"
+        (Pense que para textos sí se podia usar)     
 
-        - En la pagina "blog", tengo dudas, porque mi idea era que "entradas" y "productos recomendados" aparezcan a la derecha en la version desktop. Y si lo pongo asi, a la derecha, en la version mobile, van a aparecer abajo de todo, por eso ahora lo cambie a la izquierda, para que quede arriba.
-        
-        - Y aparte, "productos recomendados" , en mobile, queria que este abajo de todo, pero ahora queda abajo de "entradas" por las columnas de bootstrap. ¿Como se puede solucionar? Sino vuelvo a grid xD
-
-        - En el blog, le agregue los "seguir leyendo" con bootstrap, pero cuando hago clic, como que se agrandan los margenes creo, no se bien, pero como que cambia mucho la caja del posteo y no logro descifrar que es.
-
-        - Los botones de "subir" en cada pagina me quedan distinto, segun el tamaño de la pantalla, las lineas tapan la palabra "subir" y no se bien como solucionarlo.
-
-        - En la version mobile, en el index, cuando llego a la parte de blog, como que se traba y no me deja seguir bajando, me lleva al final de categorias. Tengo que bajar mucho para que siga bajando. ¿Sera lo de wow? 
-    -->
+        - El h1 del index (circe accesorios) no me queda centrado, depende de la resolucion se va moviendo, no queda fijo en el centro.
+ -->
 
 
 <body>
@@ -127,7 +120,6 @@
         <div class="nav-mobile">
             <nav class="navbar bg-light fixed-top">
                 <div class="container-fluid">
-                    <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
                     <a class="logo-index navbar-brand" href="index.html">
                         <img src="assets/img/logo_circe.png">
                     </a>
@@ -147,7 +139,6 @@
                                 <a class="nav__ul-li-a" href="pages/carrito.html"><span
                                         class="material-icons-round">shopping_cart</span></a>
                             </div>
-                            <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -157,21 +148,17 @@
                                 <button class="btn btn-outline-success" type="submit">
                                     <span class="material-icons-round">search</span> Busca un producto...
                                 </button>
-                                <!-- <input class="form-control me-2" type="search" placeholder="Busca un producto..." aria-label="Search" > -->
                             </form>
 
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link active dropdown-toggle" href="pages/shop.html#aros"
-                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        id="offcanvasNavbarDropdown" role="button">
                                         Aros
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                                         <li><a class="dropdown-item" href="pages/shop.html#aros">Argollas</a></li>
-                                        <!-- <li><hr class="dropdown-divider"></li> -->
                                         <li><a class="dropdown-item" href="pages/shop.html#aros">Pasantes</a></li>
-                                        <!-- <li><hr class="dropdown-divider"></li> -->
                                         <li><a class="dropdown-item" href="pages/shop.html#aros">Bidu</a></li>
                                     </ul>
                                 </li>
@@ -180,8 +167,7 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link active dropdown-toggle" href="pages/shop.html#anillos"
-                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        id="offcanvasNavbarDropdown" role="button" >
                                         Anillos
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
@@ -191,8 +177,7 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link active dropdown-toggle" href="pages/shop.html#pulseras"
-                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        id="offcanvasNavbarDropdown" role="button">
                                         Pulseras
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
@@ -202,8 +187,7 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link active dropdown-toggle" href="pages/shop.html#collares"
-                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        id="offcanvasNavbarDropdown" role="button">
                                         Collares
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
@@ -245,13 +229,19 @@
         <div class="container-fluid">
             <div class="row">
                 <p class="home-barra"> &#128293; 15% off con transferencia &#x26A1; 3, 6 y 12 cuotas sin interés
-                    &#128293;</p>
+                    &#128293;
+                </p>
             </div>
+            
             <div class="row">
 
                 <div id="carouselExampleControls" class="carousel slide carrusel-mobile" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
+                            <h1 class="animate__animated animate__fadeInDownBig h1 h1-circe">Circe accesorios</h1>
+                            <img class="slider-vacio-mobile d-block w-100" src="assets/img/index/slider_vacio_mobile.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
                             <img src="assets/img/index/carrusel-bienv-mobile.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
@@ -276,6 +266,10 @@
                 <div id="carouselExampleControls" class="carousel slide carrusel-desktop" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
+                            <h1 class="animate__animated animate__fadeInDownBig h1 h1-circe">Circe accesorios</h1>
+                            <img class="slider-vacio d-block w-100" src="assets/img/index/slider_vacio_desktop.jpg" alt="">
+                        </div>
+                        <div class="carousel-item ">
                             <img src="assets/img/index/carrusel-bienv-desktop.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
@@ -449,7 +443,6 @@
             </div>
             <div class="row">
                 <section class="home-productosDestacados__section">
-                    <!-- <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#aros">
                             <figure class="home-productosDestacados__article-figure">
@@ -462,8 +455,6 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#anillos">
                             <figure class="home-productosDestacados__article-figure">
@@ -476,8 +467,6 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#pulseras">
                             <figure class="home-productosDestacados__article-figure">
@@ -490,8 +479,6 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#collares">
                             <figure class="home-productosDestacados__article-figure">
@@ -504,8 +491,6 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#dijes">
                             <figure class="home-productosDestacados__article-figure">
@@ -518,8 +503,6 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div>
-                    <div class="col-sm-12 col-md-4 col-xl-2"> -->
                     <article class="home-productosDestacados__article">
                         <a href="pages/shop.html#alhajeros">
                             <figure class="home-productosDestacados__article-figure">
@@ -532,7 +515,7 @@
                             </figure>
                         </a>
                     </article>
-                    <!-- </div> -->
+                  
                 </section>
             </div>
         </div>

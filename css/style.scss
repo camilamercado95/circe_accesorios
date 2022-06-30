@@ -1,6 +1,13 @@
 @import "colores";
 @import "index";
 
+@mixin flex ($flex, $direction, $wrap, $justify){
+    display: $flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+}
+
 
 /*-----------   FUENTE LOCAL  ------------*/
 
@@ -20,14 +27,14 @@
 /*-----------   GENERALES   ------------*/
 
 body{
-    background-color: $colorFondoCremita;
+    background-color: map-get($map: $colores, $key: "fondoCremita");
     font-family: "montserrat", "roboto", sans-serif;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
 }
 
 .h1{
     font-family: "brittany signature";
-    color: $colorLogo;
+    color: map-get($map: $colores, $key: "logo");
 }
 
 .h1-none{
@@ -35,7 +42,7 @@ body{
 }
 
 .material-icons-round{
-    color: $colorLogo;    
+    color: map-get($map: $colores, $key: "logo");    
 }
 
 .home-info__article span{
@@ -44,19 +51,16 @@ body{
 
 .resaltado{
     padding: 0px 5px;
-    background: linear-gradient(0deg, $colorLogo 40%, transparent 40%);
+    background: linear-gradient(0deg, map-get($map: $colores, $key: "logo") 40%, transparent 40%);
 } 
 
 
 /*-----------   HEADER   ------------*/
 
 #header{
-    background-color: $colorRosaIntermedio;
+    background-color: map-get($map: $colores, $key: "rosaIntermedio");
     height: 6em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    @include flex (flex, row, wrap, space-between);
     width: 100%;
 }
 
@@ -69,7 +73,7 @@ body{
 
 
 .header-left .nav__ul-li-a{
-    color: $colorRosaClaro;
+    color: map-get($map: $colores, $key: "rosaClaro");
     text-decoration: none;
     margin: 0 .5em;
     padding: 10px 15px;
@@ -79,14 +83,14 @@ body{
 }
 
 .nav__ul-li-a:hover{
-    color: $colorRosaClaro;
+    color: map-get($map: $colores, $key: "rosaClaro");
 }
 
 .nav__ul-li-a::after{
     content: "";
     width: 0;
     height: 4px;
-    background-color: $colorRosaClaro;
+    background-color: map-get($map: $colores, $key: "rosaClaro");
     position: absolute;
     bottom: 0;
     right: 50%;
@@ -108,13 +112,13 @@ body{
     position: absolute;
     width: 100%;
     height: 4px;
-    background-color: $colorRosaClaro;
+    background-color: map-get($map: $colores, $key: "rosaClaro");
     bottom: 0;
     left: 0;
 }
 
 .nav__ul-li-submenu a{
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
     text-decoration: none;
     &:hover{
         text-decoration: underline;
@@ -132,16 +136,16 @@ body{
     top: 65px;
     z-index: 1;
     background-color:#ffcbd7f6;
-    padding: 2rem 2rem 2rem 0;
+    padding: 1rem 2rem 2rem 0;
 }
 
 .nav__ul-li-shop:hover .linea-submenu{
     position: absolute;
     width: 95%;
-    top: 3rem;
+    top: 2rem;
     left: 0;
     border: 0;
-    border-bottom:$colorRosaClaro solid .2rem;
+    border-bottom:map-get($map: $colores, $key: "rosaClaro") solid .2rem;
     z-index: 20;
 }
 
@@ -159,7 +163,7 @@ body{
     padding: 1em;
     border: none;
     background-color: transparent;
-    color: $colorRosaClaro;
+    color: map-get($map: $colores, $key: "rosaClaro");
     display: none;
 }
 
@@ -168,13 +172,13 @@ body{
 }
 
 .header-right .material-icons-round:hover{
-    color: $colorRosaClaro;
+    color: map-get($map: $colores, $key: "rosaClaro");
 }
 
 .home-barra{
     text-align: center;
     padding: 0.5em;
-    background-color: $colorLogo;
+    background-color: map-get($map: $colores, $key: "logo");
     text-transform: uppercase;
     margin: 0%;
 }
@@ -184,16 +188,14 @@ body{
 /*-----------   FOOTER   ------------*/
 
 .footer{
-    background-color: $colorRosaIntermedio;
+    background-color: map-get($map: $colores, $key: "rosaIntermedio");
     padding: 1em 5em;
-    color: $colorRosaClaro;
+    color: map-get($map: $colores, $key: "rosaClaro");
     .footer__ul-li-a{
-        color: $colorRosaClaro;
+        color: map-get($map: $colores, $key: "rosaClaro");
         text-decoration: none;
     }
 }
-
-
 
 .footer__ul-contacto-redes{
     display: flex;
@@ -205,12 +207,12 @@ body{
 }
 
 .footer-copyright{
-    background-color: $colorLogo;
+    background-color: map-get($map: $colores, $key: "logo");
     padding: 0.5em;
     font-size: 12px;
     text-align: center;
     span{
-        color: $colorMarron;
+        color: map-get($map: $colores, $key: "texto");
         font-size: 16px;
     }
 }
@@ -223,14 +225,13 @@ body{
     margin-left: 3rem;
 }
 
-
 .filter__ul-li{
     display: inline;   
 }
 
 .filter__ul-li-a{
-    color:$colorLogo;
-    background-color: $colorRosaClaro;
+    color:map-get($map: $colores, $key: "logo");
+    background-color: map-get($map: $colores, $key: "rosaClaro");
     border-radius: 1rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -240,15 +241,9 @@ body{
 }
 
 .filter__ul-li-a:hover{
-    background-color:$colorLogo;
-    color: $colorRosaClaro;
+    background-color:map-get($map: $colores, $key: "logo");
+    color: map-get($map: $colores, $key: "rosaClaro");
 }
-
-/* .shop-categorias__div{
-    display: flex; 
-    justify-content: left;
-    flex-wrap: wrap;
-} */
 
 .shop-categorias__h2{
     font-size: 35px;
@@ -263,7 +258,7 @@ body{
     margin: 1rem 0;
     padding-bottom: 1.5rem;
     text-align: center;
-    background-color: $colorFondoRosa;
+    background-color: map-get($map: $colores, $key: "fondoRosa");
     box-shadow: .1rem .1rem .2rem silver;
 }
 
@@ -281,7 +276,7 @@ body{
 }
 
 .subir-shop{
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
     text-decoration: none;
     padding: 1em 2em;
     margin: 0;
@@ -291,7 +286,7 @@ body{
 
 .subir-shop:hover{
     text-decoration: underline;
-    color: $colorLogo;
+    color: map-get($map: $colores, $key: "logo");
 }
 
 .shop-categorias span{
@@ -304,9 +299,8 @@ body{
 
 
 .blog-posts__article{
-    /* margin: 2em; */
     padding: 1em;
-    border: .2em solid $colorMarron;
+    border: .2em solid map-get($map: $colores, $key: "texto");
     display: flex;
 }
 
@@ -324,13 +318,13 @@ body{
 }
 
 .blog-posts__article-a{
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
     text-decoration: none;
 }
 
 .blog-posts__article-a:hover{
     text-decoration: underline;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
 }
 
 /* .blog-grid{
@@ -362,12 +356,12 @@ body{
 
 .blog-entradas__article-a{
     text-decoration: none;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
 }
 
 .blog-entradas__article-a:hover{
     text-decoration: underline;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
 }
 
 .blog-entradas__article-a-figcaption{
@@ -375,16 +369,17 @@ body{
 }
 
 .blog-productosRecomendados__article{
-    height: auto;
+    @extend .shop-categorias__article;
     margin: 1rem;
-    text-align: center;
-    background-color: $colorFondoRosa;
-    box-shadow: .1rem .1rem .2rem silver;
+    /*text-align: center;
+    background-color: map-get($map: $colores, $key: "fondoRosa");
+    box-shadow: .1rem .1rem .2rem silver;*/
 }
 
 .blog-productosRecomendados__article:hover{
     box-shadow: .1rem .1rem 1rem silver;
 }
+
 
 .blog-productosRecomendados__article-figure-img{
     width: 100%;
@@ -396,7 +391,7 @@ body{
 }
 
 .blog-productosRecomendados__article a{
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
     text-decoration: none;
 }
 
@@ -417,7 +412,7 @@ body{
 
 .accordion-item{
     background-color: transparent;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
 }
 
 .accordion-button{
@@ -463,9 +458,9 @@ body{
 }
 
 .contact-form__input, .contact-form__textarea{
-    border: $colorRosaClaro solid 0.1em;
+    border: map-get($map: $colores, $key: "rosaClaro") solid 0.1em;
     background-color: transparent;
-    color: $colorMarron;
+    color: map-get($map: $colores, $key: "texto");
     margin: 1em;
     padding: 1em;
     font-size: 16px;
@@ -493,8 +488,8 @@ body{
 }
 
 .contact-form__submit{
-    background-color: $colorRosaClaro;
-    color: $colorLogo;
+    background-color: map-get($map: $colores, $key: "rosaClaro");
+    color: map-get($map: $colores, $key: "logo");
     border-radius: .7em;
     border: none;
     margin-top: 1.5em;
@@ -529,7 +524,7 @@ body{
 }
 
 .container-contact-data__location-img{
-    border: $colorLogo solid .1rem;
+    border: map-get($map: $colores, $key: "logo") solid .1rem;
     margin: 1rem 0;
 }
 
@@ -578,7 +573,7 @@ body{
         position: absolute;
         width: 6em;
         height: 3px;
-        background-color: $colorLogo;
+        background-color: map-get($map: $colores, $key: "logo");
         top: 2em;
     }
     
@@ -592,7 +587,7 @@ body{
 
     .resaltado{
         padding: 0px 5px;
-        background: linear-gradient(0deg, $colorLogo 40%, transparent 40%);
+        background: linear-gradient(0deg, map-get($map: $colores, $key: "logo") 40%, transparent 40%);
     } 
 
 
@@ -623,17 +618,17 @@ body{
     }
     .bg-light{
         --bs-bg-opacity:1;
-        background-color: $colorRosaIntermedio !important;
+        background-color: map-get($map: $colores, $key: "rosaIntermedio") !important;
     }
     .offcanvas{
-        background-color: $colorRosaIntermedio;
+        background-color: map-get($map: $colores, $key: "rosaIntermedio");
         --bs-offcanvas-width: 350px;
     }
     .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
-        color: $colorMarron;
+        color: map-get($map: $colores, $key: "texto");
     }
     .btn-close{
-        color: $colorLogo;
+        color: map-get($map: $colores, $key: "logo");
         opacity: 1;
     }
     .iconos-menu-burger span{
@@ -641,20 +636,20 @@ body{
         margin-right: .5em;
     }
     .btn-outline-success{
-        color: $colorRosaClaro;
+        color: map-get($map: $colores, $key: "rosaClaro");
         padding: .3em;
         width: 80%;
         border: none;
-        border-bottom: $colorRosaClaro 0.2em solid;
+        border-bottom: map-get($map: $colores, $key: "rosaClaro") 0.2em solid;
         border-radius: 0;
         text-align: left;
         outline: none;
     }
     .btn-outline-success:hover{
         background-color: transparent;
-        color: $colorRosaClaro;
+        color: map-get($map: $colores, $key: "rosaClaro");
         border: none;
-        border-bottom: $colorRosaClaro 0.2em solid;
+        border-bottom: map-get($map: $colores, $key: "rosaClaro") 0.2em solid;
         outline: none;
     }
 
@@ -697,8 +692,7 @@ body{
     /*-----------  FOOTER   ------------*/
 
     .footer{
-        display: flex;
-        flex-direction: column;
+        @include flex (flex, column, wrap, center);
         align-items: center;
         text-align: center;
         padding: 1rem 0;
@@ -707,7 +701,7 @@ body{
             padding-left: 0;
             padding-bottom: 2rem;
             width: 70%;
-            border-bottom: $colorRosaClaro solid .15rem;
+            border-bottom: map-get($map: $colores, $key: "rosaClaro") solid .15rem;
             &:last-child{
                 border: none;
             }
@@ -715,8 +709,7 @@ body{
     }
 
     .footer-copyright{
-        display: flex;
-        flex-direction: column;
+        @include flex (flex, column, wrap, center);
         align-content: space-around ;
         p{
             padding: .2rem 0;
@@ -823,7 +816,7 @@ body{
         flex-direction: column;
         margin: 1em;
         padding: 1em;
-        border: .1em solid $colorMarron;
+        border: .1em solid map-get($map: $colores, $key: "texto");
         display: inline-block;
     }
 
@@ -880,7 +873,8 @@ body{
     }
     
     .blog-productosRecomendados__article{
-        width: 70%;
+        width: 100%;
+        height: auto;
     }
 
     .accordion-button{
@@ -987,7 +981,7 @@ body{
         position: absolute;
         width: 30em;
         height: 3px;
-        background-color: $colorLogo;
+        background-color: map-get($map: $colores, $key: "logo");
         top: 2em;
     }
     
@@ -1001,7 +995,7 @@ body{
 
     .resaltado{
         padding: 0px 5px;
-        background: linear-gradient(0deg, $colorLogo 40%, transparent 40%);
+        background: linear-gradient(0deg, map-get($map: $colores, $key: "logo") 40%, transparent 40%);
     } 
 
     /*-----------   HEADER   ------------*/ 
@@ -1028,9 +1022,7 @@ body{
     }
 
     .nav__ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        @include flex (flex, row, wrap, center);
         align-items: center;
     }
 
@@ -1057,9 +1049,7 @@ body{
     /*-----------  FOOTER   ------------*/
 
     .footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+       @include flex (flex, row, nowrap, space-between);
         align-items: flex-start;
         padding: 0 2rem;
         ul{
@@ -1070,7 +1060,7 @@ body{
 
     .footer__ul-li-a:hover{
         text-decoration: underline;
-        color: $colorRosaClaro;
+        color: map-get($map: $colores, $key: "rosaClaro");
     }
     
     .footer__ul-contacto li{
@@ -1078,9 +1068,7 @@ body{
     }
     
     .footer-copyright{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        @include flex (flex, row, wrap, space-evenly);
         span{
             vertical-align: middle;
         }    
@@ -1117,8 +1105,8 @@ body{
     }
 
     .shop-categorias__article{
-        width: 20rem;
-        height: 32rem;
+        width: 25rem;
+        height: 42rem;
         margin-left: 2rem;
     }
 
@@ -1169,7 +1157,7 @@ body{
     } */
 
     .blog-entradas, .blog-productosRecomendados{
-        border: .15em solid $colorMarron;
+        border: .15em solid map-get($map: $colores, $key: "texto");
         margin: 1em 0 1em 2em;
         padding: .5em;
     }
@@ -1189,7 +1177,7 @@ body{
         height: auto; */
         /* margin: 2em; */
         padding: 1em;
-        border: .15em solid $colorMarron;
+        border: .15em solid map-get($map: $colores, $key: "texto");
     }
    
     .blog-posts__divImg{
@@ -1255,19 +1243,11 @@ body{
         margin: .5em .5em 1em .5em;
     }
 
-    /* .blog-productosRecomendados__article{
-        width: 100%;
-        margin: 0;
+
+    .blog-productosRecomendados__article{
+        width: 90%;
+        height: auto;
     }
-
-    .blog-productosRecomendados__article-figure{
-        width: 100%;
-    }
-    .blog-productosRecomendados__article-figure-img{
-        width: 100%;
-    } */
-
-
 
 
     /*-----------  PREGUNTAS FRECUENTES   ------------*/
@@ -1305,9 +1285,7 @@ body{
     }
 
     .contact-form-div-input{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        @include flex (flex, column, wrap, space-between);
     }
 
     .contact-form__input{
