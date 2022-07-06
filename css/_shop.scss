@@ -1,0 +1,152 @@
+.filter__h3{
+    margin-top: 1.5rem;
+    margin-left: 3rem;
+}
+
+.filter__ul-li{
+    display: inline;
+}
+.filter__ul-li-a{
+    color:map-get($map: $colores, $key: "logo");
+    background-color: map-get($map: $colores, $key: "rosaClaro");
+    border-radius: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: .5em 1em;
+    transition: .5s;
+    &:hover{
+        background-color:map-get($map: $colores, $key: "logo");
+        color: map-get($map: $colores, $key: "rosaClaro");
+    }
+}   
+
+.shop-categorias{
+    text-align: center;
+    h2{
+        font-size: 35px;
+        font-family: "brittany signature";
+        text-align: start;
+        width: 100%;
+        margin-left: 1em;
+        padding: 0;
+    }
+    .shop-categorias__article{
+        margin: 1rem 0;
+        padding-bottom: 1.5rem;
+        text-align: center;
+        background-color: map-get($map: $colores, $key: "fondoRosa");
+        box-shadow: .1rem .1rem .2rem silver;
+        &:hover{
+            box-shadow: .1rem .1rem 1rem silver;
+        }
+        figure figcaption{
+            margin: 0.3em;
+            line-height: 2em;
+        }
+    }
+    span{
+        margin-right: .4em;
+    }
+}
+
+
+/*-----------   MOBILE   ------------*/
+
+
+@media screen and (min-width: 320px) {
+
+    .filter__h3{
+        font-size: 16px;
+        margin-left: 1rem;
+    }
+
+    .filter__ul{
+        width: 100%;
+        margin: 1rem 0;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        li{
+            margin: 0;
+            text-align: center;
+            a{
+                margin: .2rem;
+                display: block;
+            }
+        }
+    }
+
+    .shop-categorias{
+        h2{
+            margin-left: 1rem;
+        }
+        article{
+            width: auto;
+            height: 38rem;
+            margin: 1rem;
+            margin-left: 1rem;
+            figure{
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 80%;
+                    object-fit: cover;
+                }
+                figcaption{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+
+    .filter__h3{
+        font-size: 20px;
+        padding: 2rem 0 0 2rem;
+        margin: 0;
+        width: 100%;
+    }
+
+    .filter__ul{
+        width: 90%;
+        margin: 2em 0 2em 4em;
+        display: inline-block;
+        li{
+            a{
+                display: inline-block;
+                margin: 0 0.3em;
+            }
+        }
+    }
+
+    .shop-categorias{
+        h2{
+            width: 100%;
+            padding: 0 0 1rem 2rem;
+            margin: 0;
+        }
+        article{
+            width: 25rem;
+            height: 42rem;
+            margin-left: 2rem;
+            figure{
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 85%;
+                    object-fit: cover;
+                }
+                figcaption{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

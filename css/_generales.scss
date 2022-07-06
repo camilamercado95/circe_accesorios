@@ -1,0 +1,108 @@
+/*-----------   FUENTE LOCAL  ------------*/
+@font-face{
+    font-family: "Brittany Signature";
+    src: url(BrittanySignature.ttf);
+}
+
+/*-----------   UNIVERSAL   ------------*/
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*-----------   GENERALES   ------------*/
+
+body{
+    background-color: map-get($map: $colores, $key: "fondoCremita");
+    font-family: "montserrat", "roboto", sans-serif;
+    color: map-get($map: $colores, $key: "texto");
+}
+
+.h1{
+    font-family: "brittany signature";
+    color: map-get($map: $colores, $key: "logo");
+}
+
+.h1-none{
+    display: none;
+}
+
+.material-icons-round{
+    color: map-get($map: $colores, $key: "logo");    
+}
+
+.home-info__article span{
+    font-size: 3em;
+}
+
+.subir-shop{
+    color: map-get($map: $colores, $key: "texto");
+    text-decoration: none;
+    padding: 1em 2em;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    &:hover{
+        text-decoration: underline;
+        color: map-get($map: $colores, $key: "logo");
+    }
+}
+
+.subir-shop::after,.subir-shop::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: map-get($map: $colores, $key: "logo");
+    top: 2em;
+}
+
+
+/*-----------   MOBILE   ------------*/
+
+
+@media screen and (min-width: 320px) {
+    .h1{
+        font-size: $tamanoTitulo/2;
+        margin: 1.5rem;
+    }
+
+    .subir-shop::after,.subir-shop::before{
+        width: 6em;
+    }
+    
+    .subir-shop::before{
+        left: 3.5em;
+    }
+    
+    .subir-shop::after{
+        right: 3.5em;
+    }    
+}
+
+
+/*-----------   ESCRITORIO   ------------*/
+
+
+@media screen and (min-width: 1024px) {
+
+    .h1{
+        font-size: $tamanoTitulo;
+        font-weight: bold;
+        padding: 3rem 2rem 2rem 10rem;
+        margin: 0;
+    }
+
+    .subir-shop::after,.subir-shop::before{
+        width: 30em;
+    }
+    
+    .subir-shop::before{
+        left: 24em;
+    }
+    
+    .subir-shop::after{
+        right: 24em;
+    }
+
+}

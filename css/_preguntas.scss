@@ -1,0 +1,53 @@
+.container-preguntas{
+    margin: 2em 5em;
+    .div-preguntas{
+        display: flex;
+        margin-top: 2em;
+        .div-preguntas-icono span{
+            font-size: 35px;
+        }
+        p{
+            line-height: 1.5em;
+            span{
+                font-style: italic;
+            }
+        }
+    }
+}
+
+/*-----------   MOBILE   ------------*/
+
+@media screen and (min-width: 320px) {
+    
+    .container-preguntas{
+        margin: 2rem;
+        .div-preguntas{
+            flex-direction: column;
+            align-items: flex-start;
+            .div-preguntas-icono span{
+                margin-bottom: 1rem;
+                justify-self: start;
+                text-align: left;
+            }
+            p{
+                margin-left: 0;
+                width: auto;
+            }
+        }
+    }
+}
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+
+    .container-preguntas{
+        .div-preguntas{
+            flex-direction: row;
+            align-items: center;
+            .div-preguntas-p{
+                margin-left: 2em;
+            }
+        }
+    }
+}

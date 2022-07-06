@@ -1,0 +1,264 @@
+#header{
+    background-color: map-get($map: $colores, $key: "rosaIntermedio");
+    height: 6em;
+    @include flex (flex, row, wrap, space-between);
+    width: 100%;
+    input{
+        padding: 1em;
+        border: none;
+        background-color: transparent;
+        color: map-get($map: $colores, $key: "rosaClaro");
+        display: none;
+    }
+}
+
+
+.logo-index img{
+    width: 6rem;
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+.header-left .nav__ul-li-a{
+    color: map-get($map: $colores, $key: "rosaClaro");
+    text-decoration: none;
+    margin: 0 .5em;
+    padding: 10px 15px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav__ul-li-a::after{
+    content: "";
+    width: 0;
+    height: 4px;
+    background-color: map-get($map: $colores, $key: "rosaClaro");
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: 0.7s;
+    will-change: width;
+}
+
+.nav__ul-li-a:hover::after{
+    width: 100%;
+    right: 0;
+}
+
+.nav__ul-li-a-active{
+    position: relative;
+}
+
+.nav__ul-li-a-active a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: map-get($map: $colores, $key: "rosaClaro");
+    bottom: 0;
+    left: 0;
+}
+
+.nav__ul-li-submenu a{
+    color: map-get($map: $colores, $key: "texto");
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.nav__ul-li-container-submenu{
+    display: none;
+} 
+
+.nav__ul-li.nav__ul-li-shop:hover .nav__ul-li-container-submenu 
+{
+    display: flex;
+    position: absolute;
+    top: 65px;
+    z-index: 1;
+    background-color:#ffcbd7f6;
+    padding: 1rem 2rem 2rem 0;
+}
+
+.nav__ul-li-shop:hover .linea-submenu{
+    position: absolute;
+    width: 95%;
+    top: 2rem;
+    left: 0;
+    border: 0;
+    border-bottom:map-get($map: $colores, $key: "rosaClaro") solid .2rem;
+    z-index: 20;
+}
+
+.nav__ul-li-submenu > li{
+    margin-right: 2rem;
+}
+
+.nav__ul-li-submenu li:first-child{
+    padding-bottom: 1.5em;
+    text-transform: uppercase;
+}
+
+.nav__ul-li span{
+    font-size: 2em;
+}
+
+.header-right .material-icons-round:hover{
+    color: map-get($map: $colores, $key: "rosaClaro");
+}
+
+.home-barra{
+    text-align: center;
+    padding: 0.5em;
+    background-color: map-get($map: $colores, $key: "logo");
+    text-transform: uppercase;
+    margin: 0%;
+}
+
+
+/*-----------   MOBILE   ------------*/
+
+
+@media screen and (min-width: 320px) {
+
+    .nav-desktop{
+        display: none;
+    }
+
+    .nav-mobile{
+        display:
+         block;
+    }
+    .fixed-top{
+        position:fixed;
+        top: 0;
+    }
+    .navbar-toggler{
+        border: none;
+    }
+    .navbar{
+        padding: 0;
+        margin: 0;
+        --bs-navbar-brand-padding-y: 0;
+    }
+    .navbar>.container-fluid{
+        width: 100%;
+    }
+    .bg-light{
+        --bs-bg-opacity:1;
+        background-color: map-get($map: $colores, $key: "rosaIntermedio") !important;
+    }
+    .offcanvas{
+        background-color: map-get($map: $colores, $key: "rosaIntermedio");
+        --bs-offcanvas-width: 350px;
+    }
+    .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+        color: map-get($map: $colores, $key: "texto");
+    }
+    .btn-close{
+        color: map-get($map: $colores, $key: "logo");
+        opacity: 1;
+    }
+    .iconos-menu-burger span{
+        font-size: 30px;
+        margin-right: .5em;
+    }
+    .btn-outline-success{
+        color: map-get($map: $colores, $key: "rosaClaro");
+        padding: .3em;
+        width: 80%;
+        border: none;
+        border-bottom: map-get($map: $colores, $key: "rosaClaro") 0.2em solid;
+        border-radius: 0;
+        text-align: left;
+        outline: none;
+    }
+    .btn-outline-success:hover{
+        background-color: transparent;
+        color: map-get($map: $colores, $key: "rosaClaro");
+        border: none;
+        border-bottom: map-get($map: $colores, $key: "rosaClaro") 0.2em solid;
+        outline: none;
+    }
+
+    .dropdown-menu{
+        background-color: transparent;
+        border: none;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .nav-link{
+        border-bottom: solid .1em #341e2326;
+        margin-top: .5em;
+    }
+
+    .nav__ul{
+        display: none;
+    }
+
+    .logo-index img{
+        margin: 0;
+    }
+
+    .home-barra{
+        font-size: 11px;
+        padding-top: 1em;
+    }
+
+}
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+
+    .nav-desktop{
+        display: block;
+        width: 100%;
+    }
+
+    .nav-mobile{
+        display: none;
+    }
+
+    .nav{
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        margin: 0;
+        padding: 0%;
+    }
+    
+    .logo-index img{
+        margin-left: 1rem;
+    }
+
+    .nav__ul {
+        @include flex (flex, row, wrap, center);
+        align-items: center;
+    }
+
+    .header-right{
+        display: flex;
+        justify-content:end;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0%;
+        nav ul li a{
+            margin: 0 1rem;
+            padding: 0%;
+            padding-bottom: 10px;
+        }
+    }
+
+    .home-barra{
+        font-size: 14px;
+        margin: 0;
+        padding-top: .5em;
+    }
+
+}

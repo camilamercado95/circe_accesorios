@@ -1,0 +1,92 @@
+.footer{
+    background-color: map-get($map: $colores, $key: "rosaIntermedio");
+    padding: 1em 5em;
+    color: map-get($map: $colores, $key: "rosaClaro");
+    .footer__ul-li-a{
+        color: map-get($map: $colores, $key: "rosaClaro");
+        text-decoration: none;
+    }
+    .footer__ul-contacto-redes{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+        img{
+            width: 1.4rem;
+        }
+    }
+}
+
+.footer-copyright{
+    background-color: map-get($map: $colores, $key: "logo");
+    padding: 0.5em;
+    font-size: 12px;
+    text-align: center;
+    span{
+        color: map-get($map: $colores, $key: "texto");
+        font-size: 16px;
+    }
+}
+
+/*-----------   MOBILE   ------------*/
+
+@media screen and (min-width: 320px) {
+    .footer{
+        @include flex (flex, column, wrap, center);
+        align-items: center;
+        text-align: center;
+        padding: 1rem 0;
+        ul{
+            margin: 1em 0;
+            padding-left: 0;
+            padding-bottom: 2rem;
+            width: 70%;
+            border-bottom: map-get($map: $colores, $key: "rosaClaro") solid .15rem;
+            &:last-child{
+                border: none;
+            }
+        }
+    }
+
+    .footer-copyright{
+        @include flex (flex, column, wrap, center);
+        align-content: space-around ;
+        p{
+            padding: .2rem 0;
+        }
+        span{
+            vertical-align: middle;
+        }
+    }
+}
+
+
+/*-----------   ESCRITORIO   ------------*/
+
+
+@media screen and (min-width: 1024px) {
+    .footer{
+        @include flex (flex, row, nowrap, space-between);
+         align-items: flex-start;
+         padding: 0 2rem;
+         ul{
+             border: none;
+             text-align: start;
+         }
+     }
+ 
+     .footer__ul-li-a:hover{
+         text-decoration: underline;
+         color: map-get($map: $colores, $key: "rosaClaro");
+     }
+     
+     .footer__ul-contacto li{
+         text-align: center;
+     }
+     
+     .footer-copyright{
+         @include flex (flex, row, wrap, space-evenly);
+         span{
+             vertical-align: middle;
+         }    
+     }
+}

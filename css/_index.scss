@@ -11,8 +11,6 @@
 .h1-circe{
     position: absolute;
     z-index: 1;
-    top: 30%;
-    left: 30%;
 }
 
 /*-----------   HOME - CATEGORIAS   ------------*/
@@ -52,15 +50,15 @@
 .home-blog{
     background-color:map-get($map: $colores, $key: "rosaIntermedio");
     padding: 1em;
-    h2{
+    .home-blog__h2{
         font-family: "brittany signature";
         font-weight: bold;
         text-align: center;
-        display: block;
-        background-color: map-get($map: $colores, $key: "rosaIntermedio");
+        margin: 2rem 0;
         letter-spacing: .1em;
         word-spacing: .5em;
-        margin: 2rem 0;
+        display: block;
+        background-color: map-get($map: $colores, $key: "rosaIntermedio");
     }
     .home-blog__div{
         @include flex (flex, row, wrap, space-evenly);
@@ -91,11 +89,11 @@
     width: 100%;
     h2{
         font-family: "brittany signature";
+        font-weight: bold;
         text-align: center;
         margin-top: 5rem;
         letter-spacing: .1em;
         word-spacing: .5em;
-        font-weight: bold;
     }
     section{
         .home-productosDestacados__article{
@@ -112,7 +110,7 @@
                 text-decoration: none;
                 &:hover{
                     text-decoration: underline;
-                }
+                } 
             }
             img{
                 width: 100%;
@@ -141,9 +139,10 @@
 @media screen and (min-width: 320px) {
 
 
-      .h1-circe{
+    .h1-circe{
         top: 40%;
         left: 15%;
+        font-size: $tamanoTitulo/1.8;
     }
 
     .carousel{
@@ -173,7 +172,7 @@
     /*-----------   HOME - BLOG   ------------*/
 
     .home-blog__h2{
-        font-size: 18px;
+        font-size: $tamanoTitulo/3;
     }
 
     .home-blog__article{
@@ -223,7 +222,7 @@
 
     .home-productosDestacados{
         h2{
-            font-size: 20px;
+            font-size: $tamanoTitulo/3;
         }
         .home-productosDestacados__section{
             @include flex(flex, row, nowrap, start);
@@ -275,6 +274,12 @@
 
 @media screen and (min-width: 1024px) {
 
+    .h1-circe{
+        top: 30%;
+        left: 25%;
+        font-size: $tamanoTitulo*1.5;
+    }
+
     .slider-vacio-desktop{
         display: block;
     }
@@ -308,7 +313,7 @@
     }
 
     .home-blog__h2{
-        font-size: 40px;
+        font-size: $tamanoTitulo/2;
     }
 
     .home-blog__article{
@@ -362,11 +367,11 @@
 
     .home-productosDestacados{
         h2{
-            font-size: 40px;
+            font-size: $tamanoTitulo/2;
         }
-        section{
+        .home-productosDestacados__section{
             @include flex(flex, row, wrap, center);
-            overflow:none;
+            overflow:hidden;
             article{
                 width: 14rem;
                 figure{
