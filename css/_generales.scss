@@ -1,7 +1,7 @@
 /*-----------   FUENTE LOCAL  ------------*/
 @font-face{
     font-family: "Brittany Signature";
-    src: url(BrittanySignature.ttf);
+    src: url("../assets/fonts/BrittanySignature.ttf");
 }
 
 /*-----------   UNIVERSAL   ------------*/
@@ -20,12 +20,16 @@ body{
 }
 
 .h1{
-    font-family: "brittany signature";
+    font-family: "Brittany signature";
     color: map-get($map: $colores, $key: "logo");
 }
 
 .h1-none{
     display: none;
+}
+
+.home-barra{
+    width: 100%;
 }
 
 .material-icons-round{

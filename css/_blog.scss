@@ -1,12 +1,3 @@
-/* .blog-grid{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-    "posts entradas"
-    "posts productos";
-}
-
 .blog-posts{
     grid-area: posts;
 }
@@ -17,7 +8,7 @@
 
 .blog-productosRecomendados{
     grid-area: productos;
-} */
+}
 
 .blog-grid__h2{
     text-align: center;
@@ -31,16 +22,6 @@
 }
 
 .blog-posts__article{
-    padding: 1em;
-    border: .2em solid map-get($map: $colores, $key: "texto");
-    display: flex;
-    .blog-posts__divTexto{
-        display: flex;
-        flex-direction: column;
-        h4{
-            font-size: 24px;
-        }
-    }
     a{
         color: map-get($map: $colores, $key: "texto");
         text-decoration: none;
@@ -67,7 +48,6 @@
 
 .blog-productosRecomendados{
     article{
-        /*@extend .shop-categorias__article;*/
         margin: 1rem;
         text-align: center;
         background-color: map-get($map: $colores, $key: "fondoRosa");
@@ -128,26 +108,17 @@
         font-size: 14px;
     }
 
-    /*.blog-grid{
+    .blog-grid{
         display: grid;
         grid-template-areas:
         "entradas"
         "posts"
         "productos";
-    }*/
+    }
 
     .blog-posts{
-        /*grid-area: posts;*/
         width: 100%;
     }
-
-    /*.blog-entradas{
-        grid-area: entradas;
-    }
-
-    .blog-productosRecomendados{
-        grid-area: productos;
-    }*/
 
     .blog-entradas, .blog-productosRecomendados{
         border: none;
@@ -242,33 +213,26 @@
         font-size: 20px;
     }
 
-    /* .blog-grid{
+    .blog-grid{
         display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas:
         "posts entradas"
         "posts productos";
         width: 100%;
-    } */
-
-    /* .blog-posts{
-        grid-area: posts;
-        width: auto;
-    } */
-
-    /* .blog-entradas{
-        grid-area: entradas;
+        padding-right: 1rem;
     }
 
-    .blog-productosRecomendados{
-        grid-area: productos;
-    } */
+    .blog-posts{
+        width: auto;
+    }
 
     .blog-entradas, .blog-productosRecomendados{
         border: .15em solid map-get($map: $colores, $key: "texto");
         margin: 1em 0 1em 2em;
         padding: .5em;
     }
-
  
     .blog-entradas{
         width: auto;
@@ -303,10 +267,8 @@
         border: .15em solid map-get($map: $colores, $key: "texto");
         .blog-posts__divImg{
             height: auto;
-            width: 100%;
+            width: 50%;
             margin: 0;
-            margin-bottom: 2rem;
-            object-fit: cover;
             img{
                 height: 100%;
                 width: 100%;
@@ -320,7 +282,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            overflow: auto;
             h4{
                 text-decoration: none;
                 font-size: 24px;
