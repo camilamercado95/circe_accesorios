@@ -41,20 +41,6 @@
             @extend .filter__ul-li-a;
             border: none;
             font-size: 16px;
-            /*background-color: map-get($map: $colores, $key: "rosaClaro");
-            color: map-get($map: $colores, $key: "logo");
-            border-radius: .7em;
-            border: none;
-            margin-top: 1.5em;
-            padding: .1em;
-            font-family: "brittany signature";
-            font-size: 20px;
-            transition: .5s;
-            box-shadow: .1rem .1rem .1rem .1rem rgb(249, 217, 217);
-            &:hover{
-                cursor: pointer;
-                background-color:#fbdbde;
-            }*/
         }
     }
 }
@@ -155,18 +141,18 @@
             .contact-form-div-input{
                 @include flex (flex, column, wrap, space-between);
                 .contact-form__input{
-                    width: 35rem;
+                    width: 90%;
                     transition: .5s;
                     &:hover{
-                        width: 40rem;
+                        width: 100%;
                     }
                 }
             }
             .contact-form__textarea{
-                width: 95%;
+                width: 90%;
                 transition: .5s;
                     &:hover{
-                        width: 98%;
+                        width: 100%;
                     }
             }
         }

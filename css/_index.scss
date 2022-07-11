@@ -13,6 +13,11 @@
     z-index: 1;
 }
 
+.carousel-control-next, .carousel-control-prev{
+    width: 10%;
+    opacity: 1;
+}
+
 /*-----------   HOME - CATEGORIAS   ------------*/
 
 .home-categorias{
@@ -66,18 +71,18 @@
     span:hover{
         transform: scale(1.05);
     }
-}
-.home-blog__article{
-    margin: 1rem;
-    padding: 1rem;
-    border: map-get($map: $colores, $key: "fondoRosa") solid 0.3rem;
-    background-color: map-get($map: $colores, $key: "fondoRosa");
-    .home-blog__article-a{
-        color: map-get($map: $colores, $key: "texto");
-        text-decoration: none;
-        &:hover{
-            text-decoration: underline;
+    .home-blog__article{
+        margin: 1rem;
+        padding: 1rem;
+        border: map-get($map: $colores, $key: "fondoRosa") solid 0.3rem;
+        background-color: map-get($map: $colores, $key: "fondoRosa");
+        .home-blog__article-a{
             color: map-get($map: $colores, $key: "texto");
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                color: map-get($map: $colores, $key: "texto");
+            }
         }
     }
 }
@@ -132,12 +137,9 @@
 
 
 
-
-
 /*-----------   MOBILE   ------------*/
 
 @media screen and (min-width: 320px) {
-
 
     .h1-circe{
         top: 40%;
@@ -171,51 +173,49 @@
 
     /*-----------   HOME - BLOG   ------------*/
 
-    .home-blog__h2{
-        font-size: $tamanoTitulo/3;
-    }
-
-    .home-blog__article{
-        margin: .4rem;
-        height: 5.5rem;
-    }
-
-    .home-blog__article-a-figure{
-        @include flex(flex, row, nowrap, start);
-        
-        align-items: center;
-        height: 3rem;
-        width: 19rem;
-        img{
-            height: 4rem;
-            width: 4rem;
-            border-radius: 50%;
-            object-fit: cover;
-            border:map-get($map: $colores, $key: "rosaIntermedio") solid .2rem ;
+    .home-blog{
+        .home-blog__h2{
+            font-size: $tamanoTitulo/3;
         }
-        figcaption{
-            padding-left: 2em;
-            font-size: 14px;
-            width: auto;
-            text-align: start;
+        .home-blog__article{
+            margin: .4rem;
+            height: 5.5rem;
+            a{
+                figure{
+                @include flex(flex, row, nowrap, start);
+                align-items: center;
+                height: 3rem;
+                width: 19rem;
+                }
+                img{
+                    height: 4rem;
+                    width: 4rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border:map-get($map: $colores, $key: "rosaIntermedio") solid .2rem ;
+                }
+                figcaption{
+                    padding-left: 2em;
+                    font-size: 14px;
+                    width: auto;
+                    text-align: start;
+                }
+            }
         }
-    }
-
-    .home-blog span{
-        margin-top: .4rem;
-        width: 10em;
-        padding: .5em;
-        font-size: 2em;
-        background: linear-gradient(map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
-        text-align: center;
-    }
-
-    .blog-flecha-derecha{
-        display: none;
-    }
-
-    .blog-flecha-abajo{
-        display: inline-block;
+        span{
+                margin-top: .4rem;
+                width: 10em;
+                padding: .5em;
+                font-size: 2em;
+                background: linear-gradient(map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
+                text-align: center;
+        }
+        .blog-flecha-derecha{
+            display: none;
+        }
+        .blog-flecha-abajo{
+            display: inline-block;
+        }
     }
 
     /*-----------  HOME - PRODUCTOS DESTACADOS   ------------*/
@@ -307,61 +307,60 @@
 
     /*-----------   HOME - BLOG   ------------*/
 
-    .home-blog__div{
-        padding: 0;
-        margin: 0;
-    }
-
-    .home-blog__h2{
-        font-size: $tamanoTitulo/2;
-    }
-
-    .home-blog__article{
-        margin: .2rem;
-        padding: .5rem;
-        height: 21.5em;
-        width: 14rem;
-        justify-content: center;
-        a{
-           justify-content: center;
-            figure{
-            display: block;
-            width: 100%;
-            height: 16em;
-            img{
+    .home-blog{
+        .home-blog__h2{
+            font-size: $tamanoTitulo/2;
+        }
+        .home-blog__div{
+            padding: 0;
+            margin: 0;
+        }
+        .home-blog__article{
+            margin: .2rem;
+            padding: .5rem;
+            height: 21.5em;
+            width: 14rem;
+            justify-content: center;
+            a{
+               justify-content: center;
+                figure{
+                display: block;
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 0%;
-                border: none;
-            }
-            figcaption{
-                margin-top: .5em;
-                padding-left: 0;
-                font-size: 16px;
-                text-align: center;
-                width: 100%;
-            }
+                height: 16em;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 0%;
+                    border: none;
+                }
+                figcaption{
+                    margin-top: .5em;
+                    padding-left: 0;
+                    font-size: 16px;
+                    text-align: center;
+                    width: 100%;
+                }
+                }
             }
         }
-    }
+        span{
+            height: 100%;
+            width: 2em;
+            padding: 8rem .5rem;
+            font-size: 2em;
+            background: linear-gradient(to right,  map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
+            transition: 1s;
+        }
+        .blog-flecha-derecha{
+            display: block;
+        }
     
-    .home-blog span{
-        height: 100%;
-        width: 2em;
-        padding: 8rem .5rem;
-        font-size: 2em;
-        background: linear-gradient(to right,  map-get($map: $colores, $key: "fondoRosa"), map-get($map: $colores, $key: "rosaIntermedio"));
-        transition: 1s;
-    }
+        .blog-flecha-abajo{
+            display: none;
+        }
+    } 
 
-    .blog-flecha-derecha{
-        display: block;
-    }
-
-    .blog-flecha-abajo{
-        display: none;
-    }
 
     /*-----------  HOME - PRODUCTOS DESTACADOS   ------------*/
 
@@ -406,7 +405,7 @@
             }
         }
     }
-
+    
     .home-info-mobile{
         display: none;
     }

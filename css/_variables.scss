@@ -1,4 +1,4 @@
-/*
+/* variables hechas para la primera entrega de SASS
 $colorLogo: #EA869A;
 $colorRosaIntermedio: #FFCBD7;
 $colorRosaClaro: #F8EBEC;
@@ -27,5 +27,5 @@ $colores: (
 
 @mixin resaltado-bajo{
     padding: 0px 5px;
-    background: linear-gradient(0deg, map-get($map: $colores, $key: "logo") 40%, transparent 40%);
+    background: linear-gradient(0deg, map-get($map: $colores, $key: "rosaIntermedio") 40%, transparent 40%);
 }

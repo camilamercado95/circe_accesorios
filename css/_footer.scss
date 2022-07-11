@@ -48,6 +48,7 @@
     }
 
     .footer-copyright{
+        margin: 0;
         @include flex (flex, column, wrap, center);
         align-content: space-around ;
         p{
