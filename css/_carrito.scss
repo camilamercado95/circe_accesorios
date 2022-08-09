@@ -1,0 +1,31 @@
+.container-carrito{
+    .container-carrito__article{
+        border: map-get($map: $colores, $key: "rosaIntermedio") solid 0.15em;
+        margin: 2em;
+        padding: 2em;
+
+        .container-carrito__article-div{
+            @include flex(flex, row, wrap, space-between);
+        }
+
+        form{
+            fieldset{
+                legend{
+                    label{
+    
+                    }
+                }
+                .container-carrito__article-form-fieldset-input{
+                    @extend .contact-form__input;
+                    margin: 1em;
+                }
+            }
+        }
+    }
+    
+    .container-carrito__input{
+        @extend .filter__ul-li-a;
+        border: none;
+    }
+}
+

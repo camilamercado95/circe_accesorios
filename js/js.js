@@ -1,13 +1,4 @@
-//Calcular costo total de productos seleccionados por el usuario. Que ingrese por prompt los nombres de los productos hasta tipear ESC)
-
-const arosCorona=1480;
-const argollasRayo=3280;
-const cuffCruzado=700;
-const trepadoresCristal=4680;
-const argollasFlorcitas=1790;
-const argollaDestello=3090;
-const arosNubeRayo=3270;
-const solitarioCorazonCubic=1480;
+//Calcular costo total de productos seleccionados por el usuario.
 
 let precioTotal=0;
 
@@ -15,51 +6,46 @@ function descuento(valor){
     return valor*0.95;
 }
 
-/*
-funcion flecha:
-const descuento=valor=>valor*0.95;
-*/
-
-let entradaNombreProducto=prompt("Ingresa el nombre exacto del producto que quieras (SOLO AROS). Cuando termines, escribi 'ESC'");
-
-while(entradaNombreProducto!="ESC"){
-    switch(entradaNombreProducto){
-        case "Aros pasante corona":
-            precioTotal+=arosCorona;
-        break;
-        case "Argollas rayo multicolor":
-            precioTotal+=argollasRayo;
-        break;
-        case "Cuff cruzado":
-            precioTotal+=cuffCruzado;
-        break;
-        case "Trepadores cristal":
-            precioTotal+=trepadoresCristal;
-        break;
-        case "Argollas florcitas":
-            precioTotal+=argollasFlorcitas;
-        break;
-        case "Argolla destello":
-            precioTotal+=argollaDestello;
-        break;
-        case "Aros nube y rayo":
-            precioTotal+=arosNubeRayo;
-        break;
-        case "Solitario corazon cubic":
-            precioTotal+=solitarioCorazonCubic;
-        break;
-        default:
-            alert("Error al escribir el nombre");
-        break;        
+class Producto{
+    constructor(tipo,categoria,nombre,material,tamanio,precio){
+        this.tipo=tipo;
+        this.categoria=categoria;
+        this.nombre=nombre.toUpperCase();
+        this.material=material;
+        this.tamanio=tamanio;
+        this.precio=Number(precio);
     }
-    entradaNombreProducto=prompt("Ingresa el nombre exacto del producto que quieras (SOLO AROS). Cuando termines, escribi 'ESC'");
 }
-alert("El precio total es: "+precioTotal);
+
+const productos=[];
+productos.push(new Producto("Aros","Pasantes","Aros pasante corona","Plata 925"," ",1480));
+productos.push(new Producto("Aros","Pasantes","Aros nube y rayo","Plata 925","6mm",3270));
+productos.push(new Producto("Aros","Trepadores","Trepadores cristal","Plata 925","16mm",4680));
+productos.push(new Producto("Aros","Argollas","Argollas rayo multicolor","Plata 925","14mm",3280));
+productos.push(new Producto("Aros","Argollas","Argollas florcitas","Plata 925","12mm",1790));
+productos.push(new Producto("Aros","Argollas","Argolla destello","Plata 925","14mm",3090));
+productos.push(new Producto("Aros","Bidu","Cuff cruzado","Plata 925"," ",700));
+productos.push(new Producto("Aros","Bidu","Solitario corazon cubic","Plata 925"," ",1480));
+
+const carrito=[];
+let productoAgregado=prompt("Ingresa el nombre del producto que queres agregar al carrito. Cuando termines, escribe 'ESC'").toUpperCase();
+while(productoAgregado!="ESC"){
+    for(const producto of productos){
+        if(producto.nombre==productoAgregado){
+            precioTotal+=producto.precio;
+            carrito.push(productoAgregado);
+        }
+    }
+    productoAgregado=prompt("Ingresa el nombre del producto que queres agregar al carrito. Cuando termines, escribe 'ESC'").toUpperCase();
+}
+let aString=carrito.join("\n");
+alert("Los productos de tu carrito son "+carrito.length+": \n"+carrito);
+alert("El precio total de tu carrito es: "+precioTotal);
+
 
 //Calcular valor final de un producto seleccionado en función de descuentos. 
-//preguntar como paga, si paga con transferencia o al retirar en efectivo, 5% off. Si paga con tarjeta de credito, pregunar las cuotas y decirle el monto qe debe pagar por mes) 
 
-let medioPago=parseInt(prompt("¿Como queres pagar? \n 1- Efectivo o transferencia (5% OFF) \n 2-Tarjeta de credito"));
+let medioPago=Number(prompt("¿Como queres pagar? \n 1- Efectivo o transferencia (5% OFF) \n 2-Tarjeta de credito"));
 
 if(medioPago==1){
     alert("El total con el 5% de descuento es: "+descuento(precioTotal));
