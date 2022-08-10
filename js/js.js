@@ -1,4 +1,11 @@
-//Calcular costo total de productos seleccionados por el usuario.
+/*
+1 - Mostrar los productos con sus precios
+2 - Filtrar un producto por su nombre
+3 - Agregar productos a un carrito
+4 - Mostrar el carrito
+5 - Elegir metodos de pago
+6 - Calcular valor final del carrito en función de descuentos
+*/
 
 let precioTotal=0;
 
@@ -27,6 +34,24 @@ productos.push(new Producto("Aros","Argollas","Argolla destello","Plata 925","14
 productos.push(new Producto("Aros","Bidu","Cuff cruzado","Plata 925"," ",700));
 productos.push(new Producto("Aros","Bidu","Solitario corazon cubic","Plata 925"," ",1480));
 
+//Mostrar productos con precios
+productos.forEach(producto=>console.log(producto.nombre+" $"+producto.precio));
+
+//Filtrar productos x nombre
+function buscarProducto(productos,nombre){
+    const encontrado = productos.filter((el)=>el.nombre.includes(nombre));
+    return encontrado;
+}
+
+let nombreIngresado=prompt("Buscar un producto para ver sus detalles. ESC para salir").toUpperCase();
+while(nombreIngresado!="ESC"){
+    const nombreEncontrado=buscarProducto(productos,nombreIngresado);
+    console.table(nombreEncontrado);
+    nombreIngresado=prompt("Buscar un producto para ver sus detalles. ESC para salir").toUpperCase();
+}
+
+
+//Agregar productos a un carrito
 const carrito=[];
 let productoAgregado=prompt("Ingresa el nombre del producto que queres agregar al carrito. Cuando termines, escribe 'ESC'").toUpperCase();
 while(productoAgregado!="ESC"){
@@ -38,14 +63,16 @@ while(productoAgregado!="ESC"){
     }
     productoAgregado=prompt("Ingresa el nombre del producto que queres agregar al carrito. Cuando termines, escribe 'ESC'").toUpperCase();
 }
+
+
+// Mostrar carrito + costo total de productos seleccionados por el usuario
 let aString=carrito.join("\n");
-alert("Los productos de tu carrito son "+carrito.length+": \n"+carrito);
-alert("El precio total de tu carrito es: "+precioTotal);
+alert("Los productos de tu carrito son "+carrito.length+": \n"+carrito+" $"+precioTotal);
 
 
-//Calcular valor final de un producto seleccionado en función de descuentos. 
 
-let medioPago=Number(prompt("¿Como queres pagar? \n 1- Efectivo o transferencia (5% OFF) \n 2-Tarjeta de credito"));
+//Calcular valor final de un producto seleccionado en función de descuentos
+let medioPago=Number(prompt("¿Como queres pagar? \n 1- Efectivo o transferencia (5% OFF) \n 2-Tarjeta de crédito"));
 
 if(medioPago==1){
     alert("El total con el 5% de descuento es: "+descuento(precioTotal));
@@ -59,5 +86,5 @@ if(medioPago==1){
         cuotas=parseInt(prompt("Error. Escribí 1 para una cuota o 3 para 3 cuotas"));
     }
 }else{
-    medioPago=parseInt(prompt("Error. Escribí 1 para efectivo o transferencia o 2 para tarjeta de credito"));
+    medioPago=parseInt(prompt("Error. Escribí 1 para efectivo o transferencia o 2 para tarjeta de crédito"));
 }
