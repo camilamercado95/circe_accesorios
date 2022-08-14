@@ -90,10 +90,16 @@
                                         <a class="nav__ul-li-a" href=""><span
                                                 class="material-icons-round">search</span></a>
                                     </li>
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href=""><span
-                                                class="material-icons-round">shopping_cart</span></a></li>
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href=""><span
-                                                class="material-icons-round">account_circle</span></a></li>
+                                    <li class="nav__ul-li">
+                                        <button type="button" class="btn btn-primary nav__ul-li-a"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <span class="material-icons-round">shopping_cart</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav__ul-li">
+                                        <a class="nav__ul-li-a" href=""> <span
+                                                class="material-icons-round">account_circle</span></a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -120,8 +126,8 @@
                             <div class="iconos-menu-burger">
                                 <a class="nav__ul-li-a" href=""><span
                                         class="material-icons-round">account_circle</span></a>
-                                <a class="nav__ul-li-a" href=""><span
-                                        class="material-icons-round">shopping_cart</span></a>
+                                <button type="button" class="btn btn-primary nav__ul-li-a" data-bs-toggle="modal" data-bs-target="#exampleModal"> <span class="material-icons-round">shopping_cart</span>
+                                </button>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
@@ -203,6 +209,40 @@
                 </div>
             </nav>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Categoría</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Precio</th>
+                                    </tr>                                
+                                </thead>
+                                <tbody id="items"></tbody>
+                                <tfoot>
+                                    <tr id="footer">
+                                    <th scope="row" colspan="5">Fin del carrito</th>
+                                    </tr>
+                                </tfoot>
+                                </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Iniciar compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -237,105 +277,108 @@
             <div class="row">
                 <h2 class="shop-categorias__h2">Aros</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/aros_corona.jpg"
-                                alt="Aros corona de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Aros pasante corona</p>
-                                <p>$1.480</p>
-                            </figcaption>
-                        </figure>
-                    </article>
+            <div id="contenedor-aros" class="container-fluid">
+                <div class="row">
+                    <!--
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/aros_corona.jpg" alt="Aros corona de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Aros pasante corona</p>
+                                    <p>$1.480</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/aros_rayo_multicolor.jpg" alt="Aros rayo de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Argollas rayo multicolor</p>
+                                    <p>$3.280</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/aros_cuff_cruzado.jpg" alt="Aros cuff cruzado de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Cuff cruzado</p>
+                                    <p>$700</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/trepadores_cristal.jpg" alt="Aros trepadores de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Trepadores cristal</p>
+                                    <p>$4.680</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/argollas_florcitas.jpg" alt="Argollas flor de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Argollas florcitas</p>
+                                    <p>$1.790</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/argollas_destello.jpg" alt="Argolla destello de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Argolla destello</p>
+                                    <p>$3.090</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/aros_nubeyrayo.jpg" alt="Aros nube y rayo de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Aros nube y rayo</p>
+                                    <p>$3.270</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/solitario_corazoncubic.jpg"
+                                    alt="Solitario corazon de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Solitario corazon cubic</p>
+                                    <p>$1.480</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    -->
                 </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/aros_rayo_multicolor.jpg" alt="Aros rayo de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Argollas rayo multicolor</p>
-                                <p>$3.280</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/aros_cuff_cruzado.jpg" alt="Aros cuff cruzado de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Cuff cruzado</p>
-                                <p>$700</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/trepadores_cristal.jpg" alt="Aros trepadores de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Trepadores cristal</p>
-                                <p>$4.680</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/argollas_florcitas.jpg" alt="Argollas flor de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Argollas florcitas</p>
-                                <p>$1.790</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/argollas_destello.jpg" alt="Argolla destello de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Argolla destello</p>
-                                <p>$3.090</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/aros_nubeyrayo.jpg"
-                                alt="Aros nube y rayo de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Aros nube y rayo</p>
-                                <p>$3.270</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/solitario_corazoncubic.jpg"
-                                alt="Solitario corazon de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Solitario corazon cubic</p>
-                                <p>$1.480</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-
             </div>
             <div class="row">
                 <a class="subir-shop" href="#header"><span class="material-icons-round">arrow_upward</span>Subir</a>
@@ -343,13 +386,14 @@
         </div>
     </section>
 
-
     <section id="anillos" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
                 <h2 class="shop-categorias__h2">Anillos</h2>
             </div>
-            <div class="row">
+            <div id="contenedor-anillos" class="container-fluid">
+                <div class="row">
+                    <!--
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <article class="shop-categorias__article">
                         <figure class="shop-categorias__article-figure">
@@ -365,8 +409,8 @@
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <article class="shop-categorias__article">
                         <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/anillo_corona.jpg"
-                                alt="Anillo corona de plata 925">
+                            <img class="shop-categorias__article-figure-img"
+                                src="../assets/img/shop/anillo_corona.jpg" alt="Anillo corona de plata 925">
                             <figcaption class="shop-categorias__article-figure-figcaption">
                                 <p>Anillo corona </p>
                                 <p>$2.500</p>
@@ -377,8 +421,8 @@
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <article class="shop-categorias__article">
                         <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/anillo_luna.jpg"
-                                alt="Anillo luna de plata 925">
+                            <img class="shop-categorias__article-figure-img"
+                                src="../assets/img/shop/anillo_luna.jpg" alt="Anillo luna de plata 925">
                             <figcaption class="shop-categorias__article-figure-figcaption">
                                 <p>Anillo luna </p>
                                 <p>$2.410</p>
@@ -389,8 +433,8 @@
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <article class="shop-categorias__article">
                         <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/anillo_tiara.jpg"
-                                alt="Anillo tiara de plata 925">
+                            <img class="shop-categorias__article-figure-img"
+                                src="../assets/img/shop/anillo_tiara.jpg" alt="Anillo tiara de plata 925">
                             <figcaption class="shop-categorias__article-figure-figcaption">
                                 <p>Anillo tiara </p>
                                 <p>$4.620</p>
@@ -398,67 +442,75 @@
                         </figure>
                     </article>
                 </div>
+                -->
+                </div>
             </div>
             <div class="row">
-                <a class="subir-shop" href="#header"><span class="material-icons-round">arrow_upward </span> Subir</a>
+                <a class="subir-shop" href="#header"><span class="material-icons-round">arrow_upward </span>
+                    Subir</a>
             </div>
         </div>
     </section>
-
 
     <section id="pulseras" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
                 <h2 class="shop-categorias__h2">Pulseras</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/pulsera_corazones.jpg" alt="pulsera corazones de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Pulsera corazones</p>
-                                <p>$3.050</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/pulsera_elastizada.jpg" alt="pulsera elastizada de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Pulsera elastizada</p>
-                                <p>$4.220</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/pulsera_espejo.jpg"
-                                alt="pulsera espejo de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Pulsera espejo</p>
-                                <p>$2.470</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/pulsera_tourbillon.jpg" alt="pulsera tourbillon de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Pulsera tourbillon</p>
-                                <p>$2.450</p>
-                            </figcaption>
-                        </figure>
-                    </article>
+            <div id="contenedor-pulseras" class="container-fluid">
+                <div class="row">
+                    <!--
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/pulsera_corazones.jpg" alt="pulsera corazones de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Pulsera corazones</p>
+                                    <p>$3.050</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/pulsera_elastizada.jpg"
+                                    alt="pulsera elastizada de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Pulsera elastizada</p>
+                                    <p>$4.220</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/pulsera_espejo.jpg" alt="pulsera espejo de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Pulsera espejo</p>
+                                    <p>$2.470</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/pulsera_tourbillon.jpg"
+                                    alt="pulsera tourbillon de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Pulsera tourbillon</p>
+                                    <p>$2.450</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="row">
@@ -467,61 +519,64 @@
         </div>
     </section>
 
-
     <section id="collares" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
                 <h2 class="shop-categorias__h2">Collares</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/collar_lunas.jpg"
-                                alt="collar lunas de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Collar lunas</p>
-                                <p>$5.870</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/collar_corazones.jpg" alt="collar corazones de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Collar corazones</p>
-                                <p>$4.600</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/collar_doble_destello_luna.jpg"
-                                alt="collar destello y luna de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Collar destello y luna</p>
-                                <p>$6.430</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/collar_infinito.jpg" alt="collar collar infinito de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Collar infinito</p>
-                                <p>$4.520</p>
-                            </figcaption>
-                        </figure>
-                    </article>
+            <div id="contenedor-collares" class="container-fluid">
+                <div class="row">
+                    <!--
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img" src="../assets/img/shop/collar_lunas.jpg"
+                                    alt="collar lunas de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Collar lunas</p>
+                                    <p>$5.870</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/collar_corazones.jpg" alt="collar corazones de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Collar corazones</p>
+                                    <p>$4.600</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/collar_doble_destello_luna.jpg"
+                                    alt="collar destello y luna de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Collar destello y luna</p>
+                                    <p>$6.430</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/collar_infinito.jpg" alt="collar collar infinito de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Collar infinito</p>
+                                    <p>$4.520</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="row">
@@ -536,54 +591,58 @@
             <div class="row">
                 <h2 class="shop-categorias__h2">Dijes</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/dije-rayo.jpg"
-                                alt="dije rayo de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Dije rayo</p>
-                                <p>$2.760</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/dije_corazon_cubic.jpg" alt="dije corazon de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Dije corazon</p>
-                                <p>$1.750</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/dije_cruz_grande.jpg" alt="dije cruz de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Dije cruz</p>
-                                <p>$1.520</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/dije_iniciales.jpg"
-                                alt="dije inicial de plata 925">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Dije iniciales</p>
-                                <p>$2.040</p>
-                            </figcaption>
-                        </figure>
-                    </article>
+            <div id="contenedor-dijes" class="container-fluid">
+                <div class="row">
+                    <!--
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img" src="../assets/img/shop/dije-rayo.jpg"
+                                    alt="dije rayo de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Dije rayo</p>
+                                    <p>$2.760</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/dije_corazon_cubic.jpg" alt="dije corazon de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Dije corazon</p>
+                                    <p>$1.750</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/dije_cruz_grande.jpg" alt="dije cruz de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Dije cruz</p>
+                                    <p>$1.520</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img" src="../assets/img/shop/dije_iniciales.jpg"
+                                    alt="dije inicial de plata 925">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Dije iniciales</p>
+                                    <p>$2.040</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="row">
@@ -598,30 +657,34 @@
             <div class="row">
                 <h2 class="shop-categorias__h2">Alhajeros</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img" src="../assets/img/shop/alhajero.jpg"
-                                alt="alhajero rosa">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Alhajero rosa</p>
-                                <p>$6.880</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <article class="shop-categorias__article">
-                        <figure class="shop-categorias__article-figure">
-                            <img class="shop-categorias__article-figure-img"
-                                src="../assets/img/shop/alhajero_natural.jpg" alt="alhajero natural">
-                            <figcaption class="shop-categorias__article-figure-figcaption">
-                                <p>Alhajero natural</p>
-                                <p>$6.880</p>
-                            </figcaption>
-                        </figure>
-                    </article>
+            <div id="contenedor-alhajeros" class="container-fluid">
+                <div class="row">
+                    <!--
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img" src="../assets/img/shop/alhajero.jpg"
+                                    alt="alhajero rosa">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Alhajero rosa</p>
+                                    <p>$6.880</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <article class="shop-categorias__article">
+                            <figure class="shop-categorias__article-figure">
+                                <img class="shop-categorias__article-figure-img"
+                                    src="../assets/img/shop/alhajero_natural.jpg" alt="alhajero natural">
+                                <figcaption class="shop-categorias__article-figure-figcaption">
+                                    <p>Alhajero natural</p>
+                                    <p>$6.880</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="row">

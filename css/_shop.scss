@@ -34,7 +34,7 @@
     }
     .shop-categorias__article{
         margin: 1rem 0;
-        padding-bottom: 1.5rem;
+        //padding-bottom: 1.5rem;
         text-align: center;
         background-color: map-get($map: $colores, $key: "fondoRosa");
         box-shadow: .1rem .1rem .2rem silver;
@@ -42,8 +42,8 @@
             box-shadow: .1rem .1rem 1rem silver;
         }
         figure figcaption{
-            margin: 0.3em;
-            line-height: 2em;
+            padding: 1em;
+            line-height: 1em;
         }
     }
     span{
@@ -134,8 +134,8 @@
             margin: 0;
         }
         article{
-            width: 25rem;
-            height: 42rem;
+            width: auto;
+            height: auto;
             margin-left: 2rem;
             figure{
                 height: 100%;
