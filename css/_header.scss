@@ -65,8 +65,11 @@
             color: map-get($map: $colores, $key: "rosaClaro");
         }
     }
+    .modal-content{
+        width:150%;
+    }
+    
 }
-
 .nav__ul-li-a{
     &::after{
         content: "";

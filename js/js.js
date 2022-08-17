@@ -7,16 +7,15 @@
 6 - Calcular valor final del carrito en función de descuentos
 */
 
-let precioTotal=0;
-
 function descuento(valor){
     return valor*0.95;
 }
 
 class Producto{
-    constructor(tipo,categoria,nombre,material,tamanio,precio, cantidad, foto){
+    constructor(tipo,categoria,id,nombre,material,tamanio,precio, cantidad, foto){
         this.tipo=tipo;
         this.categoria=categoria;
+        this.id=id;
         this.nombre=nombre;
         this.material=material;
         this.tamanio=tamanio;
@@ -32,6 +31,8 @@ class ElementoCarrito {
         this.cantidad = cantidad;
     }
 }
+
+const estandarMoneda = Intl.NumberFormat('es-AR');
 
 const aros=[];
 const anillos=[];
@@ -63,6 +64,7 @@ const contenedorAlhajeros=document.getElementById("contenedor-alhajeros").getEle
 const rowContenedorAlhajeros=contenedorAlhajeros[0];
 
 const contenedorCarritoCompras = document.querySelector("#items");
+const contenedorFooterCarrito = document.querySelector("#footer");
 
 cargarAros();
 cargarAnillos();
@@ -78,48 +80,48 @@ dibujarCatalogoDijes();
 dibujarCatalogoAlhajeros();
 
 function cargarAros(){
-    aros.push(new Producto("Aros","Pasantes","Aros pasante corona","Plata 925"," ",1480,5,'../assets/img/shop/aros_corona.jpg'));
-    aros.push(new Producto("Aros","Pasantes","Aros nube y rayo","Plata 925","6mm",3270,10,"../assets/img/shop/aros_nubeyrayo.jpg"));
-    aros.push(new Producto("Aros","Trepadores","Trepadores cristal","Plata 925","16mm",4680,2,"../assets/img/shop/trepadores_cristal.jpg"));
-    aros.push(new Producto("Aros","Argollas","Argollas rayo multicolor","Plata 925","14mm",3280,1,"../assets/img/shop/aros_rayo_multicolor.jpg"));
-    aros.push(new Producto("Aros","Argollas","Argollas florcitas","Plata 925","12mm",1790,10,"../assets/img/shop/argollas_florcitas.jpg"));
-    aros.push(new Producto("Aros","Argollas","Argolla destello","Plata 925","14mm",3090,2,"../assets/img/shop/argollas_destello.jpg"));
-    aros.push(new Producto("Aros","Bidu","Cuff cruzado","Plata 925"," ",700,15,"../assets/img/shop/aros_cuff_cruzado.jpg"));
-    aros.push(new Producto("Aros","Bidu","Solitario corazon cubic","Plata 925"," ",1480,5,"../assets/img/shop/solitario_corazoncubic.jpg"));
+    aros.push(new Producto("Aros","Pasantes","AR-0001","Aros pasante corona","Plata 925"," ",1480,5,'../assets/img/shop/aros_corona.jpg'));
+    aros.push(new Producto("Aros","Pasantes","AR-0002","Aros nube y rayo","Plata 925","6mm",3270,10,"../assets/img/shop/aros_nubeyrayo.jpg"));
+    aros.push(new Producto("Aros","Trepadores","AR-0003","Trepadores cristal","Plata 925","16mm",4680,2,"../assets/img/shop/trepadores_cristal.jpg"));
+    aros.push(new Producto("Aros","Argollas","AR-0004","Argollas rayo multicolor","Plata 925","14mm",3280,1,"../assets/img/shop/aros_rayo_multicolor.jpg"));
+    aros.push(new Producto("Aros","Argollas","AR-0005","Argollas florcitas","Plata 925","12mm",1790,10,"../assets/img/shop/argollas_florcitas.jpg"));
+    aros.push(new Producto("Aros","Argollas","AR-0006","Argolla destello","Plata 925","14mm",3090,2,"../assets/img/shop/argollas_destello.jpg"));
+    aros.push(new Producto("Aros","Bidu","AR-0007","Cuff cruzado","Plata 925"," ",700,15,"../assets/img/shop/aros_cuff_cruzado.jpg"));
+    aros.push(new Producto("Aros","Bidu","AR-0008","Solitario corazon cubic","Plata 925"," ",1480,5,"../assets/img/shop/solitario_corazoncubic.jpg"));
 }
 
 function cargarAnillos(){
-    anillos.push(new Producto("Anillos","Comun","Anillo cruzado","Plata 925","18",2100,3,"../assets/img/shop/anillos_cruzado.jpg"));
-    anillos.push(new Producto("Anillos","Comun","Anillo corona","Plata 925","19",2500,1,"../assets/img/shop/anillo_corona.jpg"));
-    anillos.push(new Producto("Anillos","Comun","Anillo luna","Plata 925","17",2410,3,"../assets/img/shop/anillo_luna.jpg"));
-    anillos.push(new Producto("Anillos","Comun","Anillo tiara","Plata 925","18",4620,5,"../assets/img/shop/anillo_tiara.jpg"));
+    anillos.push(new Producto("Anillos","Comun","AN-0001","Anillo cruzado","Plata 925","18",2100,3,"../assets/img/shop/anillos_cruzado.jpg"));
+    anillos.push(new Producto("Anillos","Comun","AN-0002","Anillo corona","Plata 925","19",2500,1,"../assets/img/shop/anillo_corona.jpg"));
+    anillos.push(new Producto("Anillos","Comun","AN-0003","Anillo luna","Plata 925","17",2410,3,"../assets/img/shop/anillo_luna.jpg"));
+    anillos.push(new Producto("Anillos","Comun","AN-0004","Anillo tiara","Plata 925","18",4620,5,"../assets/img/shop/anillo_tiara.jpg"));
 }
 
 function cargarPulseras(){
-    pulseras.push(new Producto("Pulseras","Comun","Pulsera corazones","Plata 925","18cm",3050,2,"../assets/img/shop/pulsera_corazones.jpg"));
-    pulseras.push(new Producto("Pulseras","Elastizada","Pulsera elastizada","Plata 925"," ",4220,1,"../assets/img/shop/pulsera_elastizada.jpg"));
-    pulseras.push(new Producto("Pulseras","Comun","Pulsera espejo","Plata 925","18cm",2470,1,"../assets/img/shop/pulsera_espejo.jpg"));
-    pulseras.push(new Producto("Pulseras","Comun","Pulsera tourbillon","Plata 925","18cm",2450,1,"../assets/img/shop/pulsera_tourbillon.jpg"));
+    pulseras.push(new Producto("Pulseras","Comun","P-0001","Pulsera corazones","Plata 925","18cm",3050,2,"../assets/img/shop/pulsera_corazones.jpg"));
+    pulseras.push(new Producto("Pulseras","Elastizada","P-0002","Pulsera elastizada","Plata 925"," ",4220,1,"../assets/img/shop/pulsera_elastizada.jpg"));
+    pulseras.push(new Producto("Pulseras","Comun","P-0003","Pulsera espejo","Plata 925","18cm",2470,1,"../assets/img/shop/pulsera_espejo.jpg"));
+    pulseras.push(new Producto("Pulseras","Comun","P-0004","Pulsera tourbillon","Plata 925","18cm",2450,1,"../assets/img/shop/pulsera_tourbillon.jpg"));
     
 }
 
 function cargarCollares(){
-    collares.push(new Producto("Collares","Comun","Collar lunas","Plata 925","40-45cm",5870,1,"../assets/img/shop/collar_lunas.jpg"));
-    collares.push(new Producto("Collares","Comun","Collar corazones","Plata 925","40-45cm",4600,1,"../assets/img/shop/collar_corazones.jpg"));
-    collares.push(new Producto("Collares","Comun","Collar destello y luna","Plata 925","40-45cm",6430,5,"../assets/img/shop/collar_doble_destello_luna.jpg"));
-    collares.push(new Producto("Collares","Comun","Collar infinito","Plata 925","40-45cm",4520,3,"../assets/img/shop/collar_infinito.jpg"));
+    collares.push(new Producto("Collares","Comun","C-0001","Collar lunas","Plata 925","40-45cm",5870,1,"../assets/img/shop/collar_lunas.jpg"));
+    collares.push(new Producto("Collares","Comun","C-0002","Collar corazones","Plata 925","40-45cm",4600,1,"../assets/img/shop/collar_corazones.jpg"));
+    collares.push(new Producto("Collares","Comun","C-0003","Collar destello y luna","Plata 925","40-45cm",6430,5,"../assets/img/shop/collar_doble_destello_luna.jpg"));
+    collares.push(new Producto("Collares","Comun","C-0004","Collar infinito","Plata 925","40-45cm",4520,3,"../assets/img/shop/collar_infinito.jpg"));
 }
 
 function cargarDijes(){
-    dijes.push(new Producto("Dijes","Comun","Dije rayo","Plata 925"," ",2760,2,"../assets/img/shop/dije-rayo.jpg"));
-    dijes.push(new Producto("Dijes","Comun","Dije corazon","Plata 925"," ",1750,2,"../assets/img/shop/dije_corazon_cubic.jpg"));
-    dijes.push(new Producto("Dijes","Comun","Dije cruz","Plata 925"," ",1520,3,"../assets/img/shop/dije_cruz_grande.jpg"));
-    dijes.push(new Producto("Dijes","Comun","Dije iniciales","Plata 925"," ",2040,10,"../assets/img/shop/dije_iniciales.jpg"));
+    dijes.push(new Producto("Dijes","Comun","D-0001","Dije rayo","Plata 925"," ",2760,2,"../assets/img/shop/dije-rayo.jpg"));
+    dijes.push(new Producto("Dijes","Comun","D-0002","Dije corazon","Plata 925"," ",1750,2,"../assets/img/shop/dije_corazon_cubic.jpg"));
+    dijes.push(new Producto("Dijes","Comun","D-0003","Dije cruz","Plata 925"," ",1520,3,"../assets/img/shop/dije_cruz_grande.jpg"));
+    dijes.push(new Producto("Dijes","Comun","D-0004","Dije iniciales","Plata 925"," ",2040,10,"../assets/img/shop/dije_iniciales.jpg"));
 }
 
 function cargarAlhajeros(){
-    alhajeros.push(new Producto("Alhajeros","Comun","Alhajero rosa"," "," ",6880,2,"../assets/img/shop/alhajero.jpg"));
-    alhajeros.push(new Producto("Alhajeros","Comun","Alhajero natural"," "," ",6880,2,"../assets/img/shop/alhajero_natural.jpg"));
+    alhajeros.push(new Producto("Alhajeros","Comun","A-0001","Alhajero rosa"," "," ",6880,2,"../assets/img/shop/alhajero.jpg"));
+    alhajeros.push(new Producto("Alhajeros","Comun","A-0002","Alhajero natural"," "," ",6880,2,"../assets/img/shop/alhajero_natural.jpg"));
 }
 
 //crear cards
@@ -135,7 +137,7 @@ function crearCard(producto){
     cuerpoCarta.className="shop-categorias__article-figure-figcaption";
     cuerpoCarta.innerHTML=`
         <p>${producto.nombre}</p>
-        <p>$ ${producto.precio}</p>
+        <p>$ ${estandarMoneda.format(producto.precio)}</p>
     `;
     cuerpoCarta.append(botonAgregar);
 
@@ -167,7 +169,14 @@ function crearCard(producto){
         alert(`Agregaste "${producto.nombre}" al carrito`);
 
         let elementoCarrito = new ElementoCarrito (producto, 1);
-        carrito.push(elementoCarrito);
+
+        let elementoExistente=carrito.find((elemento) => elemento.producto.id == producto.id);
+        if(elementoExistente){
+            elementoExistente.cantidad+=1;
+        }else{
+            carrito.push(elementoCarrito);
+        }
+
 
         dibujarCarrito();
     }
@@ -244,23 +253,62 @@ productos.forEach(producto=>console.log(producto.nombre+" $"+producto.precio));
 
 //Estructura carrito
 function dibujarCarrito(){
-    let renglonesCarrito = "";
+    let precioTotal=0;
+    contenedorCarritoCompras.innerHTML = "";
+    //let renglonesCarrito = "";
 
     carrito.forEach(
         (elemento) => {
-            renglonesCarrito+=`
-            <tr>
-                <td>${elemento.producto.tipo}</td>
+            let renglonesCarrito= document.createElement("tr");
+
+            renglonesCarrito.innerHTML=`
+
+                <td>${elemento.producto.id}</td>
                 <td>${elemento.producto.nombre}</td>
-                <td>${elemento.cantidad}</td>
-                <td>$ ${elemento.producto.precio}</td>
-                </tr>
+                <td><input id="cantidad-producto-${elemento.producto.id}" 
+                type="number" value="${elemento.cantidad}" min="1" max="100" step="1" /> </td>
+                <td>$ ${estandarMoneda.format(elemento.producto.precio)}</td>
+                <td>$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
+                <td><button id ="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button> </td>
+
             `; 
+
+            contenedorCarritoCompras.append(renglonesCarrito);
+            precioTotal+=elemento.producto.precio*elemento.cantidad;
+
+            let cantidadProductos = document.getElementById(`cantidad-producto-${elemento.producto.id}`);
+            
+            cantidadProductos.addEventListener("change", (e) => {
+                let nuevaCantidad = e.target.value;
+                elemento.cantidad = nuevaCantidad;
+                dibujarCarrito();
+            });
+
+            let botonBorrarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
+
+            botonBorrarProducto.addEventListener("click", (e)=>{
+                removerProductoCarrito(elemento);
+                dibujarCarrito();
+            });
         }
     );
  
-    contenedorCarritoCompras.innerHTML=renglonesCarrito;
+    if (carrito.length==0){
+        contenedorFooterCarrito.innerHTML=`
+        <th scope="row" colspan="5">Carrito vacío</th>
+        `;
+    }else{
+        contenedorFooterCarrito.innerHTML=`
+        <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal)}</th>
+        `;
+    }
+    
+}
 
+function removerProductoCarrito(elementoAEliminar){
+    const elementosAMantener = carrito.filter((elemento) => elementoAEliminar.producto.id != elemento.producto.id);
+    carrito.length=0;
+    elementosAMantener.forEach((elemento) => carrito.push(elemento));
 }
 
 
