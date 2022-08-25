@@ -162,6 +162,11 @@ body {
           align-items: center;
 }
 
+#header .header-right .nav__ul li button {
+  background-color: transparent;
+  border: none;
+}
+
 #header .header-right .nav__ul li span {
   font-size: 2em;
 }
@@ -184,11 +189,33 @@ body {
 }
 
 #header .header-right input[type="search"] {
-  padding: 1em;
+  padding: 0 .5em;
   border: none;
+  border-bottom: solid 0.1em #F8EBEC;
   background-color: transparent;
   color: #F8EBEC;
-  display: none;
+}
+
+#header .header-right input[type="search"]:focus {
+  outline: none;
+  border: none;
+  border-bottom: solid 0.1em #F8EBEC;
+}
+
+#header .header-right input::-webkit-input-placeholder {
+  color: #341E23;
+}
+
+#header .header-right input:-ms-input-placeholder {
+  color: #341E23;
+}
+
+#header .header-right input::-ms-input-placeholder {
+  color: #341E23;
+}
+
+#header .header-right input::placeholder {
+  color: #341E23;
 }
 
 #header .header-right .material-icons-round:hover {
@@ -197,6 +224,11 @@ body {
 
 #header .modal-content {
   width: 150%;
+}
+
+#header .modal-content .modal-footer .btn-primary a {
+  color: white;
+  text-decoration: none;
 }
 
 .nav__ul-li-a::after {

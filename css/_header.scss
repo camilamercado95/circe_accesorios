@@ -32,6 +32,10 @@
             height: 95px;
             display: flex;
             align-items: center;
+            li button{
+                background-color: transparent;
+                border: none;
+            }
             li span{
                 font-size: 2em;
             }
@@ -54,11 +58,19 @@
         }
         input{
             &[type="search"] {
-                padding: 1em;
+                padding: 0 .5em;
                 border: none;
+                border-bottom: solid .1em map-get($map: $colores, $key: "rosaClaro");
                 background-color: transparent;
                 color: map-get($map: $colores, $key: "rosaClaro");
-                display: none;
+                &:focus{
+                    outline: none;
+                    border: none;
+                    border-bottom: solid .1em map-get($map: $colores, $key: "rosaClaro");
+                }
+            }
+            &::placeholder{
+                color: map-get($map: $colores, $key: "texto");
             }
         }
         .material-icons-round:hover{
@@ -67,6 +79,14 @@
     }
     .modal-content{
         width:150%;
+        .modal-footer{
+            .btn-primary{
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
     }
     
 }

@@ -1,30 +1,36 @@
 /*
-1 - Mostrar los productos con sus precios
-2 - Filtrar un producto por su nombre
-3 - Agregar productos a un carrito
-4 - Mostrar el carrito
-5 - Elegir metodos de pago
-6 - Calcular valor final del carrito en función de descuentos
+Filtrar un producto por su nombre y aparezcan sugerencias, si no hay coincidencia que aparezca "No existe"
+Eliminar cantidad de stock y que aparezca "sin stock" cuando llegue a 0 en vez de "agregar al carrito"
+
+Dibujar carrito en el html de carrito
+Elegir metodos de pago en el html de carrito
+Calcular valor final del carrito en función de descuentos
+Cambiar estetica del carrito
 */
 
+"use strict";
+
+//Funcion de descuento en efectivo 5%
 function descuento(valor){
     return valor*0.95;
 }
 
+//Objeto de todos los productos
 class Producto{
-    constructor(tipo,categoria,id,nombre,material,tamanio,precio, cantidad, foto){
+    constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
         this.tipo=tipo;
         this.categoria=categoria;
         this.id=id;
-        this.nombre=nombre;
+        this.nombre=nombre.toUpperCase();
         this.material=material;
         this.tamanio=tamanio;
         this.precio=Number(precio);
-        this.cantidad=parseInt(cantidad);
+        this.stock=parseInt(stock);
         this.foto=foto;
     }
 }
 
+//Objeto de elementos que se agregan al carrito
 class ElementoCarrito {
     constructor(producto, cantidad) {
         this.producto = producto;
@@ -32,19 +38,31 @@ class ElementoCarrito {
     }
 }
 
+//Formato de $moneda
 const estandarMoneda = Intl.NumberFormat('es-AR');
 
+//Arrays de productos por categorias
 const aros=[];
 const anillos=[];
 const pulseras=[];
 const collares=[];
 const dijes=[];
 const alhajeros=[];
+//Funciones para agregar productos al objeto Productos
+cargarAros();
+cargarAnillos();
+cargarPulseras();
+cargarCollares();
+cargarDijes();
+cargarAlhajeros();
 
+//Array de todos los productos juntos
 const productos=aros.concat(anillos,pulseras,collares,dijes,alhajeros);
 
-const carrito=[];
+//Array de objetos del carrito
+let carrito=[];
 
+//Agarro cada contenedor de productos por categoria y me posiciono en el primer elemento
 const contenedorAros=document.getElementById("contenedor-aros").getElementsByClassName("row");
 const rowContenedorAros=contenedorAros[0];
 
@@ -63,15 +81,16 @@ const rowContenedorDijes=contenedorDijes[0];
 const contenedorAlhajeros=document.getElementById("contenedor-alhajeros").getElementsByClassName("row");
 const rowContenedorAlhajeros=contenedorAlhajeros[0];
 
+const containerBusqueda=document.getElementById("container-busqueda").getElementsByClassName("row");
+const rowContenedorEncontrado=containerBusqueda[0];
+
+//Tomo el contenedor donde se va a dibujar el cuerpo de la tabla del carrito
 const contenedorCarritoCompras = document.querySelector("#items");
+//Tomo el footer del carrito para poner como vacio o poner el $total
 const contenedorFooterCarrito = document.querySelector("#footer");
 
-cargarAros();
-cargarAnillos();
-cargarPulseras();
-cargarCollares();
-cargarDijes();
-cargarAlhajeros();
+
+//Funciones que dibujan las cards en el DOM
 dibujarCatalogoAros();
 dibujarCatalogoAnillos();
 dibujarCatalogoPulseras();
@@ -79,6 +98,7 @@ dibujarCatalogoCollares();
 dibujarCatalogoDijes();
 dibujarCatalogoAlhajeros();
 
+//Pushear los productos al objeto Productos
 function cargarAros(){
     aros.push(new Producto("Aros","Pasantes","AR-0001","Aros pasante corona","Plata 925"," ",1480,5,'../assets/img/shop/aros_corona.jpg'));
     aros.push(new Producto("Aros","Pasantes","AR-0002","Aros nube y rayo","Plata 925","6mm",3270,10,"../assets/img/shop/aros_nubeyrayo.jpg"));
@@ -124,7 +144,7 @@ function cargarAlhajeros(){
     alhajeros.push(new Producto("Alhajeros","Comun","A-0002","Alhajero natural"," "," ",6880,2,"../assets/img/shop/alhajero_natural.jpg"));
 }
 
-//crear cards
+// ***** Crear cards
 function crearCard(producto){
     //Creo un boton
     let botonAgregar = document.createElement("button");
@@ -138,6 +158,7 @@ function crearCard(producto){
     cuerpoCarta.innerHTML=`
         <p>${producto.nombre}</p>
         <p>$ ${estandarMoneda.format(producto.precio)}</p>
+        <p>Stock: ${producto.stock}</p>
     `;
     cuerpoCarta.append(botonAgregar);
 
@@ -145,7 +166,6 @@ function crearCard(producto){
     let imagen=document.createElement("img");
     imagen.src=producto.foto;
     imagen.className="shop-categorias__article-figure-img";
-    //imagen.style.width="100%";
     imagen.alt=producto.nombre;
 
     //figure
@@ -166,25 +186,29 @@ function crearCard(producto){
 
     //agregar productos al carrito
     botonAgregar.onclick = () => {
-        alert(`Agregaste "${producto.nombre}" al carrito`);
-
+        //Cambia el texto del boton al agregar producto
+        botonAgregar.innerHTML="Agregado al carrito <i class='fa-solid fa-heart-circle-check'></i>";
+        
+        //Agrego/instancio un nuevo elemento en el objeto Elemento carrito
         let elementoCarrito = new ElementoCarrito (producto, 1);
 
+        //Creo una variable. Busca si ya existe dentro del array carrito ese id 
         let elementoExistente=carrito.find((elemento) => elemento.producto.id == producto.id);
+        //si esta el elemento existente..
         if(elementoExistente){
+            //sumar uno
             elementoExistente.cantidad+=1;
         }else{
+            //si no esta, pushearlo al carrito
             carrito.push(elementoCarrito);
         }
-
-
         dibujarCarrito();
     }
-
+    
     return contenedorCarta;
 }
 
-//mostrar cards
+// ***** Mostrar cards
 function dibujarCatalogoAros(){
     rowContenedorAros.innerHTML="";
     aros.forEach(
@@ -245,54 +269,78 @@ function dibujarCatalogoAlhajeros(){
     );
 }
 
-
-
-//Mostrar productos con precios en consola
-productos.forEach(producto=>console.log(producto.nombre+" $"+producto.precio));
-
-
-//Estructura carrito
+// ***** Estructura carrito (Tabla con productos y footer)
 function dibujarCarrito(){
-    let precioTotal=0;
-    contenedorCarritoCompras.innerHTML = "";
-    //let renglonesCarrito = "";
 
+    let precioTotal=0;
+
+    //Contenedor donde se va a dibujar la tabla, la pongo en 0/vacia
+    contenedorCarritoCompras.innerHTML = "";
+
+    //Recorro el array carrito
     carrito.forEach(
         (elemento) => {
+            
+            //Creo un elemento tr al que lo guardo en una variable
             let renglonesCarrito= document.createElement("tr");
-
+            
+            //En esa variable le escribo:
             renglonesCarrito.innerHTML=`
 
                 <td>${elemento.producto.id}</td>
-                <td>${elemento.producto.nombre}</td>
-                <td><input id="cantidad-producto-${elemento.producto.id}" 
-                type="number" value="${elemento.cantidad}" min="1" max="100" step="1" /> </td>
-                <td>$ ${estandarMoneda.format(elemento.producto.precio)}</td>
-                <td>$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
-                <td><button id ="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button> </td>
 
+                <td>${elemento.producto.nombre}</td>
+                
+                <td><input id="cantidad-producto-${elemento.producto.id}" type="number" value="${elemento.cantidad}" min="1" max="${elemento.producto.stock}" step="1" /> </td>
+
+                <td>$ ${estandarMoneda.format(elemento.producto.precio)}</td>
+
+                <td>$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
+
+                <td><button id ="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button> </td>
             `; 
 
+            //Le agrego al contenedor, los renglones, la tabla
             contenedorCarritoCompras.append(renglonesCarrito);
+
+            //Al precio inicializado en 0, le sumo el precio del producto por la cantidad que esta en input
             precioTotal+=elemento.producto.precio*elemento.cantidad;
 
+            //Creo una variable para agarrar al input de cantidad
             let cantidadProductos = document.getElementById(`cantidad-producto-${elemento.producto.id}`);
             
+            //Llamo a la variable para crear un evento que escucha la cantidad ingresada por el usuario
             cantidadProductos.addEventListener("change", (e) => {
+                //creo una variable que guarda el dato (el valor) del input
                 let nuevaCantidad = e.target.value;
+                //El input "cantidad" ahora tiene un nuevo valor que es la variable nuevaCantidad
                 elemento.cantidad = nuevaCantidad;
                 dibujarCarrito();
             });
 
+            //Creo una variable para agarrar el boton eliminar
             let botonBorrarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
 
+            //Al boton eliminar le creo un evento
             botonBorrarProducto.addEventListener("click", (e)=>{
+                //La accion de borrar esta guardada en una funcion
                 removerProductoCarrito(elemento);
                 dibujarCarrito();
             });
+
+            /*
+            //Tomo el boton "iniciar compra" y aplico evento para eliminar stock
+            let iniciarCompra=document.getElementById("iniciarCompra");
+            iniciarCompra.addEventListener("click", (e)=>{
+                //let nuevoStock=elemento.producto.stock;
+                //nuevoStock-=elemento.producto.cantidad;
+                //restarStock(elemento.producto.stock,elemento.producto.cantidad);
+            });
+            */
         }
     );
- 
+
+    //Si la longitud del array carrito es 0, o sea que esta vacio...
     if (carrito.length==0){
         contenedorFooterCarrito.innerHTML=`
         <th scope="row" colspan="5">Carrito vacío</th>
@@ -303,44 +351,62 @@ function dibujarCarrito(){
         `;
     }
     
+    //Guardar el carrito en el storage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// ***** Eliminar un producto del carrito
 function removerProductoCarrito(elementoAEliminar){
+    //Filtro (deja pasar) solo los elementos que tengan el ID diferente al ID del producto que quiero eliminar. Este nuevo listado me lo guarda en este const
     const elementosAMantener = carrito.filter((elemento) => elementoAEliminar.producto.id != elemento.producto.id);
+    //Elimino todos los productos del carrito, lo vacio
     carrito.length=0;
+    //Pusheo al carrito, el nuevo listado de los elementos a mantener
     elementosAMantener.forEach((elemento) => carrito.push(elemento));
 }
 
-
+// ***** Restar stock (NO ANDA)
 /*
-//Filtrar productos x nombre
-function buscarProducto(productos,nombre){
-    const encontrado = productos.filter((el)=>el.nombre.includes(nombre));
-    return encontrado;
-}
-
-let nombreIngresado=prompt("Buscar un producto para ver sus detalles. ESC para salir").toUpperCase();
-while(nombreIngresado!="ESC"){
-    const nombreEncontrado=buscarProducto(productos,nombreIngresado);
-    console.table(nombreEncontrado);
-    nombreIngresado=prompt("Buscar un producto para ver sus detalles. ESC para salir").toUpperCase();
-}
-
-//Calcular valor final de un producto seleccionado en función de descuentos
-let medioPago=Number(prompt("¿Como queres pagar? \n 1- Efectivo o transferencia (5% OFF) \n 2-Tarjeta de crédito"));
-
-if(medioPago==1){
-    alert("El total con el 5% de descuento es: "+descuento(precioTotal));
-}else if(medioPago==2){
-    let cuotas=parseInt(prompt("¿En cuantas cuotas sin interés queres hacerlo? \n ¿1 o 3?"));
-    if(cuotas==1){
-        alert("El total es: "+precioTotal);
-    }else if(cuotas==3){
-        alert("El total es: "+precioTotal+"\nY por mes debes pagar: "+(precioTotal/3));
-    }else{
-        cuotas=parseInt(prompt("Error. Escribí 1 para una cuota o 3 para 3 cuotas"));
-    }
-}else{
-    medioPago=parseInt(prompt("Error. Escribí 1 para efectivo o transferencia o 2 para tarjeta de crédito"));
+// Para restar stock: tomar la cantidad de stock que tengo en el objeto y el valor del input del carrito y restarselo 
+function restarStock(stock,cantidad){
+    return stock-cantidad; 
 }
 */
+
+
+
+// ***** Recuperar carrito abandonado
+//Pregunto al entrar al html, si hay algo en el storage que se llame carrito y si hay algo lo tengo que asignar a la estructura
+//A el array de carrito, le asigno el JSON, lo vuelvo a convertir a array de objeto y se lo asigno a carrito
+//Operador condicional ||
+carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
+dibujarCarrito();
+
+
+
+
+// *********** Buscador de productos
+let encontrado=[];
+
+let inputSearch = document.getElementById("inputSearch");
+let btnLupa=document.getElementById("btn-lupa");
+//funcion que busca
+function buscarProducto(){
+    let textoIngresado=inputSearch.value.toUpperCase();
+    encontrado=productos.filter((producto)=>producto.nombre.includes(textoIngresado))
+    dibujarEncontrado(encontrado);
+}
+//llamo al input para crear un evento que escuche lo que ponga el usuario
+inputSearch.addEventListener("change",buscarProducto);
+
+//Mostrar encontrado
+//Funcion de dibuja
+function dibujarEncontrado(producto){
+    rowContenedorEncontrado.innerHTML=`<h2 class="shop-categorias__h2">Resultados</h2>`;
+    encontrado.forEach(
+    (producto) => {
+        let contenedorCarta=crearCard(producto);
+        rowContenedorEncontrado.append(contenedorCarta);        
+    }
+    );
+}

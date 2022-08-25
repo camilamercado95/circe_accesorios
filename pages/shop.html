@@ -26,7 +26,7 @@
         <div class="nav-desktop">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12 col-md-9 col-xl-9">
+                    <div class="col-sm-12 col-md-8 col-xl-8">
                         <div class="header-left">
 
                             <nav class="nav">
@@ -82,14 +82,15 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-9 col-xl-3">
+                    <div class="col-sm-12 col-md-8 col-xl-4">
                         <div class="header-right">
                             <nav class="nav">
                                 <ul class="nav__ul">
                                     <li class="nav__ul-li">
-                                        <input type="search" name="busqueda" id="" placeholder="Buscar producto...">
-                                        <a class="nav__ul-li-a" href=""><span
-                                                class="material-icons-round">search</span></a>
+                                        <input type="search" name="busqueda" id="inputSearch"
+                                            placeholder="Buscar producto...">
+                                        <button class="nav__ul-li-a" id="btn-lupa"><span
+                                                class="material-icons-round">search</span></button>
                                     </li>
                                     <li class="nav__ul-li">
                                         <button type="button" class="btn btn-primary nav__ul-li-a"
@@ -98,7 +99,7 @@
                                         </button>
                                     </li>
                                     <li class="nav__ul-li">
-                                        <a class="nav__ul-li-a" href=""> <span
+                                        <a class="nav__ul-li-a" href="usuario.html"> <span
                                                 class="material-icons-round">account_circle</span></a>
                                     </li>
                                 </ul>
@@ -127,7 +128,9 @@
                             <div class="iconos-menu-burger">
                                 <a class="nav__ul-li-a" href=""><span
                                         class="material-icons-round">account_circle</span></a>
-                                <button type="button" class="btn btn-primary nav__ul-li-a" data-bs-toggle="modal" data-bs-target="#exampleModal"> <span class="material-icons-round">shopping_cart</span>
+                                <button type="button" class="btn btn-primary nav__ul-li-a" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"> <span
+                                        class="material-icons-round">shopping_cart</span>
                                 </button>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -228,19 +231,20 @@
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">TOTAL</th>
-                                    </tr>                                
+                                    </tr>
                                 </thead>
                                 <tbody id="items"></tbody>
                                 <tfoot>
                                     <tr id="footer">
-                                    <th scope="row" colspan="5">Carrito vacío</th>
+                                        <th scope="row" colspan="5">Carrito vacío</th>
                                     </tr>
                                 </tfoot>
-                                </table>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Iniciar compra</button>
+                        <button id="iniciarCompra" type="button" class="btn btn-primary">Iniciar compra</button>
                     </div>
                 </div>
             </div>
@@ -273,6 +277,22 @@
             </div>
         </div>
     </main>
+
+    <section id="resultados" class="shop-categorias">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <h2 class="shop-categorias__h2">Resultados</h2> -->
+            </div>
+            <div id="container-busqueda" class="container-fluid">
+                <div class="row">
+                    <!-- <article class="container-busqueda__encontrado"></article> -->
+                </div>
+                <div class="row">
+                    <!-- <article class="container-busqueda__sugerencias"></article> -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="aros" class="shop-categorias">
         <div class="container-fluid">
@@ -653,7 +673,6 @@
         </div>
     </section>
 
-
     <section id="alhajeros" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
@@ -755,7 +774,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
-    <script src="../js/js.js"></script>
+    <script src="../js/shop.js"></script>
 
 </body>
 
