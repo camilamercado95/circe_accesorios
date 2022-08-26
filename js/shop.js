@@ -84,6 +84,8 @@ const rowContenedorAlhajeros=contenedorAlhajeros[0];
 const containerBusqueda=document.getElementById("container-busqueda").getElementsByClassName("row");
 const rowContenedorEncontrado=containerBusqueda[0];
 
+const tituloResultados=document.getElementById("tituloResultados");
+
 //Tomo el contenedor donde se va a dibujar el cuerpo de la tabla del carrito
 const contenedorCarritoCompras = document.querySelector("#items");
 //Tomo el footer del carrito para poner como vacio o poner el $total
@@ -303,6 +305,7 @@ function dibujarCarrito(){
             //Le agrego al contenedor, los renglones, la tabla
             contenedorCarritoCompras.append(renglonesCarrito);
 
+
             //Al precio inicializado en 0, le sumo el precio del producto por la cantidad que esta en input
             precioTotal+=elemento.producto.precio*elemento.cantidad;
 
@@ -338,7 +341,25 @@ function dibujarCarrito(){
             });
             */
         }
+   
     );
+
+    //Crear un elemento con ENVIO
+    let precioEnvio=500;
+    let renglonEnvio=document.createElement("tr");  
+
+    if(precioTotal>=5000){
+        precioEnvio=0;
+        renglonEnvio.innerHTML+=`
+        <td>Envio gratis!!</td>
+    `;
+    }else{
+        renglonEnvio.innerHTML+=`
+        <td>Envio $ ${precioEnvio}</td>
+    `;
+    }
+
+    contenedorCarritoCompras.append(renglonEnvio);
 
     //Si la longitud del array carrito es 0, o sea que esta vacio...
     if (carrito.length==0){
@@ -347,9 +368,13 @@ function dibujarCarrito(){
         `;
     }else{
         contenedorFooterCarrito.innerHTML=`
-        <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal)}</th>
+        <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal+precioEnvio)}</th>
         `;
     }
+
+    
+
+    
     
     //Guardar el carrito en el storage
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -378,14 +403,15 @@ function restarStock(stock,cantidad){
 // ***** Recuperar carrito abandonado
 //Pregunto al entrar al html, si hay algo en el storage que se llame carrito y si hay algo lo tengo que asignar a la estructura
 //A el array de carrito, le asigno el JSON, lo vuelvo a convertir a array de objeto y se lo asigno a carrito
-//Operador condicional ||
+
+// *********** Operador condicional ||
 carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
 dibujarCarrito();
 
 
 
 
-// *********** Buscador de productos
+// *********** Buscador de productos 
 let encontrado=[];
 
 let inputSearch = document.getElementById("inputSearch");
@@ -393,7 +419,7 @@ let btnLupa=document.getElementById("btn-lupa");
 //funcion que busca
 function buscarProducto(){
     let textoIngresado=inputSearch.value.toUpperCase();
-    encontrado=productos.filter((producto)=>producto.nombre.includes(textoIngresado))
+    encontrado=productos.filter((producto)=>producto.nombre.includes(textoIngresado));
     dibujarEncontrado(encontrado);
 }
 //llamo al input para crear un evento que escuche lo que ponga el usuario
@@ -401,12 +427,14 @@ inputSearch.addEventListener("change",buscarProducto);
 
 //Mostrar encontrado
 //Funcion de dibuja
-function dibujarEncontrado(producto){
-    rowContenedorEncontrado.innerHTML=`<h2 class="shop-categorias__h2">Resultados</h2>`;
+function dibujarEncontrado(producto){   
     encontrado.forEach(
-    (producto) => {
-        let contenedorCarta=crearCard(producto);
-        rowContenedorEncontrado.append(contenedorCarta);        
-    }
-    );
+        (producto) => {
+            console.log(encontrado);
+            let contenedorCarta=crearCard(producto);
+            rowContenedorEncontrado.append(contenedorCarta);        
+        }
+        );
+        // *********** Ternario
+        (encontrado!=0) ? tituloResultados.innerText=`Resultados`:tituloResultados.innerText=`Lo sentimos, no existe ese producto. ¡Probá con otro nombre!`;
 }
