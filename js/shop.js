@@ -1,11 +1,14 @@
 /*
-Filtrar un producto por su nombre y aparezcan sugerencias, si no hay coincidencia que aparezca "No existe"
-Eliminar cantidad de stock y que aparezca "sin stock" cuando llegue a 0 en vez de "agregar al carrito"
+Busqueda de productos (CORREGIR QUE SE SUMAN LAS BUSQUEDAS)
+Agregar al carrito (LISTO)
+Iniciar compra con metodos de pago en carrito.html
+Eliminar cantidad de stock cuando toco inicar compra y que aparezca "sin stock" cuando llegue a 0 en vez de "agregar al carrito"
 
 Dibujar carrito en el html de carrito
 Elegir metodos de pago en el html de carrito
-Calcular valor final del carrito en función de descuentos
+Calcular valor final del carrito en función de descuentos y cuotas
 Cambiar estetica del carrito
+
 */
 
 "use strict";
@@ -305,7 +308,6 @@ function dibujarCarrito(){
             //Le agrego al contenedor, los renglones, la tabla
             contenedorCarritoCompras.append(renglonesCarrito);
 
-
             //Al precio inicializado en 0, le sumo el precio del producto por la cantidad que esta en input
             precioTotal+=elemento.producto.precio*elemento.cantidad;
 
@@ -371,13 +373,21 @@ function dibujarCarrito(){
         <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal+precioEnvio)}</th>
         `;
     }
-
-    
-
-    
     
     //Guardar el carrito en el storage
     localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// ***** Recuperar carrito abandonado
+//Pregunto al entrar al html, si hay algo en el storage que se llame carrito y si hay algo lo tengo que asignar a la estructura
+//A el array de carrito, le asigno el JSON, lo vuelvo a convertir a array de objeto y se lo asigno a carrito
+
+// *********** Operador condicional ||
+// carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
+// dibujarCarrito();
+if(localStorage.getItem("carrito")!=null){
+    carrito=JSON.parse(localStorage.getItem("carrito"));
+    dibujarCarrito();
 }
 
 // ***** Eliminar un producto del carrito
@@ -397,18 +407,6 @@ function restarStock(stock,cantidad){
     return stock-cantidad; 
 }
 */
-
-
-
-// ***** Recuperar carrito abandonado
-//Pregunto al entrar al html, si hay algo en el storage que se llame carrito y si hay algo lo tengo que asignar a la estructura
-//A el array de carrito, le asigno el JSON, lo vuelvo a convertir a array de objeto y se lo asigno a carrito
-
-// *********** Operador condicional ||
-carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
-dibujarCarrito();
-
-
 
 
 // *********** Buscador de productos 

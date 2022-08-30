@@ -1818,4 +1818,29 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
 .container-carrito .container-carrito__input {
   border: none;
 }
+
+.contact-form-div-datosUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border: solid 1px #EA869A;
+  padding: 4em;
+  margin: 5em 10em;
+}
+
+.contact-form-div-datosUser p {
+  font-size: 20px;
+}
 /*# sourceMappingURL=style.css.map */

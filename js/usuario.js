@@ -6,6 +6,8 @@ Cuando envie el form, deben guardarse los datos en el storage.
 
 Si el usuario ya esta registrado y esta guardado en el storage, tiene que aparecer sus datos. Y sino, tiene que aparecer el formulario.
 
+Agregar confeti cuando se registra
+
 */
 
 class Usuario {
@@ -46,7 +48,6 @@ function dibujarBienvenida() {
   );
 
   usuarios.push(nuevoUsuario);
-  console.log(usuarios);
 
   //Guardar el array en el storage
   const guardarLocal = (clave, valor) => {
@@ -54,42 +55,43 @@ function dibujarBienvenida() {
   };
   guardarLocal("usuarioNuevo", JSON.stringify(usuarios));
 
+  Swal.fire({
+    title: 'Excelente!',
+    text: 'Ya formas parte de esta comunidad!',
+    icon: 'success',
+    confirmButtonText:'Genial'
+  });
+
   for (let usuario of usuarios) {
+
     usuarios = JSON.parse(localStorage.getItem("usuarioNuevo"));
-    console.log(usuarios);
-    bienvenidaUser.innerHTML += `
-                <p> Hola ${usuario.nombre} ${usuario.apellido} ! </p>
-                <p> Tu nombre de usuario es ${usuario.user} </p>
-                <p> Tu preferencia de envío es ${usuario.envio} </p>
-                <p> Tu categoria preferida es ${usuario.categoriaFav} </p>
+
+    bienvenidaUser.innerHTML = `
+            <p> Hola <strong> ${usuario.nombre} ${usuario.apellido} </strong>! </p>
+            <p> Tu nombre de usuario es <strong> ${usuario.user} </strong></p>
+            <p> Tu preferencia de envío es <strong> ${usuario.envio} </strong></p>
+            <p> Tu categoria preferida es <strong> ${usuario.categoriaFav} </strong></p>
             `;
+
     let containerForm = document.getElementById("container-form-user").remove();
   }
 }
 
 
-
-
-
-//usuarios=JSON.parse(localStorage.getItem("usuarioNuevo"));
-
-// for (let usuario of usuarios) {
-//   if (localStorage.getItem("usuarioNuevo") != null) {
-//     usuarios = JSON.parse(localStorage.getItem("usuarioNuevo"));
-//     bienvenidaUser.innerHTML = `
-//         <p> Hola ${usuario.nombre} ${usuario.apellido} ! </p>
-//         <p> Tu nombre de usuario es ${usuario.user} </p>
-//         <p> Tu preferencia de envío es ${usuario.envio} </p>
-//         <p> Tu categoria preferida es ${usuario.categoriaFav} </p>
-//     `;
-//     let containerForm = document.getElementById("container-form-user").remove();
-//   } else {
-//     bienvenidaUser.innerHTML = `
-//         <p> Bienvenido! Llena el siguiente formulario para ser parte de esta comunidad! </p>
-//     `;
-//   }
-// }
-
-
-
-/* Desestructuracion para pedir el nombre del objeto usuario */ 
+if (localStorage.getItem("usuarioNuevo") != null) {
+  usuarios = JSON.parse(localStorage.getItem("usuarioNuevo"));
+  
+  for (let usuario of usuarios) {
+    bienvenidaUser.innerHTML = `
+        <p> Hola <strong> ${usuario.nombre} ${usuario.apellido} </strong>! </p>
+        <p> Tu nombre de usuario es <strong> ${usuario.user} </strong></p>
+        <p> Tu preferencia de envío es <strong> ${usuario.envio} </strong></p>
+        <p> Tu categoria preferida es <strong> ${usuario.categoriaFav} </strong></p>
+    `;
+    let containerForm = document.getElementById("container-form-user").remove();
+  }
+} else {
+  bienvenidaUser.innerHTML = `
+      <p> Bienvenido! Llena el siguiente formulario para ser parte de esta comunidad! </p>
+  `;
+}

@@ -1,0 +1,13 @@
+.contact-form-div-datosUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: solid 1px map-get($map: $colores, $key: "logo");
+    padding: 4em;
+    margin: 5em 10em;
+    p{
+        font-size: 20px;
+    }
+}

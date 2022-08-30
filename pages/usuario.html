@@ -37,7 +37,7 @@
 
                                 <ul class="nav__ul">
 
-                                    <li class="nav__ul-li nav__ul-li-shop nav__ul-li-a-active">
+                                    <li class="nav__ul-li nav__ul-li-shop">
                                         <a class="nav__ul-li-a" href="shop.html">Shop</a>
                                         <div class="nav__ul-li-container-submenu">
                                             <hr class="linea-submenu">
@@ -95,7 +95,7 @@
                                     <li class="nav__ul-li"><a class="nav__ul-li-a" href="carrito.html"><span
                                         class="material-icons-round">shopping_cart</span></a></li>
                                     <li class="nav__ul-li">
-                                        <a class="nav__ul-li-a" href="usuario.html"> <span
+                                        <a class="nav__ul-li-a nav__ul-li-a-active" href="usuario.html"> <span
                                                 class="material-icons-round">account_circle</span></a>
                                     </li>
                                 </ul>
@@ -209,42 +209,6 @@
                 </div>
             </nav>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">TOTAL</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="items"></tbody>
-                                <tfoot>
-                                    <tr id="footer">
-                                        <th scope="row" colspan="5">Carrito vacío</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button id="iniciarCompra" type="button" class="btn btn-primary">Iniciar compra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
 
     <main>
@@ -260,51 +224,110 @@
         </div>
     </main>
 
-    <div id="bienvenidaUser" class="contact-form-div-datosUser">
-                                    
-    </div>
+    <div class="container-body">
+        <div id="bienvenidaUser" class="contact-form-div-datosUser">
+                      
+        </div>
 
-    <div id="container-form-user" class="container-contact">
+        <div id="container-form-user" class="container-contact">
 
-        <section class="container-contact-form">
+            <section class="container-contact-form">
 
-            <form class="contact-form" action="#" method="get" enctype="multipart/form-data">
+                <form class="contact-form" action="#" method="get" enctype="multipart/form-data">
 
-                <div class="contact-form-div">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-xl12">
+                    <div class="contact-form-div">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-xl12">
 
-                                <div class="contact-form-div-input">
-                                    <input type="text" id="inputNombre" class="contact-form__input" name="name"
-                                        placeholder="Nombre" required>
-                                    
-                                    <input type="text" id="inputApellido" class="contact-form__input" name="apellido"
-                                        placeholder="Apellido" required>
+                                    <div class="contact-form-div-input">
+                                        <input type="text" id="inputNombre" class="contact-form__input" name="name"
+                                            placeholder="Nombre" required>
+                                        
+                                        <input type="text" id="inputApellido" class="contact-form__input" name="apellido"
+                                            placeholder="Apellido" required>
 
-                                    <input type="text" id="inputUser" class="contact-form__input" name="user"
-                                        placeholder="Nombre de usuario" required>
+                                        <input type="text" id="inputUser" class="contact-form__input" name="user"
+                                            placeholder="Nombre de usuario" required>
 
-                                    <input type="text" id="preferenciaEnvio" class="contact-form__input" name="envio"
-                                        placeholder="Preferencia de envío" required>
+                                        <input type="text" id="preferenciaEnvio" class="contact-form__input" name="envio"
+                                            placeholder="Preferencia de envío" required>
 
-                                    <input type="text" id="categoriaFav" class="contact-form__input" name="categoria"
-                                        placeholder="Categoria favorita de accesorios" required>
+                                        <input type="text" id="categoriaFav" class="contact-form__input" name="categoria"
+                                            placeholder="Categoria favorita de accesorios" required>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
-                </div>
+                    <button class="contact-form__submit" name="enviar" id="btn-enviar" value="Enviar">
 
-                <button class="contact-form__submit" name="enviar" id="btn-enviar" value="Enviar">
+                </form>
 
-            </form>
-
-        </section>
+            </section>
+        </div>
     </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="footer">
+                    <ul class="footer__ul">
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#aros">Aros</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#anillos">Anillos</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#pulseras">Pulseras</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#collares">Collares</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#dijes">Dijes</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="shop.html#alhajeros">Alhajeros</a>
+                        </li>
+                    </ul>
+                    <ul class="footer__ul">
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="blog.html">Blog</a></li>
+                    </ul>
+                    <ul class="footer__ul">
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="preguntas.html">Preguntas
+                                frecuentes</a></li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="preguntas.html">Cambios y
+                                devoluciones</a>
+                        </li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="preguntas.html">Medios de pago</a>
+                        </li>
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="preguntas.html">Envíos</a></li>
+                    </ul>
+                    <ul class="footer__ul footer__ul-contacto">
+                        <li class="footer__ul-li"><a class="footer__ul-li-a" href="contacto.html">Contacto</a></li>
+                        <li><span class="material-icons-round">location_on</span> Villa lugano, CABA, Argentina</li>
+                        <li class="footer__ul-contacto-redes">
+                            <ul class="footer__ul-contacto-redes">
+                                <li><span class="material-icons-round"> whatsapp</span></li>
+                                <li><a href="http://instagram.com/circe.accesorios" target="_blank"><img
+                                            src="../assets/img/ig.png" alt="logo de Instagram"></a></li>
+                                <li><a href="http://fb.com/circe.accesorios18" target="_blank"><img
+                                            src="../assets/img/fb.png" alt="logo de Facebook"></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC3la5Wi3yyQ8tXdfonrObag/featured"
+                                        target="_blank"><img src="../assets/img/youtube.png" alt="logo de Youtube"></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer-copyright">
+                    <p>Copyright&copy; 2022 </p>
+                    <p>Página creada por Camila Mercado <span class="material-icons-round"> mail </span>
+                        camila.mercado95@gmail.com </p>
+                    <p>Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <!-- sweetalert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- mi js -->
     <script src="../js/usuario.js"></script>
 </body>
 
