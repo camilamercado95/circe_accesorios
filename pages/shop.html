@@ -82,21 +82,33 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-8 col-xl-4">
+                    <div class="col-sm-12 col-md-4 col-xl-4">
                         <div class="header-right">
                             <nav class="nav">
                                 <ul class="nav__ul">
                                     <li class="nav__ul-li">
+
                                         <input type="search" name="busqueda" id="inputSearch"
                                             placeholder="Buscar producto...">
-                                        <button class="nav__ul-li-a" id="btn-lupa"><span
-                                                class="material-icons-round">search</span></button>
+
+
+                                        <button id="btn-lupa">
+                                            <a class="nav__ul-li-a">
+                                                <span class="material-icons-round">search</span>
+                                            </a>
+                                        </button>
+
+
                                     </li>
                                     <li class="nav__ul-li">
-                                        <button type="button" class="btn btn-primary nav__ul-li-a"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <span class="material-icons-round">shopping_cart</span>
-                                        </button>
+
+                                        <button type="button" class="btn btn-primary"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <a class="nav__ul-li-a">
+                                                <span class="material-icons-round">shopping_cart</span>
+                                            </a>
+                                            </button>
+
                                     </li>
                                     <li class="nav__ul-li">
                                         <a class="nav__ul-li-a" href="usuario.html"> <span
@@ -244,7 +256,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Iniciar compra </a></button>
+                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Iniciar
+                                compra </a></button>
                     </div>
                 </div>
             </div>
@@ -281,7 +294,7 @@
     <section id="resultados" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
-                
+
             </div>
             <div id="container-busqueda" class="container-fluid">
                 <div class="row">

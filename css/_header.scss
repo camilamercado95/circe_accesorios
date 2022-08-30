@@ -56,6 +56,17 @@
                 --bs-btn-disabled-border-color:none;
             }
         }
+        .nav__ul-li-a{
+            color: map-get($map: $colores, $key: "rosaClaro");
+            text-decoration: none;
+            margin: 0 .5em;
+            vertical-align: middle;
+            text-transform: uppercase;
+            position: relative;
+            height: 95px;
+            display: flex;
+            align-items: center;
+        }
         input{
             &[type="search"] {
                 padding: 0 .5em;
@@ -90,6 +101,7 @@
     }
     
 }
+
 .nav__ul-li-a{
     &::after{
         content: "";
@@ -108,7 +120,6 @@
     width: 100%;
     right: 0;
 }
-
 .nav__ul-li-a-active{
     position: relative;
 }

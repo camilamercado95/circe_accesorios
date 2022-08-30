@@ -25,7 +25,7 @@
         <div class="nav-desktop">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12 col-md-9 col-xl-9">
+                    <div class="col-sm-12 col-md-8 col-xl-8">
                         <div class="header-left">
 
                             <nav class="nav">
@@ -81,19 +81,38 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-xl-3">
+                    <div class="col-sm-12 col-md-4 col-xl-4">
                         <div class="header-right">
                             <nav class="nav">
                                 <ul class="nav__ul">
                                     <li class="nav__ul-li">
-                                        <input type="search" name="busqueda" id="" placeholder="Buscar producto...">
-                                        <a class="nav__ul-li-a" href=""><span
-                                                class="material-icons-round">search</span></a>
+
+                                        <input type="search" name="busqueda" id="inputSearch"
+                                            placeholder="Buscar producto...">
+
+
+                                        <button id="btn-lupa">
+                                            <a class="nav__ul-li-a">
+                                                <span class="material-icons-round">search</span>
+                                            </a>
+                                        </button>
+
+
                                     </li>
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="carrito.html"><span
-                                                class="material-icons-round">shopping_cart</span></a></li>
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="usuario.html"><span
-                                                class="material-icons-round">account_circle</span></a></li>
+                                    <li class="nav__ul-li">
+
+                                        <button type="button" class="btn btn-primary"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <a class="nav__ul-li-a" href="carrito.html">
+                                                <span class="material-icons-round">shopping_cart</span>
+                                            </a>
+                                            </button>
+
+                                    </li>
+                                    <li class="nav__ul-li">
+                                        <a class="nav__ul-li-a" href="usuario.html"> <span
+                                                class="material-icons-round">account_circle</span></a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

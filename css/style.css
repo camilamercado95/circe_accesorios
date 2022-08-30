@@ -188,6 +188,22 @@ body {
   --bs-btn-disabled-border-color:none;
 }
 
+#header .header-right .nav__ul-li-a {
+  color: #F8EBEC;
+  text-decoration: none;
+  margin: 0 .5em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  position: relative;
+  height: 95px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #header .header-right input[type="search"] {
   padding: 0 .5em;
   border: none;
@@ -1151,7 +1167,7 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
   }
   .shop-categorias h2 {
     width: 100%;
-    padding: 0 0 1rem 2rem;
+    padding: 1rem 0 1rem 2rem;
     margin: 0;
   }
   .shop-categorias article {
