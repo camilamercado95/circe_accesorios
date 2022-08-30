@@ -6,6 +6,8 @@ Cuando envie el form, deben guardarse los datos en el storage.
 
 Si el usuario ya esta registrado y esta guardado en el storage, tiene que aparecer sus datos. Y sino, tiene que aparecer el formulario.
 
+Arreglar boton enviar 
+
 Agregar confeti cuando se registra
 
 */
