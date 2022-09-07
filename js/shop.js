@@ -1,6 +1,5 @@
 /*
-ARRAYS DE PRODUCTOS ARREGLAR
-Busqueda de productos (CORREGIR QUE SE SUMAN LAS BUSQUEDAS)
+Busqueda de productos (LISTO)
 Agregar al carrito (LISTO)
 
 Eliminar cantidad de stock cuando finalizo compra y que aparezca "sin stock" cuando llegue a 0 en vez de "agregar al carrito"
@@ -484,7 +483,7 @@ function removerProductoCarrito(elementoAEliminar){
     elementosAMantener.forEach((elemento) => carrito.push(elemento));
 }
 
-console.log(productos);
+
 
 // ***** Restar stock (NO ANDA)
 /*
@@ -508,10 +507,8 @@ let btnLupa=document.getElementById("btn-lupa");
 
 //funcion que busca
 function buscarProducto(){  
-    console.log(productos);
     let textoIngresado=inputSearch.value.toUpperCase();
     encontrado=productos.filter((producto)=>producto.nombre.includes(textoIngresado));
-    console.log(encontrado);
     dibujarEncontrado(encontrado);
 }
 
@@ -520,7 +517,7 @@ inputSearch.addEventListener("change",buscarProducto);
 
 //Mostrar encontrado
 function dibujarEncontrado(producto){  
-    //rowContenedorEncontrado.innerHTML="";
+    rowContenedorEncontrado.innerHTML="";
     encontrado.forEach(
         
         (producto) => {       
