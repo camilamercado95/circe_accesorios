@@ -101,12 +101,12 @@
                                     </li>
                                     <li class="nav__ul-li">
 
-                                        <button type="button" class="btn btn-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <a class="nav__ul-li-a" href="carrito.html">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <a class="nav__ul-li-a">
                                                 <span class="material-icons-round">shopping_cart</span>
                                             </a>
-                                            </button>
+                                        </button>
 
                                     </li>
                                     <li class="nav__ul-li">
@@ -222,6 +222,44 @@
                 </div>
             </nav>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="items"></tbody>
+                                <tfoot>
+                                    <tr id="footer">
+                                        <th scope="row" colspan="5">Carrito vacío</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Ir al carrito </a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -233,7 +271,7 @@
 
         <section class="container-contact-form">
 
-            <form class="contact-form" action="#" method="get" enctype="multipart/form-data">
+            <form id="form" class="contact-form" action="#" method="get" enctype="multipart/form-data">
 
                 <div class="contact-form-div">
                     <div class="container-fluid">
@@ -254,17 +292,24 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6">
-                                <textarea class="contact-form__textarea" placeholder="Escribí acá tu mensaje..."
-                                    required></textarea>
+                                <textarea class="contact-form__textarea" name="mensaje"
+                                    placeholder="Escribí acá tu mensaje..." required></textarea>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <input type="submit" class="contact-form__submit" name="enviar" id="" value="Enviar">
+                <input type="submit" class="contact-form__submit" name="enviar" id="button" value="Enviar">
 
             </form>
+
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+            </script>
+
+            <script type="text/javascript">
+                emailjs.init('eoD6g0LPYW0NQ0OYh')
+            </script>
 
         </section>
 
@@ -365,6 +410,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const btn = document.getElementById('button');
+
+        document.getElementById('form')
+            .addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                btn.value = 'Enviando...';
+
+                const serviceID = 'default_service';
+                const templateID = 'template_iw0tdok';
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        btn.value = 'Enviado';
+                        //alert('Sent!');
+                    }, (err) => {
+                        btn.value = 'No se pudo enviar';
+                        alert(JSON.stringify(err));
+                    });
+            });
     </script>
 
 </body>

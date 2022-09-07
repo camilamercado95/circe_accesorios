@@ -1,0 +1,24 @@
+[
+    {
+        "tipo": "Alhajeros",
+        "categoria": "Comun",
+        "id": "A-0001",
+        "nombre": "Alhajero rosa",
+        "material": " ",
+        "tamanio": " ",
+        "precio": 6880,
+        "stock": 2,
+        "foto":"../assets/img/shop/alhajero.jpg"
+    },
+    {
+        "tipo": "Alhajeros",
+        "categoria": "Comun",
+        "id": "A-0002",
+        "nombre": "Alhajero natural",
+        "material": " ",
+        "tamanio": " ",
+        "precio": 6880,
+        "stock": 2,
+        "foto":"../assets/img/shop/alhajero_natural.jpg"
+    }
+]

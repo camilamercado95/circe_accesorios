@@ -1,0 +1,46 @@
+[
+    {
+        "tipo": "Pulseras",
+        "categoria": "Comun",
+        "id": "P-0001",
+        "nombre": "Pulsera corazones",
+        "material": "Plata 925",
+        "tamanio": "18cm",
+        "precio": 3050,
+        "stock": 2,
+        "foto":"../assets/img/shop/pulsera_corazones.jpg"
+    },
+    {
+        "tipo": "Pulseras",
+        "categoria": "Elastizada",
+        "id": "P-0002",
+        "nombre": "Pulsera elastizada",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 4220,
+        "stock": 1,
+        "foto":"../assets/img/shop/pulsera_elastizada.jpg"
+    },
+    {
+        "tipo": "Pulseras",
+        "categoria": "Comun",
+        "id": "P-0003",
+        "nombre": "Pulsera espejo",
+        "material": "Plata 925",
+        "tamanio": "18cm",
+        "precio": 2470,
+        "stock": 1,
+        "foto":"../assets/img/shop/pulsera_espejo.jpg"
+    },
+    {
+        "tipo": "Pulseras",
+        "categoria": "Comun",
+        "id": "P-0004",
+        "nombre": "Pulsera tourbillon",
+        "material": "Plata 925",
+        "tamanio":"18cm",
+        "precio": 2450,
+        "stock": 1,
+        "foto":"../assets/img/shop/pulsera_tourbillon.jpg"
+    }
+]

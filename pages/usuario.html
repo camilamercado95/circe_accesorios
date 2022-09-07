@@ -104,7 +104,7 @@
 
                                         <button type="button" class="btn btn-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <a class="nav__ul-li-a" href="carrito.html">
+                                        <a class="nav__ul-li-a">
                                                 <span class="material-icons-round">shopping_cart</span>
                                             </a>
                                             </button>
@@ -225,6 +225,43 @@
                 </div>
             </nav>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="items"></tbody>
+                                <tfoot>
+                                    <tr id="footer">
+                                        <th scope="row" colspan="5">Carrito vacío</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Ir al carrito </a></button>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </header>
 
     <main>
@@ -341,6 +378,8 @@
         </div>
     </footer>
 
+    <!-- confetti -->
+    <script src="../js/confetti.min.js"></script>
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- mi js -->

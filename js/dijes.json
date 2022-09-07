@@ -1,0 +1,46 @@
+[
+    {
+        "tipo": "Dijes",
+        "categoria": "Comun",
+        "id": "D-0001",
+        "nombre": "Dije rayo",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 2760,
+        "stock": 2,
+        "foto":"../assets/img/shop/dije-rayo.jpg"
+    },
+    {
+        "tipo": "Dijes",
+        "categoria": "Comun",
+        "id": "D-0002",
+        "nombre": "Dije corazon",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 1750,
+        "stock": 2,
+        "foto":"../assets/img/shop/dije_corazon_cubic.jpg"
+    },
+    {
+        "tipo": "Dijes",
+        "categoria": "Comun",
+        "id": "D-0003",
+        "nombre": "Dije cruz",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 1520,
+        "stock": 3,
+        "foto":"../assets/img/shop/dije_cruz_grande.jpg"
+    },
+    {
+        "tipo": "Dijes",
+        "categoria": "Comun",
+        "id": "D-0004",
+        "nombre": "Dije iniciales",
+        "material": "Plata 925",
+        "tamanio":" ",
+        "precio": 2040,
+        "stock": 10,
+        "foto":"../assets/img/shop/dije_iniciales.jpg"
+    }
+]

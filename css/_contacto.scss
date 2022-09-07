@@ -3,44 +3,47 @@
         display: flex;
         justify-content: center;
         padding: 2rem;
-        .contact-form-div{
+        .contact-form{
             display: flex;
-            justify-content: center;
-            .contact-form__input, .contact-form__textarea{
-                border: map-get($map: $colores, $key: "rosaClaro") solid 0.1em;
-                background-color: transparent;
-                color: map-get($map: $colores, $key: "texto");
-                margin: 1em;
-                padding: 1em;
+            flex-direction: column;
+            .contact-form-div{
+                display: flex;
+                justify-content: center;
+                .contact-form__input, .contact-form__textarea{
+                    border: map-get($map: $colores, $key: "rosaClaro") solid 0.1em;
+                    background-color: transparent;
+                    color: map-get($map: $colores, $key: "texto");
+                    margin: 1em;
+                    padding: 1em;
+                    font-size: 16px;
+                    font-family: "montserrat", "roboto", sans-serif;
+                    display: block;
+                    outline: none;
+                    border-radius: 0.3rem;
+                }
+                .contact-form__textarea{
+                    overflow: auto;
+                    resize: none;
+                }
+                .contact-form__input:focus, .contact-form__textarea:focus{
+                    border:#fbdbde solid 0.1em;
+                }
+                
+                .contact-form__input:hover, .contact-form__textarea:hover{
+                    border:#fbdbde solid 0.1em;
+                }
+                
+                .contact-form__input::placeholder, .contact-form__textarea::placeholder{
+                    color:#341E23b4;
+                }
+            }
+            .contact-form__submit{
+                @extend .filter__ul-li-a;
+                border: none;
                 font-size: 16px;
-                font-family: "montserrat", "roboto", sans-serif;
-                display: block;
-                outline: none;
-                border-radius: 0.3rem;
+                text-align: center;
+                align-self: center;
             }
-            .contact-form__textarea{
-                overflow: auto;
-                resize: none;
-            }
-            .contact-form__input:focus, .contact-form__textarea:focus{
-                border:#fbdbde solid 0.1em;
-            }
-            
-            .contact-form__input:hover, .contact-form__textarea:hover{
-                border:#fbdbde solid 0.1em;
-            }
-            
-            .contact-form__input::placeholder, .contact-form__textarea::placeholder{
-                color:#341E23b4;
-            }
-        }
-        .contact-form:last-child{
-            text-align: center;
-        } 
-        .contact-form__submit{
-            @extend .filter__ul-li-a;
-            border: none;
-            font-size: 16px;
         }
     }
 }

@@ -1,0 +1,90 @@
+[
+    {
+        "tipo": "Aros",
+        "categoria": "Pasantes",
+        "id": "AR-0001",
+        "nombre": "Aros pasante corona",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 1480,
+        "stock": 5,
+        "foto":"../assets/img/shop/aros_corona.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Pasantes",
+        "id": "AR-0002",
+        "nombre": "Aros nube y rayo",
+        "material": "Plata 925",
+        "tamanio": "6mm",
+        "precio": 3270,
+        "stock": 10,
+        "foto":"../assets/img/shop/aros_nubeyrayo.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Trepadores",
+        "id": "AR-0003",
+        "nombre": "Trepadores cristal",
+        "material": "Plata 925",
+        "tamanio": "16mm",
+        "precio": 4680,
+        "stock": 2,
+        "foto":"../assets/img/shop/trepadores_cristal.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Argollas",
+        "id": "AR-0004",
+        "nombre": "Argollas rayo multicolor",
+        "material": "Plata 925",
+        "tamanio": "14mm",
+        "precio": 3280,
+        "stock": 1,
+        "foto":"../assets/img/shop/aros_rayo_multicolor.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Argollas",
+        "id": "AR-0005",
+        "nombre": "Argollas florcitas",
+        "material": "Plata 925",
+        "tamanio": "12mm",
+        "precio": 1790,
+        "stock": 10,
+        "foto":"../assets/img/shop/argollas_florcitas.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Argollas",
+        "id": "AR-0006",
+        "nombre": "Argolla destello",
+        "material": "Plata 925",
+        "tamanio": "14mm",
+        "precio": 3090,
+        "stock": 2,
+        "foto":"../assets/img/shop/argollas_destello.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Bidu",
+        "id": "AR-0007",
+        "nombre": "Cuff cruzado",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 700,
+        "stock": 15,
+        "foto":"../assets/img/shop/aros_cuff_cruzado.jpg"
+    },
+    {
+        "tipo": "Aros",
+        "categoria": "Bidu",
+        "id": "AR-0008",
+        "nombre": "Solitario corazon cubic",
+        "material": "Plata 925",
+        "tamanio": " ",
+        "precio": 1480,
+        "stock": 5,
+        "foto":"../assets/img/shop/solitario_corazoncubic.jpg"
+    }
+]

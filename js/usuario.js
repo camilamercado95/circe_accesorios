@@ -12,6 +12,10 @@ Agregar confeti cuando se registra
 
 */
 
+let carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
+//dibujarCarrito();
+console.log(carrito);
+
 class Usuario {
   constructor(nombre, apellido, user, envio, categoriaFav) {
     this.nombre = nombre.toUpperCase();
@@ -77,6 +81,7 @@ function dibujarBienvenida() {
 
     let containerForm = document.getElementById("container-form-user").remove();
   }
+
 }
 
 

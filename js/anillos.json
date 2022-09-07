@@ -1,0 +1,46 @@
+[
+    {
+        "tipo": "Anillos",
+        "categoria": "Comun",
+        "id": "AN-0001",
+        "nombre": "Anillo cruzado",
+        "material": "Plata 925",
+        "tamanio": "18",
+        "precio": 2100,
+        "stock": 3,
+        "foto":"../assets/img/shop/anillos_cruzado.jpg"
+    },
+    {
+        "tipo": "Anillos",
+        "categoria": "Comun",
+        "id": "AN-0002",
+        "nombre": "Anillo corona",
+        "material": "Plata 925",
+        "tamanio": "19",
+        "precio": 2500,
+        "stock": 1,
+        "foto":"../assets/img/shop/anillo_corona.jpg"
+    },
+    {
+        "tipo": "Anillos",
+        "categoria": "Comun",
+        "id": "AN-0003",
+        "nombre": "Anillo luna",
+        "material": "Plata 925",
+        "tamanio": "17",
+        "precio": 2410,
+        "stock": 3,
+        "foto":"../assets/img/shop/anillo_luna.jpg"
+    },
+    {
+        "tipo": "Anillos",
+        "categoria": "Comun",
+        "id": "AN-0004",
+        "nombre": "Anillo tiara",
+        "material": "Plata 925",
+        "tamanio": "18",
+        "precio": 4620,
+        "stock": 5,
+        "foto":"../assets/img/shop/anillo_tiara.jpg"
+    }
+]

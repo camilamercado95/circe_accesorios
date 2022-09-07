@@ -239,7 +239,7 @@ body {
 }
 
 #header .modal-content {
-  width: 150%;
+  width: 200%;
 }
 
 #header .modal-content .modal-footer .btn-primary a {
@@ -1048,7 +1048,7 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
   display: inline;
 }
 
-.filter__ul-li-a, .container-contact .container-contact-form .contact-form__submit, .container-carrito .container-carrito__input {
+.filter__ul-li-a, .container-contact .container-contact-form .contact-form .contact-form__submit, .container-carrito .container-carrito__input {
   color: #EA869A;
   background-color: #F8EBEC;
   border-radius: 1rem;
@@ -1060,7 +1060,7 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
   transition: .5s;
 }
 
-.filter__ul-li-a:hover, .container-contact .container-contact-form .contact-form__submit:hover, .container-carrito .container-carrito__input:hover {
+.filter__ul-li-a:hover, .container-contact .container-contact-form .contact-form .contact-form__submit:hover, .container-carrito .container-carrito__input:hover {
   background-color: #EA869A;
   color: #F8EBEC;
 }
@@ -1579,7 +1579,17 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
   padding: 2rem;
 }
 
-.container-contact .container-contact-form .contact-form-div {
+.container-contact .container-contact-form .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-contact .container-contact-form .contact-form .contact-form-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1588,7 +1598,7 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
           justify-content: center;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input, .container-contact .container-contact-form .contact-form-div .contact-form__textarea {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea {
   border: #F8EBEC solid 0.1em;
   background-color: transparent;
   color: #341E23;
@@ -1601,42 +1611,42 @@ ul.nav__ul .nav__ul-li-shop .nav__ul-li-container-submenu {
   border-radius: 0.3rem;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__textarea {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea {
   overflow: auto;
   resize: none;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input:focus, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:focus, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input:focus, .container-contact .container-contact-form .contact-form-div .contact-form__textarea:focus {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input:focus, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:focus, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input:focus, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea:focus {
   border: #fbdbde solid 0.1em;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input:hover, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:hover, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input:hover, .container-contact .container-contact-form .contact-form-div .contact-form__textarea:hover {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input:hover, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:hover, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input:hover, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea:hover {
   border: #fbdbde solid 0.1em;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input::-webkit-input-placeholder, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::-webkit-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input::-webkit-input-placeholder, .container-contact .container-contact-form .contact-form-div .contact-form__textarea::-webkit-input-placeholder {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input::-webkit-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::-webkit-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input::-webkit-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea::-webkit-input-placeholder {
   color: #341E23b4;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input:-ms-input-placeholder, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:-ms-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input:-ms-input-placeholder, .container-contact .container-contact-form .contact-form-div .contact-form__textarea:-ms-input-placeholder {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input:-ms-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input:-ms-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input:-ms-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea:-ms-input-placeholder {
   color: #341E23b4;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input::-ms-input-placeholder, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::-ms-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input::-ms-input-placeholder, .container-contact .container-contact-form .contact-form-div .contact-form__textarea::-ms-input-placeholder {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input::-ms-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::-ms-input-placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input::-ms-input-placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea::-ms-input-placeholder {
   color: #341E23b4;
 }
 
-.container-contact .container-contact-form .contact-form-div .contact-form__input::placeholder, .container-contact .container-contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form-div .container-carrito__article-form-fieldset-input::placeholder, .container-contact .container-contact-form .contact-form-div .contact-form__textarea::placeholder {
+.container-contact .container-contact-form .contact-form .contact-form-div .contact-form__input::placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito .container-carrito__article form fieldset .container-carrito__article-form-fieldset-input::placeholder, .container-carrito .container-carrito__article form fieldset .container-contact .container-contact-form .contact-form .contact-form-div .container-carrito__article-form-fieldset-input::placeholder, .container-contact .container-contact-form .contact-form .contact-form-div .contact-form__textarea::placeholder {
   color: #341E23b4;
 }
 
-.container-contact .container-contact-form .contact-form:last-child {
-  text-align: center;
-}
-
-.container-contact .container-contact-form .contact-form__submit {
+.container-contact .container-contact-form .contact-form .contact-form__submit {
   border: none;
   font-size: 16px;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .container-contact-data {
