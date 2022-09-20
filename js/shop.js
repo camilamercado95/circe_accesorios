@@ -13,25 +13,20 @@ Hacer un "cargando" la pagina, la barrita o spinner
 
 "use strict";
 
-//Funcion de descuento en efectivo 5%
-function descuento(valor){
-    return valor*0.95;
-}
-
 //Objeto de todos los productos
-class Producto{
-    constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
-        this.tipo=tipo;
-        this.categoria=categoria;
-        this.id=id;
-        this.nombre=nombre.toUpperCase();
-        this.material=material;
-        this.tamanio=tamanio;
-        this.precio=Number(precio);
-        this.stock=parseInt(stock);
-        this.foto=foto;
-    }
-}
+// class Producto{
+//     constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
+//         this.tipo=tipo;
+//         this.categoria=categoria;
+//         this.id=id;
+//         this.nombre=nombre.toUpperCase();
+//         this.material=material;
+//         this.tamanio=tamanio;
+//         this.precio=Number(precio);
+//         this.stock=parseInt(stock);
+//         this.foto=foto;
+//     }
+// }
 
 //Objeto de elementos que se agregan al carrito
 class ElementoCarrito {
@@ -51,11 +46,6 @@ let pulseras=[];
 let collares=[];
 let dijes=[];
 let alhajeros=[];
-
-
-
-
-
 
 //Array de objetos del carrito
 let carrito=[];
@@ -97,7 +87,7 @@ const contenedorFooterCarrito = document.querySelector("#footer");
 // dibujarCatalogoDijes();
 // dibujarCatalogoAlhajeros();
 
-//Funciones para agregar productos al objeto Productos
+//Funciones para agregar productos al array de cada producto
 await cargarAros().then(a=>{aros=a;
     dibujarCatalogoAros();
 });
@@ -121,17 +111,12 @@ await cargarDijes().then(a=>{dijes=a;
 await cargarAlhajeros().then(a=>{alhajeros=a;
     dibujarCatalogoAlhajeros();
 });
-// cargarAros();
-// cargarAnillos();
-// cargarPulseras();
-// cargarCollares();
-// cargarDijes();
-// cargarAlhajeros();
 
 //Array de todos los productos juntos
 let productos=aros.concat(anillos,pulseras,collares,dijes,alhajeros);
 
 //Pushear los productos al objeto Productos
+//Traer los productos de la api local
 async function cargarAros(){
     //aros.push(new Producto("Aros","Pasantes","AR-0001","Aros pasante corona","Plata 925"," ",1480,5,'../assets/img/shop/aros_corona.jpg'));
     //aros.push(new Producto("Aros","Pasantes","AR-0002","Aros nube y rayo","Plata 925","6mm",3270,10,"../assets/img/shop/aros_nubeyrayo.jpg"));
@@ -380,7 +365,7 @@ function dibujarCarrito(){
 
                 <td>$ ${estandarMoneda.format(elemento.producto.precio)}</td>
 
-                <td>$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
+                <td class="precioColor">$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
 
                 <td><button id ="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button> </td>
             `; 
@@ -413,15 +398,6 @@ function dibujarCarrito(){
                 dibujarCarrito();
             });
 
-            /*
-            //Tomo el boton "iniciar compra" y aplico evento para eliminar stock
-            let iniciarCompra=document.getElementById("iniciarCompra");
-            iniciarCompra.addEventListener("click", (e)=>{
-                //let nuevoStock=elemento.producto.stock;
-                //nuevoStock-=elemento.producto.cantidad;
-                //restarStock(elemento.producto.stock,elemento.producto.cantidad);
-            });
-            */
         }
    
     );
@@ -433,11 +409,11 @@ function dibujarCarrito(){
     if(precioTotal>=5000){
         precioEnvio=0;
         renglonEnvio.innerHTML+=`
-        <td>Envio gratis!!</td>
+        <th scope="row" colspan="6" class="precioColor">Envio gratis!!</th>
     `;
     }else{
         renglonEnvio.innerHTML+=`
-        <td>Envio $ ${precioEnvio}</td>
+        <th scope="row" colspan="6">Envio <span class="precioColor">$${precioEnvio}</span></th>
     `;
     }
 
@@ -446,11 +422,11 @@ function dibujarCarrito(){
     //Si la longitud del array carrito es 0, o sea que esta vacio...
     if (carrito.length==0){
         contenedorFooterCarrito.innerHTML=`
-        <th scope="row" colspan="5">Carrito vacío</th>
+        <th scope="row" colspan="6">Carrito vacío</th>
         `;
     }else{
         contenedorFooterCarrito.innerHTML=`
-        <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal+precioEnvio)}</th>
+        <th scope="row" colspan="6">Total de la compra:<span class="precioColor"> $ ${estandarMoneda.format(precioTotal+precioEnvio)}</span></th>
         `;
     }
     
@@ -485,14 +461,6 @@ function removerProductoCarrito(elementoAEliminar){
 
 
 
-// ***** Restar stock (NO ANDA)
-/*
-// Para restar stock: tomar la cantidad de stock que tengo en el objeto y el valor del input del carrito y restarselo 
-function restarStock(stock,cantidad){
-    return stock-cantidad; 
-}
-*/
-
 
 
 
@@ -500,10 +468,14 @@ function restarStock(stock,cantidad){
 
 //array
 let encontrado=[];
+let encontradoHtml=[];
 
 //tomo elementos del DOM
 let inputSearch = document.getElementById("inputSearch");
 let btnLupa=document.getElementById("btn-lupa");
+
+//llamo al input para crear un evento que escuche lo que ponga el usuario
+inputSearch.addEventListener("change",buscarProducto);
 
 //funcion que busca
 function buscarProducto(){  
@@ -512,21 +484,43 @@ function buscarProducto(){
     dibujarEncontrado(encontrado);
 }
 
-//llamo al input para crear un evento que escuche lo que ponga el usuario
-inputSearch.addEventListener("change",buscarProducto);
+function buscarProductoHtml(textoIngresadoHtml){  
+    encontradoHtml=productos.filter((producto)=>producto.nombre.includes(encontradoHtml));
+    dibujarEncontradoHtml(encontradoHtml);
+}
+
+if(sessionStorage.getItem("encontrado")!=null){
+    encontradoHtml=JSON.parse(sessionStorage.getItem("encontrado"));
+    buscarProductoHtml(encontradoHtml);
+}
 
 //Mostrar encontrado
 function dibujarEncontrado(producto){  
     rowContenedorEncontrado.innerHTML="";
     encontrado.forEach(
-        
         (producto) => {       
-            //console.log(encontrado);
             let contenedorCarta=crearCard(producto);
             rowContenedorEncontrado.append(contenedorCarta);        
         }
     );
-    //console.log(encontrado);
+
     // *********** Ternario
     (encontrado!=0) ? tituloResultados.innerText=`Resultados`:tituloResultados.innerText=`Lo sentimos, no existe ese producto. ¡Probá con otro nombre!`;
 }
+
+//Mostrar encontrado
+function dibujarEncontradoHtml(producto){   
+    rowContenedorEncontrado.innerHTML="";
+    encontradoHtml.forEach(
+        (producto) => {       
+            let contenedorCarta=crearCard(producto);
+            rowContenedorEncontrado.append(contenedorCarta);        
+        }
+    );
+
+    // *********** Ternario
+    (encontradoHtml!=0) ? tituloResultados.innerText=`Resultados`:tituloResultados.innerText=`Lo sentimos, no existe ese producto. ¡Probá con otro nombre!`;
+   
+    sessionStorage.removeItem("encontrado");
+}
+

@@ -113,7 +113,11 @@
         width: 90%;
         .container-contact-data__location{
             width: 90%;
-            img{
+            // img{
+            //     width: 100%;
+            // }
+            #map{
+                height: 500px;
                 width: 100%;
             }
         }
@@ -153,6 +157,7 @@
             }
             .contact-form__textarea{
                 width: 90%;
+                height: 90%;
                 transition: .5s;
                     &:hover{
                         width: 100%;
@@ -166,10 +171,15 @@
 
     .container-contact-data{
         width: 95%;
+
         .container-contact-data__location{
             width: 95%;
-            img{
-                width: 40%;
+            // img{
+            //     width: 40%;
+            // }
+            #map{
+                height: 500px;
+                width: 100%;
             }
         }
     }

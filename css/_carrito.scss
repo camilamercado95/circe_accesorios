@@ -1,23 +1,44 @@
+.h1pedido{
+    padding-bottom: 0;
+}
+
 .container-carrito{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
     .container-carrito__article{
         border: map-get($map: $colores, $key: "rosaIntermedio") solid 0.15em;
         margin: 2em;
         padding: 2em;
-
+        background-color: #fcfbfa;
+        box-shadow: 3px 3px 3px silver;
+        .container-carrito__article-p, .container-carrito__article-form-legend{
+            font-weight: bold;
+        }
         .container-carrito__article-div{
             @include flex(flex, row, wrap, space-between);
         }
-
         form{
             fieldset{
-                legend{
+                legend{    
                     label{
-    
+                        font-size: .8em;
+                        margin-top: 1.5em;
+                        font-weight:normal;
+                        #totalDescuento{
+                            margin-left: 1em;
+                        }
                     }
-                }
-                .container-carrito__article-form-fieldset-input{
-                    @extend .contact-form__input;
-                    margin: 1em;
+                    .container-carrito__article-form-fieldset-input, .container-carrito__article-form-fieldset-select{
+                        @extend .contact-form__input;
+                        margin: .5em;
+                        width: 100%;
+                        font-size: .7em;
+                        padding: .5em;
+                        border: map-get($map: $colores, $key: "texto") solid 0.1em;
+                        color: map-get($map: $colores, $key: "texto");
+                        background-color: map-get($map: $colores, $key: "fondoRosa");
+                    }
                 }
             }
         }
@@ -26,6 +47,93 @@
     .container-carrito__input{
         @extend .filter__ul-li-a;
         border: none;
+        align-self: center;
+        margin-bottom: 2em;
     }
 }
 
+.precioColor{
+    color: map-get($map: $colores, $key: "logo");
+    font-weight: bold;
+}
+
+#graciasPedido{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .graciasPedido{
+        text-align: center;
+        margin-bottom: 1em;
+    }
+}
+
+/*-----------   MOBILE   ------------*/
+
+
+@media screen and (min-width: 320px) {
+
+    #cuerpoPedido{
+        margin-top: 0;
+    }
+
+    .container-carrito__article-p{
+        font-size: 1em;
+    }
+
+    #dibujoCarritoDom{
+        .table{
+            //border: 1px solid grey;    
+            tr{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 3em;
+            }
+            thead{
+                display: none;
+            }
+        }
+    }
+
+    .container-carrito__input{
+        width: 50%;
+    }
+
+    .swal2-container.swal2-center>.swal2-popup {
+        width: 80%;
+    }
+
+}
+
+
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+
+    #dibujoCarritoDom{
+        .table{
+            tr{
+                display:table-row;
+                margin-bottom: 0;
+            }
+            thead{
+                display: table-header-group;
+            }
+        }
+    }
+
+    .container-carrito__article-p, .container-carrito__article-form-legend{
+        font-size: 1.5em;
+    }
+
+    .container-carrito__input{
+        width: 30%;
+    }
+
+    .swal2-container.swal2-center>.swal2-popup {
+        width: auto;
+    }
+
+}

@@ -13,8 +13,6 @@ Agregar confeti cuando se registra
 */
 
 let carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
-//dibujarCarrito();
-console.log(carrito);
 
 class Usuario {
   constructor(nombre, apellido, user, envio, categoriaFav) {
@@ -39,6 +37,16 @@ let bienvenidaUser = document.getElementById("bienvenidaUser");
 botonEnviar.addEventListener("click", dibujarBienvenida);
 
 function dibujarBienvenida() {
+
+  if((inputNombre.value=="")||(inputApellido.value=="")||(inputUser.value=="")){
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Completa todos los campos'
+    })
+    e.preventDefault();
+  }
+
   let nombreIngresado = inputNombre.value.toUpperCase();
   let apellidoIngresado = inputApellido.value.toUpperCase();
   let userIngresado = inputUser.value.toUpperCase();
@@ -102,3 +110,21 @@ if (localStorage.getItem("usuarioNuevo") != null) {
       <p> Bienvenido! Llena el siguiente formulario para ser parte de esta comunidad! </p>
   `;
 }
+
+
+inputNombre.oninput=()=>{
+  if(isNaN(inputNombre.value)){
+      inputNombre.style.color="";
+  }else{
+      inputNombre.style.color="red";
+  }
+}
+
+inputApellido.oninput=()=>{
+  if(isNaN(inputApellido.value)){
+      inputApellido.style.color="";
+  }else{
+      inputApellido.style.color="red";
+  }
+}
+

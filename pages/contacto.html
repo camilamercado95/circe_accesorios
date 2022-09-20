@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2749304c47.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -137,9 +138,9 @@
 
                         <div class="offcanvas-header">
                             <div class="iconos-menu-burger">
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="usuario.html"><span
                                         class="material-icons-round">account_circle</span></a>
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="carrito.html"><span
                                         class="material-icons-round">shopping_cart</span></a>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -225,10 +226,10 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -242,6 +243,7 @@
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">TOTAL</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="items"></tbody>
@@ -279,20 +281,23 @@
                             <div class="col-sm-12 col-md-6 col-xl-6">
 
                                 <div class="contact-form-div-input">
-                                    <input type="text" class="contact-form__input" name="name"
-                                        placeholder="Nombre y Apellido" required>
+                                    <input type="text" id="campoNombre" class="contact-form__input" name="name"
+                                        placeholder="Nombre" required pattern="[a-zA-Z]+">
 
-                                    <input type="tel" class="contact-form__input" name="phone"
-                                        placeholder="Nº de teléfono">
+                                    <input type="text" id="campoApellido" class="contact-form__input" name="name"
+                                        placeholder="Apellido" required pattern="[a-zA-Z]+">
 
-                                    <input type="email" class="contact-form__input" name="email" placeholder="E-mail">
+                                    <input type="tel" minlength="6" id="campoNum" class="contact-form__input" name="phone"
+                                        placeholder="Nº de teléfono" required pattern="[0-9]+">
+
+                                    <input type="email" class="contact-form__input" name="email" placeholder="E-mail" required>
 
                                     <input type="text" class="contact-form__input" name="localidad"
-                                        placeholder="Localidad">
+                                        placeholder="Localidad" required pattern="[a-zA-Z]+">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6">
-                                <textarea class="contact-form__textarea" name="mensaje"
+                                <textarea id="campoTexto" class="contact-form__textarea" minlength="10" name="mensaje"
                                     placeholder="Escribí acá tu mensaje..." required></textarea>
                             </div>
                         </div>
@@ -319,8 +324,10 @@
 
                 <p><span class="material-icons-round">location_on</span> Villa lugano, CABA, Argentina</p>
 
-                <img class="container-contact-data__location-img" src="../assets/img/contacto/mapa.png"
-                    alt="Mapa de Villa lugano">
+                <div id="map" class="container-contact-data__location-img"></div>
+
+                <!-- <img class="container-contact-data__location-img" src="../assets/img/contacto/mapa.png"
+                    alt="Mapa de Villa lugano"> -->
             </div>
 
             <div class="container-contact-data__socialmedia">
@@ -384,7 +391,7 @@
                         <li><span class="material-icons-round">location_on</span> Villa lugano, CABA, Argentina</li>
                         <li class="footer__ul-contacto-redes">
                             <ul class="footer__ul-contacto-redes">
-                                <li><span class="material-icons-round"> whatsapp</span></li>
+                                <li><i class="fa-brands fa-whatsapp material-icons-round"></i></li>
                                 <li><a href="http://instagram.com/circe.accesorios" target="_blank"><img
                                             src="../assets/img/ig.png" alt="logo de Instagram"></a></li>
                                 <li><a href="http://fb.com/circe.accesorios18" target="_blank"><img
@@ -434,6 +441,10 @@
                     });
             });
     </script>
+    <script src="../js/contacto.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+    <script src="../js/buscadorProductos.js"></script>
+    <script type="module" src="../js/carrito.js"></script>
 
 </body>
 

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2749304c47.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -135,9 +136,9 @@
 
                         <div class="offcanvas-header">
                             <div class="iconos-menu-burger">
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="usuario.html"><span
                                         class="material-icons-round">account_circle</span></a>
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="carrito.html"><span
                                         class="material-icons-round">shopping_cart</span></a>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -223,10 +224,10 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -240,6 +241,7 @@
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">TOTAL</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="items"></tbody>
@@ -253,7 +255,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Ir al carrito </a></button>
+                        <button id="iniciarCompra" type="button" class="btn btn-primary"><a href="carrito.html"> Ir al
+                                carrito </a></button>
                     </div>
                 </div>
             </div>
@@ -267,21 +270,38 @@
                     &#128293;</p>
             </div>
             <div class="row">
-                <h1 class="h1">Mi pedido</h1>
+                <h1 class="h1 h1pedido">Mi pedido</h1>
             </div>
         </div>
     </main>
 
 
-    <section class="container-carrito">
+    <section id="cuerpoPedido" class="container-carrito">
         <article class="container-carrito__article">
             <p class="container-carrito__article-p">Productos</p>
-            <div class="container-carrito__article-div">
-                <p class="container-carrito__article-div-p">Nombre de producto</p>
-                <p class="container-carrito__article-div-p">Cantidad de producto</p>
-                <p class="container-carrito__article-div-p">Precio producto</p>
+
+            <div id="dibujoCarritoDom" class="modal-body">
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsPedido"></tbody>
+                        <tfoot>
+                            <tr id="footerPedido">
+                                <th scope="row" colspan="6">TOTAL</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-            <img src="" alt="" class="container-carrito__article-img">
         </article>
 
         <article class="container-carrito__article">
@@ -291,26 +311,47 @@
                         <label for="" class="container-carrito__article-form-label">
                             <input type="radio" name="envio" value="domicilio"
                                 class="container-carrito__article-form-label-input"> A domicilio
-                        </label> <br>
+                        </label> 
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <input type="text" placeholder="Dirección"
+                                        class="container-carrito__article-form-fieldset-input" required>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <input type="number" placeholder="Altura"
+                                        class="container-carrito__article-form-fieldset-input" required>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <input type="text" placeholder="Piso/Departamento"
+                                        class="container-carrito__article-form-fieldset-input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="number" placeholder="Código postal"
+                                        class="container-carrito__article-form-fieldset-input" required>
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="text" placeholder="Provincia" name="" id=""
+                                        class="container-carrito__article-form-fieldset-input">
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="text" placeholder="Localidad" name="" id=""
+                                        class="container-carrito__article-form-fieldset-input">
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="text" placeholder="Barrio"
+                                        class="container-carrito__article-form-fieldset-input">
+                                </div>
+                            </div>
+                        </div>
+
                         <label for="" class="container-carrito__article-form-label">
                             <input type="radio" name="envio" value="sucursal"
                                 class="container-carrito__article-form-label-input"> A sucursal
                         </label>
                     </legend>
-
-                    <input type="text" placeholder="Provincia" name="" id=""
-                        class="container-carrito__article-form-fieldset-input">
-                    <input type="text" placeholder="Localidad" name="" id=""
-                        class="container-carrito__article-form-fieldset-input">
-                    <input type="text" placeholder="Barrio" class="container-carrito__article-form-fieldset-input">
-                    <input type="number" placeholder="Código postal"
-                        class="container-carrito__article-form-fieldset-input" required>
-                    <input type="text" placeholder="Dirección" class="container-carrito__article-form-fieldset-input"
-                        required>
-                    <input type="text" placeholder="Altura" class="container-carrito__article-form-fieldset-input"
-                        required>
-                    <input type="text" placeholder="Piso/Departamento"
-                        class="container-carrito__article-form-fieldset-input">
                 </fieldset>
             </form>
         </article>
@@ -319,36 +360,85 @@
             <form action="">
                 <fieldset class="container-carrito__article-fieldset">
                     <legend class="container-carrito__article-form-legend">Forma de pago <br>
+                        <label class="container-carrito__article-form-label" for="">
+                            <input type="radio" name="pago" value="credito"
+                                class="container-carrito__article-form-label-input">
+                            Transferencia o Efectivo (5% OFF)
+                            <p id="totalDescuento"></p>
+                        </label>
+                        <br>
                         <label class="container-carrito__article-form-label" for=""> <input type="radio" name="pago"
                                 value="credito" class="container-carrito__article-form-label-input"> Tarjeta de crédito
-                        </label> <br>
-                        <label class="container-carrito__article-form-label" for=""> <input type="radio" name="pago"
-                                value="debito" class="container-carrito__article-form-label-input"> Tarjeta de
-                            débito</label> <br>
-                        <label class="container-carrito__article-form-label" for=""> <input type="radio" name="pago"
-                                value="mercado pago" class="container-carrito__article-form-label-input"> Mercado Pago
                         </label>
-                    </legend>
 
-                    <input type="number" class="container-carrito__article-form-fieldset-input"
-                        placeholder="Nº de tarjeta" name="" id="" required>
-                    <input type="date" class="container-carrito__article-form-fieldset-input"
-                        placeholder="Fecha de vencimiento" name="" id="" required>
-                    <input type="number" class="container-carrito__article-form-fieldset-input"
-                        placeholder="Código de seguridad" required>
-                    <input type="text" class="container-carrito__article-form-fieldset-input"
-                        placeholder="Nombre que figura en la tarjeta" required>
-                    <select name="cuotas" id="" class="container-carrito__article-form-fieldset-select">
-                        <option value="1">1 cuota</option>
-                        <option value="3">3 cuotas</option>
-                        <option value="6">6 cuotas</option>
-                    </select>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <input type="number" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Nº de tarjeta" name="" id="" required>
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="date" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Fecha de vencimiento" name="" id="" required>
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="number" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Código de seguridad" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <input type="text" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Nombre que figura en la tarjeta" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <select name="cuotas" id="" class="container-carrito__article-form-fieldset-select">
+                                        <option id="unaCuota" value="1"></option>
+                                        <option id="tresCuotas" value="3"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <label class="container-carrito__article-form-label" for=""> <input type="radio" name="pago"
+                                value="debito" class="container-carrito__article-form-label-input"> Tarjeta de débito
+                        </label>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <input type="number" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Nº de tarjeta" name="" id="" required>
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="date" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Fecha de vencimiento" name="" id="" required>
+                                </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                    <input type="number" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Código de seguridad" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xl-6">
+                                    <input type="text" class="container-carrito__article-form-fieldset-input"
+                                        placeholder="Nombre que figura en la tarjeta" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </legend>
                 </fieldset>
             </form>
         </article>
 
-        <input type="submit" class="container-carrito__input" name="enviar" id="" value="Siguiente">
+        <input type="submit" class="container-carrito__input" name="enviar" id="btnFinalizar" value="Finalizar compra">
     </section>
+
+    <section id="graciasPedido"></section>
 
 
     <footer>
@@ -387,7 +477,7 @@
                         </li>
                         <li class="footer__ul-contacto-redes">
                             <ul class="footer__ul-contacto-redes">
-                                <li><span class="material-icons-round"> whatsapp</span></li>
+                                <li><i class="fa-brands fa-whatsapp material-icons-round"></i></li>
                                 <li><a href="http://instagram.com/circe.accesorios" target="_blank"><img
                                             src="../assets/img/ig.png" alt="logo de Instagram"></a></li>
                                 <li><a href="http://fb.com/circe.accesorios18" target="_blank"><img
@@ -415,8 +505,11 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="../js/buscadorProductos.js"></script>
     <script type="module" src="../js/carrito.js"></script>
+    <script src="../js/pedido.js"></script>
 
 </body>
 

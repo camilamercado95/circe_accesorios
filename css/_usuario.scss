@@ -5,9 +5,32 @@
     align-items: center;
     align-content: center;
     border: solid 1px map-get($map: $colores, $key: "logo");
-    padding: 4em;
-    margin: 5em 10em;
     p{
         font-size: 20px;
+    }
+}
+
+
+/*-----------   MOBILE   ------------*/
+
+
+@media screen and (min-width: 320px) {
+    .contact-form-div-datosUser{
+        text-align: center;
+        padding: 1em;
+        margin: 1em;
+        p{
+            margin: 0;
+        }
+    }
+}
+
+
+/*-----------   ESCRITORIO   ------------*/
+
+@media screen and (min-width: 1024px) {
+    .contact-form-div-datosUser{
+        padding: 4em;
+        margin: 5em 10em 1em 10em;
     }
 }

@@ -89,12 +89,35 @@
         }
     }
     .modal-content{
-        width:200%;
+        #exampleModalLabel{
+            color: map-get($map: $colores, $key: "logo");
+            font-weight:normal;
+            font-family: "Brittany signature";
+            font-size: 2em;
+        }
+        .modal-body{
+            #items{
+                .btn{
+                    --bs-btn-bg: #EA869A;
+                    --bs-btn-border-color: none;
+                    &:hover{
+                        background-color: #FFCBD7;
+                    }
+                }
+            }
+        }
         .modal-footer{
             .btn-primary{
                 a{
                     color: white;
                     text-decoration: none;
+                }
+            }
+            #iniciarCompra{
+                --bs-btn-bg: #EA869A;
+                --bs-btn-border-color: none;
+                &:hover{
+                    background-color: #FFCBD7;
                 }
             }
         }

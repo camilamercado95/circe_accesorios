@@ -87,19 +87,15 @@
                             <nav class="nav">
                                 <ul class="nav__ul">
                                     <li class="nav__ul-li">
-
                                         <input type="search" name="busqueda" id="inputSearch"
                                             placeholder="Buscar producto...">
-
-
                                         <button id="btn-lupa">
                                             <a class="nav__ul-li-a">
                                                 <span class="material-icons-round">search</span>
                                             </a>
                                         </button>
-
-
                                     </li>
+
                                     <li class="nav__ul-li">
 
                                         <button type="button" class="btn btn-primary"
@@ -138,12 +134,16 @@
 
                         <div class="offcanvas-header">
                             <div class="iconos-menu-burger">
-                                <a class="nav__ul-li-a" href=""><span
-                                        class="material-icons-round">account_circle</span></a>
-                                <button type="button" class="btn btn-primary nav__ul-li-a" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"> <span
-                                        class="material-icons-round">shopping_cart</span>
-                                </button>
+                                <a class="nav__ul-li-a" href="usuario.html">
+                                    <span
+                                        class="material-icons-round">account_circle
+                                    </span>
+                                </a>
+                                <a class="nav__ul-li-a" href="carrito.html">
+                                    <span
+                                        class="material-icons-round">shopping_cart
+                                    </span>
+                                </a>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
@@ -227,10 +227,10 @@
         </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -244,6 +244,7 @@
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">TOTAL</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="items"></tbody>
@@ -294,11 +295,11 @@
     <section id="resultados" class="shop-categorias">
         <div class="container-fluid">
             <div class="row">
-
+                <h2 id="tituloResultados" class="shop-categorias__h2"></h2>
             </div>
             <div id="container-busqueda" class="container-fluid">
                 <div class="row">
-                    <h2 id="tituloResultados" class="shop-categorias__h2"></h2>
+                    <!-- <h2 id="tituloResultados" class="shop-categorias__h2"></h2> -->
                     <!-- <article class="container-busqueda__encontrado"></article> -->
                 </div>
                 <div class="row">
@@ -760,7 +761,7 @@
                         <li><span class="material-icons-round">location_on</span> Villa lugano, CABA, Argentina</li>
                         <li class="footer__ul-contacto-redes">
                             <ul class="footer__ul-contacto-redes">
-                                <li><span class="material-icons-round"> whatsapp</span></li>
+                                <li><i class="fa-brands fa-whatsapp material-icons-round"></i></li>
                                 <li><a href="http://instagram.com/circe.accesorios" target="_blank"><img
                                             src="../assets/img/ig.png" alt="logo de Instagram"></a></li>
                                 <li><a href="http://fb.com/circe.accesorios18" target="_blank"><img

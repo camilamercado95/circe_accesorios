@@ -1,28 +1,19 @@
-// Dibujar carrito en el html de carrito
-// Elegir metodos de pago en el html de carrito
-// Calcular valor final del carrito en función de descuentos y cuotas
-
 "use strict";
 
-//Funcion de descuento en efectivo 5%
-function descuento(valor){
-    return valor*0.95;
-}
-
-//Objeto de todos los productos
-class Producto{
-    constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
-        this.tipo=tipo;
-        this.categoria=categoria;
-        this.id=id;
-        this.nombre=nombre.toUpperCase();
-        this.material=material;
-        this.tamanio=tamanio;
-        this.precio=Number(precio);
-        this.stock=parseInt(stock);
-        this.foto=foto;
-    }
-}
+// //Objeto de todos los productos
+// class Producto{
+//     constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
+//         this.tipo=tipo;
+//         this.categoria=categoria;
+//         this.id=id;
+//         this.nombre=nombre.toUpperCase();
+//         this.material=material;
+//         this.tamanio=tamanio;
+//         this.precio=Number(precio);
+//         this.stock=parseInt(stock);
+//         this.foto=foto;
+//     }
+// }
 
 //Objeto de elementos que se agregan al carrito
 class ElementoCarrito {
@@ -43,21 +34,16 @@ let collares=[];
 let dijes=[];
 let alhajeros=[];
 
-//Funciones para agregar productos al objeto Productos
-
-
 //Array de todos los productos juntos
 let productos=aros.concat(anillos,pulseras,collares,dijes,alhajeros);
 
 //Array de objetos del carrito
 let carrito=[];
 
-
 //Tomo el contenedor donde se va a dibujar el cuerpo de la tabla del carrito
 const contenedorCarritoCompras = document.querySelector("#items");
 //Tomo el footer del carrito para poner como vacio o poner el $total
 const contenedorFooterCarrito = document.querySelector("#footer");
-
 
 // ***** Estructura carrito (Tabla con productos y footer)
 function dibujarCarrito(){
@@ -87,7 +73,7 @@ function dibujarCarrito(){
 
                 <td>$ ${estandarMoneda.format(elemento.producto.precio)}</td>
 
-                <td>$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
+                <td class="precioColor">$ ${estandarMoneda.format(elemento.producto.precio*elemento.cantidad)}</td>
 
                 <td><button id ="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button> </td>
             `; 
@@ -119,16 +105,6 @@ function dibujarCarrito(){
                 removerProductoCarrito(elemento);
                 dibujarCarrito();
             });
-
-            /*
-            //Tomo el boton "iniciar compra" y aplico evento para eliminar stock
-            let iniciarCompra=document.getElementById("iniciarCompra");
-            iniciarCompra.addEventListener("click", (e)=>{
-                //let nuevoStock=elemento.producto.stock;
-                //nuevoStock-=elemento.producto.cantidad;
-                //restarStock(elemento.producto.stock,elemento.producto.cantidad);
-            });
-            */
         }
    
     );
@@ -140,11 +116,11 @@ function dibujarCarrito(){
     if(precioTotal>=5000){
         precioEnvio=0;
         renglonEnvio.innerHTML+=`
-        <td>Envio gratis!!</td>
+        <th scope="row" colspan="7" class="precioColor">Envio gratis!!</th>
     `;
     }else{
         renglonEnvio.innerHTML+=`
-        <td>Envio $ ${precioEnvio}</td>
+        <th scope="row" colspan="7">Envio <span class="precioColor"> $${precioEnvio}</span</th>
     `;
     }
 
@@ -153,11 +129,11 @@ function dibujarCarrito(){
     //Si la longitud del array carrito es 0, o sea que esta vacio...
     if (carrito.length==0){
         contenedorFooterCarrito.innerHTML=`
-        <th scope="row" colspan="5">Carrito vacío</th>
+        <th scope="row" colspan="7">Carrito vacío</th>
         `;
     }else{
         contenedorFooterCarrito.innerHTML=`
-        <th scope="row" colspan="5">Total de la compra: $ ${estandarMoneda.format(precioTotal+precioEnvio)}</th>
+        <th scope="row" colspan="7">Total de la compra: <span class="precioColor">$ ${estandarMoneda.format(precioTotal+precioEnvio)}</span></th>
         `;
     }
     
@@ -177,6 +153,8 @@ dibujarCarrito();
 //     carrito=JSON.parse(localStorage.getItem("carrito"));
 //     dibujarCarrito();
 // }
+
+
 
 // ***** Eliminar un producto del carrito
 function removerProductoCarrito(elementoAEliminar){

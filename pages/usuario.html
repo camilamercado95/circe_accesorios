@@ -71,18 +71,19 @@
                                         </div>
                                     </li>
 
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a"
-                                            href="blog.html">Blog</a></li>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="blog.html">Blog</a></li>
 
                                     <li class="nav__ul-li"><a class="nav__ul-li-a" href="preguntas.html">Preguntas
                                             frecuentes</a></li>
 
-                                    <li class="nav__ul-li"><a class="nav__ul-li-a" href="contacto.html">Contacto</a>
+                                    <li class="nav__ul-li"><a class="nav__ul-li-a"
+                                            href="contacto.html">Contacto</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
+
                     <div class="col-sm-12 col-md-4 col-xl-4">
                         <div class="header-right">
                             <nav class="nav">
@@ -103,12 +104,12 @@
                                     </li>
                                     <li class="nav__ul-li">
 
-                                        <button type="button" class="btn btn-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <a class="nav__ul-li-a">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <a class="nav__ul-li-a">
                                                 <span class="material-icons-round">shopping_cart</span>
                                             </a>
-                                            </button>
+                                        </button>
 
                                     </li>
                                     <li class="nav__ul-li nav__ul-li-a-active">
@@ -139,9 +140,9 @@
 
                         <div class="offcanvas-header">
                             <div class="iconos-menu-burger">
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="usuario.html"><span
                                         class="material-icons-round">account_circle</span></a>
-                                <a class="nav__ul-li-a" href=""><span
+                                <a class="nav__ul-li-a" href="carrito.html"><span
                                         class="material-icons-round">shopping_cart</span></a>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -227,10 +228,10 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -244,6 +245,7 @@
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">TOTAL</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="items"></tbody>
@@ -286,7 +288,7 @@
 
             <section class="container-contact-form">
 
-                <form class="contact-form" action="#" method="get" enctype="multipart/form-data">
+                <form id="formUser" class="contact-form" action="#" method="get" enctype="multipart/form-data">
 
                     <div class="contact-form-div">
                         <div class="container-fluid">
@@ -295,19 +297,19 @@
 
                                     <div class="contact-form-div-input">
                                         <input type="text" id="inputNombre" class="contact-form__input" name="name"
-                                            placeholder="Nombre" required>
+                                            placeholder="Nombre"  pattern="[a-zA-Z]+">
                                         
                                         <input type="text" id="inputApellido" class="contact-form__input" name="apellido"
-                                            placeholder="Apellido" required>
+                                            placeholder="Apellido"  pattern="[a-zA-Z]+">
 
                                         <input type="text" id="inputUser" class="contact-form__input" name="user"
-                                            placeholder="Nombre de usuario" required>
+                                            placeholder="Nombre de usuario" >
 
                                         <input type="text" id="preferenciaEnvio" class="contact-form__input" name="envio"
-                                            placeholder="Preferencia de envío" required>
+                                            placeholder="Preferencia de envío" pattern="[a-zA-Z]+">
 
                                         <input type="text" id="categoriaFav" class="contact-form__input" name="categoria"
-                                            placeholder="Categoria favorita de accesorios" required>
+                                            placeholder="Categoria favorita de accesorios" pattern="[a-zA-Z]+" minlength="4">
 
                                     </div>
                                 </div>
@@ -323,6 +325,7 @@
             </section>
         </div>
     </div>
+
     <footer>
         <div class="container-fluid">
             <div class="row">
@@ -354,7 +357,7 @@
                         <li><span class="material-icons-round">location_on</span> Villa lugano, CABA, Argentina</li>
                         <li class="footer__ul-contacto-redes">
                             <ul class="footer__ul-contacto-redes">
-                                <li><span class="material-icons-round"> whatsapp</span></li>
+                                <li><i class="fa-brands fa-whatsapp material-icons-round"></i></li>
                                 <li><a href="http://instagram.com/circe.accesorios" target="_blank"><img
                                             src="../assets/img/ig.png" alt="logo de Instagram"></a></li>
                                 <li><a href="http://fb.com/circe.accesorios18" target="_blank"><img
@@ -378,11 +381,16 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
     <!-- confetti -->
     <script src="../js/confetti.min.js"></script>
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- mi js -->
+    <script src="../js/buscadorProductos.js"></script>
+    <script type="module" src="../js/carrito.js"></script>
     <script src="../js/usuario.js"></script>
 </body>
 
