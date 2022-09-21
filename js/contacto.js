@@ -6,32 +6,40 @@ let campoTexto=document.getElementById("campoTexto");
 campoNum.oninput=()=>{
     if(isNaN(campoNum.value)){
         campoNum.style.color="red";
+        campoNum.style.borderColor="red";
     }
     else{
         campoNum.style.color="";
+        campoNum.style.borderColor="";
     }
 }
 
 campoNombre.oninput=()=>{
     if(isNaN(campoNombre.value)){
         campoNombre.style.color="";
+        campoNombre.style.borderColor="";
     }else{
         campoNombre.style.color="red";
+        campoNombre.style.borderColor="red";
     }
 }
 campoApellido.oninput=()=>{
     if(isNaN(campoApellido.value)){
         campoApellido.style.color="";
+        campoApellido.style.borderColor="";
     }else{
         campoApellido.style.color="red";
+        campoApellido.style.borderColor="red";
     }
 }
 
 campoTexto.oninput=()=>{
     if(campoTexto.value.length<10){
         campoTexto.style.color="red";
+        campoTexto.style.borderColor="red";
     }else{
         campoTexto.style.color="";
+        campoTexto.style.borderColor="";
     }
 }
 

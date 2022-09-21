@@ -1,20 +1,5 @@
 "use strict";
 
-// //Objeto de todos los productos
-// class Producto{
-//     constructor(tipo,categoria,id,nombre,material,tamanio,precio, stock, foto){
-//         this.tipo=tipo;
-//         this.categoria=categoria;
-//         this.id=id;
-//         this.nombre=nombre.toUpperCase();
-//         this.material=material;
-//         this.tamanio=tamanio;
-//         this.precio=Number(precio);
-//         this.stock=parseInt(stock);
-//         this.foto=foto;
-//     }
-// }
-
 //Objeto de elementos que se agregan al carrito
 class ElementoCarrito {
     constructor(producto, cantidad) {
@@ -144,15 +129,10 @@ function dibujarCarrito(){
 
 // ***** Recuperar carrito abandonado
 //Pregunto al entrar al html, si hay algo en el storage que se llame carrito y si hay algo lo tengo que asignar a la estructura
-//Al array de carrito, le asigno el JSON, lo vuelvo a convertir a array de objeto y se lo asigno a carrito
 
 // *********** Operador condicional ||
 carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
 dibujarCarrito();
-// if(localStorage.getItem("carrito")!=null){
-//     carrito=JSON.parse(localStorage.getItem("carrito"));
-//     dibujarCarrito();
-// }
 
 
 

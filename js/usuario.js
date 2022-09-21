@@ -1,17 +1,5 @@
 "use strict";
 
-/*
-1- El usuario tiene que llenar los campos para registrarse y sumarse al array. 
-Cuando envie el form, deben guardarse los datos en el storage.
-
-Si el usuario ya esta registrado y esta guardado en el storage, tiene que aparecer sus datos. Y sino, tiene que aparecer el formulario.
-
-Arreglar boton enviar 
-
-Agregar confeti cuando se registra
-
-*/
-
 let carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
 
 class Usuario {
@@ -115,16 +103,20 @@ if (localStorage.getItem("usuarioNuevo") != null) {
 inputNombre.oninput=()=>{
   if(isNaN(inputNombre.value)){
       inputNombre.style.color="";
+      inputNombre.style.borderColor="";
   }else{
       inputNombre.style.color="red";
+      inputNombre.style.borderColor="red";
   }
 }
 
 inputApellido.oninput=()=>{
   if(isNaN(inputApellido.value)){
       inputApellido.style.color="";
+      inputApellido.style.borderColor="";
   }else{
       inputApellido.style.color="red";
+      inputApellido.style.borderColor="red";
   }
 }
 
